@@ -1,9 +1,9 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap');
-@import 'styles/common/var.css';
-@import 'styles/common/base.css';
-@import 'styles/common/utils.css';
-@import 'styles/common/scroll-bar.css';
-@import 'styles/libraries/notification.css';
-/* @import 'styles/libraries/drinks-page-selector.css'; */
-/* @import 'styles/libraries/select.css'; */
+@import 'style/common/var.css';
+@import 'style/common/base.css';
+@import 'style/common/utils.css';
+@import 'style/common/scroll-bar.css';
+@import 'style/libraries/notification.css';
+/* @import 'style/libraries/drinks-page-selector.css'; */
+/* @import 'style/libraries/select.css'; */
