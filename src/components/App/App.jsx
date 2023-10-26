@@ -17,7 +17,7 @@
 
 
 
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import WelcomePage from 'pages/WelcomePage';
 import SigninPage from 'pages/SigninPage';
