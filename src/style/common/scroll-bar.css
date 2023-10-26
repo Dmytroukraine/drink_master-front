@@ -1,0 +1,27 @@
+/* Змінні CSS для кастомізації */
+:root {
+  --scrollbar-width: 10px;
+  --scrollbar-thumb-background: #888;
+  --scrollbar-thumb-hover-background: #555;
+}
+
+/* Ширина полоси прокрутки */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+/* Трек */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Ручка прокрутки */
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-background);
+  border-radius: 5px;
+}
+
+/* Ручка при наведенні */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover-background);
+}
