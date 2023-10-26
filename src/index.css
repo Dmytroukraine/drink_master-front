@@ -1,15 +1,9 @@
-@import-normalize; /* bring in normalize.css styles */
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap');
+@import 'styles/common/var.css';
+@import 'styles/common/base.css';
+@import 'styles/common/utils.css';
+@import 'styles/common/scroll-bar.css';
+@import 'styles/libraries/notification.css';
+/* @import 'styles/libraries/drinks-page-selector.css'; */
+/* @import 'styles/libraries/select.css'; */
