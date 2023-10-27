@@ -2,10 +2,10 @@ import { NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { BiCheckCircle, BiErrorCircle } from 'react-icons/bi';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
-import scss from './SignupForm.module.css';
+import css from './SignupForm.module.css';
 import { useSigninMutation } from 'redux/authSlice';
 import { notification } from 'components/Shared/notification';
-import LoadingSpinner from 'components/Loader/Loader';
+import {Loading} from 'components/Loader/Loader';
 import { useState } from 'react';
 import { signinSchema } from './signinSchema';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -35,21 +35,21 @@ const SigninForm = () => {
   };
 
   return (
-    <div className={scss.div}>
+    <div className={css.div}>
       <form
         autoComplete="off"
-        className={scss.form}
+        className={css.form}
         onSubmit={handleSubmit(onSubmit)}
       >
-        <label className={scss.label}>
+        <label className={css.label}>
           <input
             type="email"
-            className={`${scss.input} ${errors.email && scss.invalid}
-           ${!errors.email && dirtyFields.email && scss.valid}`}
+            className={`${css.input} ${errors.email && css.invalid}
+           ${!errors.email && dirtyFields.email && css.valid}`}
             placeholder="Email"
             {...register('email')}
           />
-          <span className={scss.circle}>
+          <span className={css.circle}>
             {errors.email?.message && (
               <BiErrorCircle
                 style={{
@@ -70,17 +70,17 @@ const SigninForm = () => {
             )}
           </span>
         </label>
-        {errors.email && <p className={scss.error}>{errors.email.message}</p>}
+        {errors.email && <p className={css.error}>{errors.email.message}</p>}
         {!errors.email && dirtyFields.email && (
-          <p style={{ color: '#3CBC81' }} className={scss.error}>
+          <p style={{ color: '#3CBC81' }} className={css.error}>
             This is an CORRECT email
           </p>
         )}
-        <label className={scss.label}>
+        <label className={css.label}>
           <input
             type={hidePassword ? 'password' : 'text'}
-            className={`${scss.input} ${errors.password && scss.invalid}
-           ${!errors.password && dirtyFields.password && scss.valid}`}
+            className={`${css.input} ${errors.password && css.invalid}
+           ${!errors.password && dirtyFields.password && css.valid}`}
             placeholder="Password"
             {...register('password')}
           />
@@ -88,31 +88,31 @@ const SigninForm = () => {
             onClick={() => {
               setHidePassword(!hidePassword);
             }}
-            className={scss.circle}
+            className={css.circle}
           >
             {hidePassword && dirtyFields.password && (
-              <FiEyeOff className={scss.eyeBtn} />
+              <FiEyeOff className={css.eyeBtn} />
             )}
-            {!hidePassword && <FiEye className={scss.eyeBtn} />}
+            {!hidePassword && <FiEye className={css.eyeBtn} />}
           </span>
         </label>
         {errors.password && (
-          <p className={scss.error}>{errors.password.message}</p>
+          <p className={css.error}>{errors.password.message}</p>
         )}
         {!errors.password && dirtyFields.password && (
-          <p style={{ color: '#3CBC81' }} className={scss.error}>
+          <p style={{ color: '#3CBC81' }} className={css.error}>
             This is an CORRECT password
           </p>
         )}
         <button
-          className={scss.btn}
+          className={css.btn}
           type="submit"
           disabled={!isValid || isLoading}
         >
-          {isLoading ? <LoadingSpinner size={50} /> : 'Sign In'}
+          {isLoading ? <Loading size={50} /> : 'Sign In'}
         </button>
       </form>
-      <NavLink className={scss.nav} to="/signup">
+      <NavLink className={css.nav} to="/signup">
         Registration
       </NavLink>
     </div>

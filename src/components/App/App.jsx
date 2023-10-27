@@ -28,7 +28,7 @@ import { ToastContainer } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { useCurrentUserQuery } from 'redux/authSlice';
 import { getUserState } from 'redux/userSelectors';
-import { Loader } from 'components/Loader/Loader';
+import { Loading } from 'components/Loader/Loader';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 
 const ErrorPage = lazy(() => import('pages/404Page'));
@@ -40,7 +40,7 @@ const App = () => {
 
   const { isLoading } = useCurrentUserQuery('', { skip });
 
-  if (isLoading) return <Loader size={100} />;
+  if (isLoading) return <Loading size={100} />;
 
   return (
     <>

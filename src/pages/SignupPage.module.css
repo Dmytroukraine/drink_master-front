@@ -1,0 +1,28 @@
+.container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 20px;
+    width: 335px;
+  }
+  
+  @media screen and (max-width: 375px) {
+    .container {
+      width: 85%;
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .container {
+      margin-left: 64px;
+      width: 400px;
+    }
+  }
+  
+  @media screen and (min-width: 1440px) {
+    .container {
+      margin-left: 100px;
+      width: 400px;
+    }
+  }
+  

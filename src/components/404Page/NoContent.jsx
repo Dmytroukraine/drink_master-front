@@ -1,7 +1,7 @@
-import sass from './NoContent.module.css';
+import css from './NoContent.module.css';
 
 const NoContentSection = ({ children }) => {
-  return <section className={sass.wrapper}>{children}</section>;
+  return <section className={css.wrapper}>{children}</section>;
 };
 
 export default NoContentSection;

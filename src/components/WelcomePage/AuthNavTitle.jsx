@@ -1,7 +1,7 @@
-import scss from './AuthNavTitle.module.css';
+import css from './AuthNavTitle.module.css';
 
 const AuthNavTitle = ({ title }) => {
-  return <h2 className={scss.title}>{title}</h2>;
+  return <h2 className={css.title}>{title}</h2>;
 };
 
 export default AuthNavTitle;

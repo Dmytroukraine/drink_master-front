@@ -1,8 +1,8 @@
-import sass from './Error.module.css';
+import css from './Error.module.css';
 
 const Error = () => {
   return (
-    <p className={sass.text}>
+    <p className={css.text}>
       <span>4</span>4
     </p>
   );
