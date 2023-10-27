@@ -1,0 +1,71 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 160px;
+  min-height: 54px;
+  margin: auto;
+  padding: 18px 44px 18px 44px;
+
+  font-family: Manrope, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.12;
+  letter-spacing: 0.06em;
+
+  background-color: var(--primary-white-color);
+  color: var(--secondary-bg-blue-color);
+  border: 2px solid transparent;
+  border-radius: 42px;
+  cursor: pointer;
+  transition: all var(--transition-duration);
+  pointer-events: all;
+
+  &:active {
+    border: 2px solid rgba(64, 112, 205, 0.5);
+  }
+
+  &:hover,
+  &:focus {
+    background-color: var(--secondary-bg-blue-color);
+    color: var(--primary-white-color);
+  }
+
+  &:disabled,
+  &[disabled] {
+    background-color: var(--disabled-blue-color);
+    color: rgba(243, 243, 243, 0.2);
+    outline: none;
+    pointer-events: none;
+  }
+}
+
+.submitButton {
+  composes: button;
+
+  &:hover,
+  &:focus {
+    color: var(--primary-white-color);
+    border: 2px solid rgba(243, 243, 243, 0.2);
+    background-color: var(--secondary-bg-blue-color);
+  }
+
+  &:disabled,
+  &[disabled] {
+    background-color: rgba(243, 243, 243, 0.2);
+    color: rgba(243, 243, 243, 0.2);
+    outline: none;
+    pointer-events: none;
+  }
+}
+
+.addButton {
+  composes: button;
+
+  &:hover,
+  &:focus {
+    color: var(--primary-white-color);
+    border: 2px solid transparent;
+    background-color: var(--secondary-bg-blue-color);
+  }
+}
