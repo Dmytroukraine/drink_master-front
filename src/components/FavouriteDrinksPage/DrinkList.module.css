@@ -1,0 +1,41 @@
+.drinkCard {
+    width: 335px;
+    height: 100%;
+    display: grid;
+    max-width: calc(100vw - 40px);
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width: 375px) {
+    .drinkCard {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .drinkCard {
+        /* max-width: calc(100vw - 64px); */
+        width: 704px;
+        gap: 80px 20px;
+        /* outline: 4px solid rgb(41, 49, 51); */
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .drinkCard {
+        width: 1240px;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        justify-content: space-between;
+        padding-left: 0px;
+        padding-right: 0px;
+        gap: 80px 20px;
+        /* outline: 4px solid rgb(41, 49, 51); */
+    }
+}
