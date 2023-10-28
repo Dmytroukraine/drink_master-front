@@ -1,0 +1,54 @@
+.previewDrinks {
+  padding-bottom: 80px;
+}
+
+.container {
+  margin: 0 20px;
+}
+
+.cocktailList {
+  /* display: flex; */
+  margin-bottom: 40px;
+}
+
+.cocktailTitle {
+  margin-bottom: 24px;
+  margin-left: auto;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: var(--primary-white-color);
+}
+
+.cocktailCard {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.thumb {
+  width: 335px;
+  height: 360px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  background-color: 
+  rgba(220, 220, 220, 0.111);
+}
+
+.cocktailName {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0em;
+  margin-right: auto;
+}
+
+.cocktailInfo {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0em;
+  margin-left: auto;
+}

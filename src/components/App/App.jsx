@@ -15,24 +15,22 @@
 //   );
 // };
 
-
-
-import { Route, Routes } from 'react-router-dom';
-import { lazy } from 'react';
-import WelcomePage from 'pages/WelcomePage';
-import SigninPage from 'pages/SigninPage';
-import SignupPage from 'pages/SignupPage';
-import PrivateRoute from 'components/PrivateRoute';
-import RestrictedRoute from 'components/RestrictedRoute';
+// import { Route, Routes } from 'react-router-dom';
+// import { lazy } from 'react';
+// import WelcomePage from 'pages/WelcomePage';
+// import SigninPage from 'pages/SigninPage';
+// import SignupPage from 'pages/SignupPage';
+// import PrivateRoute from 'components/PrivateRoute';
+// import RestrictedRoute from 'components/RestrictedRoute';
+import { HomePage } from 'pages/HomePage';
 import { ToastContainer } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { useCurrentUserQuery } from 'redux/authSlice';
 import { getUserState } from 'redux/userSelectors';
 import { Loading } from 'components/Loader/Loader';
-import SharedLayout from 'components/SharedLayout/SharedLayout';
+// import SharedLayout from 'components/SharedLayout/SharedLayout';
 
-const ErrorPage = lazy(() => import('pages/404Page'));
-
+// const ErrorPage = lazy(() => import('pages/404Page'));
 
 const App = () => {
   const user = useSelector(getUserState);
@@ -44,6 +42,8 @@ const App = () => {
 
   return (
     <>
+      <HomePage></HomePage>
+      {/*
       <Routes>
         <Route
           path="/welcome"
@@ -58,10 +58,9 @@ const App = () => {
           element={<RestrictedRoute component={SigninPage} />}
         />
         <Route path="/" element={<PrivateRoute component={SharedLayout} />}>
-          
           <Route path="*" element={<ErrorPage />} />
         </Route>
-      </Routes>
+      </Routes> */}
       <ToastContainer />
     </>
   );
