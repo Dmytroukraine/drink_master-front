@@ -1,0 +1,38 @@
+.drinkNotImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 290px;   
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.drinkNotImgText {
+    color: var(--primary-white-color);
+    /* font-family: Manrope; */
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.29;
+    text-align: center;
+    margin-bottom: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 205px;
+}
+
+@media screen and (max-width: 768px) {
+    .drinkNotImgText {
+        font-size: 16px;
+        margin-bottom: 140px;
+        width: 236px;
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .drinkNotImgText {
+        font-size: 16px;
+        line-height: 1.37;
+        margin-bottom: 140px;
+        width: 261px;
+    }
+  }
