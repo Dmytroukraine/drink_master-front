@@ -1,0 +1,98 @@
+.userInfoModal {
+    display: flex;
+    flex-direction: column;
+}
+
+.user {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 39px;
+    position: relative;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.btnAdd {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: -16px;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(243, 243, 243, 0.5);
+    opacity: 0.8;
+    padding: 18px 24px;
+    border-radius: 42px;
+    background-color: transparent;
+}
+
+.label button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.label img {
+    width: 16px;
+    height: 16px;
+}
+
+.input {
+    color: #f3f3f3;
+    font-size: 14px;
+    line-height: 18px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.button {
+    background-color: #f3f3f3;
+    color: #161f37;
+    padding: 18px 24px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 42px;
+    font-weight: 600;
+}
+
+@media screen and (min-width: 768px) {
+    .button:hover {
+        background-color: #161f37;
+        color: #f3f3f3;
+        border: 1px solid rgba(243, 243, 243, 0.2);
+    }
+}
+
+.button:active {
+    padding: 17px 24px;
+    border: 2px solid rgba(64, 112, 205, 0.5);
+    background-color: #f3f3f3;
+    color: #161f37;
+}
+
+.button:disabled {
+    background-color: #161f37;
+    border: 1px solid rgba(243, 243, 243, 0.2);
+    color: rgba(243, 243, 243, 0.2);
+    cursor: not-allowed;
+}

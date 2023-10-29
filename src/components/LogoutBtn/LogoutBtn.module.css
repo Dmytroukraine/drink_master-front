@@ -1,0 +1,27 @@
+.btnLogout {
+    background-color: #f3f3f3;
+    color: #161f37;
+    padding: 14px 20px;
+    margin-top: 38px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 42px;
+    font-weight: 600;
+}
+
+@media screen and (min-width: 768px) {
+    .btnLogout:hover {
+        background-color: #161f37;
+        color: #f3f3f3;
+        transition: 0.3s;
+        border: 1px solid rgba(243, 243, 243, 0.2);
+    }
+}
+
+.btnLogout:disabled {
+    background-color: #161f37;
+    border: 1px solid rgba(243, 243, 243, 0.2);
+    color: rgba(243, 243, 243, 0.2);
+    cursor: not-allowed;
+}
