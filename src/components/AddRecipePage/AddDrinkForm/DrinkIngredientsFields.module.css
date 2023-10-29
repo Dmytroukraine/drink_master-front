@@ -1,0 +1,105 @@
+.ingredients {
+  width: 540px;
+}
+
+.panelCounter {
+  width: 540px;
+  height: 44px;
+
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 40px;
+}
+
+.counter {
+  width: 114px;
+  height: 44px;
+
+  border: 1px solid var(--primary-white-color);
+  border-radius: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.counterBtn {
+  border: none;
+  margin: 5px;
+  background: none;
+  color: var(--primary-white-color);
+}
+
+.minCounterBtn {
+  border: none;
+  margin: 5px;
+  background: none;
+  color: gray;
+}
+
+.ingredientItem {
+  width: 540px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+  margin-bottom: 35px;
+}
+
+.ingredientSelect {
+  width: 316px;
+  height: 56px;
+
+  border-radius: 50px;
+  border: 1px solid var(--primary-white-color);
+  color: var(--primary-white-color);
+}
+
+.volumeIngredient {
+  width: 150px;
+  height: 56px;
+
+  border-radius: 50px;
+  border: 1px solid var(--primary-white-color);
+
+  display: flex;
+  align-items: center;
+}
+
+.numberCl {
+  width: 15px;
+  border: none;
+  background: none;
+  outline: none;
+  margin-left: 24px;
+  color: var(--primary-white-color);
+  transition: width 0.2s;
+}
+
+.numberCl:focus {
+  width: 20px;
+}
+
+.removeBtn {
+  width: 20px;
+  height: 20px;
+
+  border: none;
+  background: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--primary-white-color);
+  margin-left: 26px;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  display: none;
+}
