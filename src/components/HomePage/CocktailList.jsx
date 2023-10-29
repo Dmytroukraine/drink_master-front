@@ -32,25 +32,26 @@ export const CocktailList = ({ data, category }) => {
     return () => {
       mql.removeEventListener('change', sliceData);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <ul className={s.list}>
-<div>
-<h3 className={s.category}>{category}</h3>
+    <>
+      <h3 className={s.categoryTitle}>{category}</h3>
 
-</div>
-      {visibleCacktails?.map(({ _id, drink, drinkThumb, description }) => {
-        return (
-          <CocktailListItem
-            key={_id}
-            picture={drinkThumb}
-            title={drink}
-            link="#"
-            alt={description}
-          ></CocktailListItem>
-        );
-      })}
-    </ul>
+      <ul className={s.list}>
+        {visibleCacktails?.map(({ _id, drink, drinkThumb, description }) => {
+          return (
+            <CocktailListItem
+              key={_id}
+              picture={drinkThumb}
+              title={drink}
+              link="#"
+              alt={description}
+            ></CocktailListItem>
+          );
+        })}
+      </ul>
+    </>
   );
 };

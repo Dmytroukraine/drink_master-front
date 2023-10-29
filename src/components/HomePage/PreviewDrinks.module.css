@@ -8,20 +8,7 @@
   width: 375px;
 }
 
-.list {
-  /* display: block;
-   display: flex;
-  justify-content: center;
-  flex-wrap: wrap; */
-  margin-bottom: 40px;
-}
-
-.category {
-  /* display: block; */
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-
+.categoryTitle {
   margin-bottom: 24px;
   margin-left: auto;
   font-weight: 600;
@@ -32,29 +19,33 @@
   color: var(--primary-white-color);
 }
 
+.list {
+  flex-wrap: nowrap;
+  margin-bottom: 40px;
+}
+
 .card {
-  /* display: flex;
-  justify-content: center;
-  flex-wrap: wrap; */
   width: 335px;
-  /* height: 448px; */
+  height: auto;
 }
 
 .thumb {
-  /* display: block; */
-  width: 335px;
-  height: 448px;
+  height: 360px;
   border-radius: 8px;
   margin-bottom: 14px;
-  background-color: rgba(220, 220, 220, 0.111);
+  background-color: rgba(255, 0, 0, 0.508);
+
+
   & > img {
-    height: auto;
+    height: 100%;
+    border-radius: 8px;
   }
 }
 
 .footerCard {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
 }
 
 .name {
@@ -74,29 +65,25 @@
 }
 
 @media screen and (min-width: 768px) {
-  /* .previewDrinks {
-    padding-bottom: 80px;
-  } */
-
+  .previewDrinks {
+    padding-bottom: 140px;
+  }
   .container {
-    padding: 0 32px;
+    /* padding: 0 32px; */
     width: 704px;
   }
-
-  .list {
-    display: flex;
-    /* flex-wrap: nowrap; */
-    margin-bottom: 80px;
-  }
-
   .category {
     font-size: 40px;
     line-height: 44px;
     margin-bottom: 40px;
   }
 
+  .list {
+    display: flex;
+    margin-bottom: 80px;
+  }
+
   .card {
-    /* display: flex; */
     width: 342px;
     height: 398px;
     margin-right: 20px;
@@ -111,12 +98,7 @@
     height: 360px;
     border-radius: 8px;
     margin-bottom: 14px;
-    background-color: rgba(220, 220, 220, 0.111);
   }
-
-  /* .footerCard{
-    flex-grow: 1;
-  } */
 
   .name {
     font-size: 18px;
@@ -129,12 +111,24 @@
 }
 
 @media screen and (min-width: 1440px) {
-  /* .previewDrinks {
-    padding-bottom: 80px;
-  } */
-
   .container {
-    padding: 0 100px;
+    /* padding: 0 100px; */
     width: 1240px;
+  }
+
+  .category {
+    font-size: 40px;
+    line-height: 44px;
+    margin-bottom: 40px;
+  }
+
+  .card {
+    width: 400px;
+    height: 438px;
+  }
+
+  .thumb {
+    width: 400px;
+    height: 400px;
   }
 }

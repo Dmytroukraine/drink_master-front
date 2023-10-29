@@ -4,8 +4,8 @@ import { PreviewDrinks } from 'components/HomePage/PreviewDrinks';
 export const HomePage = () => {
   return (
     <>
-      <PreviewDrinks></PreviewDrinks>
       <AddYourCocktail></AddYourCocktail>
+      <PreviewDrinks></PreviewDrinks>
     </>
   );
 };

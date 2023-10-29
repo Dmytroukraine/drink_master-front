@@ -23,31 +23,6 @@ export const AddYourCocktail = () => {
             <img src={pictureTest} alt="blue iced tea large" />
           </div>
         </div>
-
-        {/* <div className={s.thumb}>
-          <picture>
-            <source
-            srcset="./images/blue_iced_tea_large@1x 1x, ./images/blue_iced_tea_large@2x 2x"
-            media="(min-width: 1200px)"
-          />
-
-          <source
-            srcset="./images/proj1-tab.jpg 1x, ./images/proj1-tab@2x.jpg 2x"
-            media="(min-width: 768px)"
-          />
-
-            src/images/blue_iced_tea_medium@1x.png
-          <source
-            srcset="./images/proj1-mob.jpg 1x, ./images/proj1-mob@2x.jpg 2x"
-            media="(max-width: 767px)"
-          />
-
-            <img
-              src="../../images/blue_iced_tea_large@1x.png"
-              alt="blue iced tea large"
-            />
-          </picture>
-        </div> */}
       </div>
     </section>
   );
