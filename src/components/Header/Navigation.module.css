@@ -1,0 +1,92 @@
+.navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnNavigation {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+}
+
+.wrapper {
+    position: absolute;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.modal {
+    margin-bottom: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 40px;
+    border: 1px solid rgba(243, 243, 243, 0.2);
+
+    color: var(--primary-white-color);
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.menuMobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.menuDesktop {
+    display: none;
+}
+
+.menuDesktop a {
+    margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .btn {
+        line-height: 22.4px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .btnNavigation {
+        display: none;
+    }
+
+    .menuMobile {
+        display: none;
+    }
+
+    .menuDesktop {
+        display: flex;
+        gap: 20px;
+    }
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: var(--secondary-bg-blue-color);
+    border: none;
+}
