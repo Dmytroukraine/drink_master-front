@@ -54,8 +54,13 @@ const App = () => {
         <Route
           path="/signin"
           element={<RestrictedRoute component={SigninPage} />}
+
+        />
+        <Route path="/" element={<PrivateRoute component={SharedLayout} />}>
+
         /> */}
         <Route path="/" element={<RestrictedRoute component={SharedLayout} />}>
+
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

@@ -1,0 +1,130 @@
+.addYourCocktail {
+  padding-top: 80px;
+  padding-bottom: 112px;
+
+  background-color: rgba(47, 48, 58, 0.4);
+  /* background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../images/hero480.jpg"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0px 20px;
+  /* width: 100%; */
+  width: 375px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.box {
+  display: block;
+  margin-bottom: 47px;
+}
+
+.heroTitle {
+  margin-bottom: 16px;
+
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: var(--primary-white-color);
+}
+
+.description {
+  margin-bottom: 32px;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: var(--primary-white-color);
+}
+
+.thumb {
+  width: 252px;
+  height: 313px;
+  margin: 0 auto;
+  background-color: rgba(220, 220, 220, 0.165);
+
+  & > img {
+    height: auto;
+  }
+}
+
+/* @media screen and (max-width: 377px) {
+  .container {
+    width: 85%;
+  }
+} */
+
+@media screen and (min-width: 768px) {
+  .addYourCocktail {
+    padding-top: 120px;
+    padding-bottom: 123px;
+  }
+  .container {
+    padding: 0px 32px;
+    width: 704px;
+  }
+
+  .box {
+    margin-bottom: 54px;
+  }
+
+  .heroTitle {
+    margin-bottom: 28px;
+    font-size: 56px;
+    line-height: 1.07;
+  }
+
+  .description {
+    margin-bottom: 48px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+
+  .thumb {
+    width: 359px;
+    height: 445px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .addYourCocktail {
+    padding-top: 128px;
+    padding-bottom: 160px;
+  }
+  .container {
+    padding: 0px 100px;
+    width: 1240px;
+  }
+
+  .wrapper {
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .box {
+    margin-bottom: 0;
+    margin-right: 130px;
+  }
+
+  .heroTitle {
+    font-size: 64px;
+    width: 715px;
+  }
+
+  .description {
+    margin-bottom: 40px;
+  }
+}
