@@ -99,15 +99,46 @@
     /* outline: 2px solid rgb(154, 238, 59); */
 }
 
-.btn_delete {
-    position: relative;
-    width: 56px;
-    height: 54px;
-    /* margin-left: auto;
-    margin-right: auto;
-    margin-top: 5px; */
-    border-radius: 50%;
-    padding: 15px;
+
+.btn {
+    background: var(--secondary-bg-blue-color);
+    /* font-family: Manrope; */
+    font-size: 14px;
+    line-height: 1.29;
+    width: 100%;
+    height: 46px;
+    display: flex;
     align-items: center;
-    cursor: pointer;
-}
+    justify-content: center;
+    margin-right: 8px;
+    padding: 18px 44px;
+    border-radius: 42px;
+    color: var(--primary-white-color);
+  }
+  
+  @media screen and (min-width: 768px) {
+    .btn {
+      font-size: 16px;
+      line-height: 1.13;
+      height: 54px;
+    }
+  }
+  
+  .btn_cirkle {
+    background: var(--secondary-bg-blue-color);
+    height: 46px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px;
+    border-radius: 50px;
+    color: var(--primary-white-color);
+  }
+  
+  @media screen and (min-width: 768px) {
+    .btn_cirkle {
+      font-size: 16px;
+      height: 54px;
+      padding: 15px;
+    }
+  }
