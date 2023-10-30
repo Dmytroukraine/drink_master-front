@@ -1,0 +1,31 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: transparent;
+    gap: 10px;
+    height: 72px;
+    border-bottom: 1px solid rgba(243, 243, 243, 0.2);
+}
+
+.menuDesktop {
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+    .menuDesktop {
+        display: flex;
+        gap: 20px;
+    }
+
+    .menuDesktop a {
+        margin: 0;
+    }
+}
+
+.group {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}

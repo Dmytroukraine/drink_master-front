@@ -1,0 +1,25 @@
+.userLogoPopup {
+    position: absolute;
+    top: 40px;
+    right: -44px;
+    min-width: 177px;
+    padding: 18px;
+    background-color: #161f37;
+    border-radius: 8px;
+    z-index: 10;
+}
+
+.button {
+    background-color: transparent;
+    margin: 0;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.text {
+    font-size: 14px;
+    color: #f3f3f3;
+}
