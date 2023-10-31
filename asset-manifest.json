@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/drink_master-front/static/css/main.7bd83b0a.css",
-    "main.js": "/drink_master-front/static/js/main.de245d83.js",
+    "main.css": "/drink_master-front/static/css/main.9f13c61d.css",
+    "main.js": "/drink_master-front/static/js/main.e7b9f14c.js",
     "static/css/308.e8b11fdf.chunk.css": "/drink_master-front/static/css/308.e8b11fdf.chunk.css",
     "static/js/308.f6134f69.chunk.js": "/drink_master-front/static/js/308.f6134f69.chunk.js",
     "static/media/no-content-cocktail@2x.png": "/drink_master-front/static/media/no-content-cocktail@2x.c484f488d7f32c744feb.png",
@@ -13,13 +13,13 @@
     "static/media/add_photo.svg": "/drink_master-front/static/media/add_photo.0176940aef843e86785782121035d3ee.svg",
     "static/media/logo.svg": "/drink_master-front/static/media/logo.6cb16cf1ac1cac61875038b493cf9861.svg",
     "static/media/x.svg": "/drink_master-front/static/media/x.358abb3c7267c7a7485d2f239b2827e0.svg",
-    "main.7bd83b0a.css.map": "/drink_master-front/static/css/main.7bd83b0a.css.map",
-    "main.de245d83.js.map": "/drink_master-front/static/js/main.de245d83.js.map",
+    "main.9f13c61d.css.map": "/drink_master-front/static/css/main.9f13c61d.css.map",
+    "main.e7b9f14c.js.map": "/drink_master-front/static/js/main.e7b9f14c.js.map",
     "308.e8b11fdf.chunk.css.map": "/drink_master-front/static/css/308.e8b11fdf.chunk.css.map",
     "308.f6134f69.chunk.js.map": "/drink_master-front/static/js/308.f6134f69.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7bd83b0a.css",
-    "static/js/main.de245d83.js"
+    "static/css/main.9f13c61d.css",
+    "static/js/main.e7b9f14c.js"
   ]
 }
