@@ -5,10 +5,11 @@ import { FiEyeOff, FiEye } from 'react-icons/fi';
 import css from './SignupForm.module.css';
 import { useSigninMutation, useSignupMutation } from 'redux/authSlice';
 import { notification } from 'components/Shared/notification';
-import {Loading} from 'components/Loader/Loader';
+import { Loading } from 'components/Loader/Loader';
 import { useState } from 'react';
 import { signupSchema } from './signupSchema';
 import { yupResolver } from '@hookform/resolvers/yup';
+import StyledDatepicker from 'components/Datepicker/StyledDatepicker';
 
 const SignupForm = () => {
   const [dispatch, { isLoading }] = useSignupMutation();
@@ -77,6 +78,9 @@ const SignupForm = () => {
           </span>
         </label>
         {errors.name && <p className={css.error}>{errors.name.message}</p>}
+        <div className={css.input}>
+          <StyledDatepicker />
+        </div>
         <label className={css.label}>
           <input
             type="email"
