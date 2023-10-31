@@ -32,7 +32,11 @@ export const AddYourCocktail = () => {
 
             <NavLink to="/add">
               {' '}
-              <Button text="Add drink" buttonClass="addButton" />
+              <Button
+                text="Add drink"
+                buttonClass="addButton"
+                marginLeft="0"
+              />
             </NavLink>
           </div>
 

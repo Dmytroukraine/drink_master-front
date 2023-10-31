@@ -15,14 +15,16 @@ export const Button = ({
   buttonClass = 'button',
   width = '',
   padding = '',
-  fontSize= ''
+  fontSize = '',
+  marginLeft = '',
 }) => {
   return (
     <button
       style={{
         width: `${width}`,
         padding: `${padding}`,
-        fontSize: `${fontSize}`
+        fontSize: `${fontSize}`,
+        marginLeft: `${marginLeft}`
       }}
       className={s[buttonClass]}
     >
