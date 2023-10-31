@@ -1,24 +1,25 @@
 {
   "files": {
-    "main.css": "/drink_master-front/static/css/main.4482ef8e.css",
-    "main.js": "/drink_master-front/static/js/main.15dadd92.js",
+    "main.css": "/drink_master-front/static/css/main.7bd83b0a.css",
+    "main.js": "/drink_master-front/static/js/main.de245d83.js",
     "static/css/308.e8b11fdf.chunk.css": "/drink_master-front/static/css/308.e8b11fdf.chunk.css",
     "static/js/308.f6134f69.chunk.js": "/drink_master-front/static/js/308.f6134f69.chunk.js",
     "static/media/no-content-cocktail@2x.png": "/drink_master-front/static/media/no-content-cocktail@2x.c484f488d7f32c744feb.png",
     "static/media/no-content-cocktail.png": "/drink_master-front/static/media/no-content-cocktail.575a33f8acc537f0bd25.png",
+    "static/media/blue_iced_tea_large@1x.png": "/drink_master-front/static/media/blue_iced_tea_large@1x.78a8f8602147fa959f76.png",
     "index.html": "/drink_master-front/index.html",
     "static/media/edit_icon.svg": "/drink_master-front/static/media/edit_icon.f1763170a06eba3f464e821dcfa7ef12.svg",
     "static/media/burger.svg": "/drink_master-front/static/media/burger.0b8f03f7a8ae17d54a7bde2a240ccf34.svg",
     "static/media/add_photo.svg": "/drink_master-front/static/media/add_photo.0176940aef843e86785782121035d3ee.svg",
     "static/media/logo.svg": "/drink_master-front/static/media/logo.6cb16cf1ac1cac61875038b493cf9861.svg",
     "static/media/x.svg": "/drink_master-front/static/media/x.358abb3c7267c7a7485d2f239b2827e0.svg",
-    "main.4482ef8e.css.map": "/drink_master-front/static/css/main.4482ef8e.css.map",
-    "main.15dadd92.js.map": "/drink_master-front/static/js/main.15dadd92.js.map",
+    "main.7bd83b0a.css.map": "/drink_master-front/static/css/main.7bd83b0a.css.map",
+    "main.de245d83.js.map": "/drink_master-front/static/js/main.de245d83.js.map",
     "308.e8b11fdf.chunk.css.map": "/drink_master-front/static/css/308.e8b11fdf.chunk.css.map",
     "308.f6134f69.chunk.js.map": "/drink_master-front/static/js/308.f6134f69.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4482ef8e.css",
-    "static/js/main.15dadd92.js"
+    "static/css/main.7bd83b0a.css",
+    "static/js/main.de245d83.js"
   ]
 }
