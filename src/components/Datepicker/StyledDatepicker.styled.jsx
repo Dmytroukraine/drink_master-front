@@ -35,6 +35,13 @@ export const CalendarGlobalStyles = createGlobalStyle`
    font-family: Manrope;
     font-size: 14px;
   }
+
+  @media screen and (min-width: 768px) {
+    .react-datepicker {
+      transform: translate(0%, 5%);
+      z-index: 100;
+    }
+  }
   .react-datepicker__month-container {
     float: inherit;
     padding-top: 8px;
