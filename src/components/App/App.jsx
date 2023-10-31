@@ -29,6 +29,7 @@ import { useCurrentUserQuery } from 'redux/authSlice';
 import { getUserState } from 'redux/userSelectors';
 import { Loading } from 'components/Loader/Loader';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
+import { HomePage } from 'pages/HomePage';
 
 const ErrorPage = lazy(() => import('pages/404Page'));
 
@@ -60,6 +61,10 @@ const App = () => {
 
         /> */}
         <Route path="/" element={<RestrictedRoute component={SharedLayout} />}>
+        <Route
+          path="/home"
+          element={<RestrictedRoute component={HomePage} />}
+        />
 
           <Route path="*" element={<ErrorPage />} />
         </Route>
