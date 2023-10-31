@@ -35,7 +35,6 @@ export const AddYourCocktail = () => {
               <Button
                 text="Add drink"
                 buttonClass="addButton"
-                marginLeft="0"
               />
             </NavLink>
           </div>
