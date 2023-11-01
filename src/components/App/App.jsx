@@ -18,9 +18,9 @@
 
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
-import WelcomePage from 'pages/WelcomePage';
-import SigninPage from 'pages/SigninPage';
-import SignupPage from 'pages/SignupPage';
+// import WelcomePage from 'pages/WelcomePage';
+// import SigninPage from 'pages/SigninPage';
+// import SignupPage from 'pages/SignupPage';
 import PrivateRoute from 'components/PrivateRoute';
 import RestrictedRoute from 'components/RestrictedRoute';
 import { ToastContainer } from 'react-toastify';
