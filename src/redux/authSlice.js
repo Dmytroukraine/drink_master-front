@@ -41,7 +41,6 @@ export const authApi = createApi({
     }),
     currentUser: builder.query({
       query: () => ({
-        // url: '/auth/current',
         url: '/users/current',
       }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
@@ -50,7 +49,7 @@ export const authApi = createApi({
     }),
     logout: builder.mutation({
       query: () => ({
-        url: `/auth/logout`,
+        url: `/auth/signout`,
         method: 'POST',
       }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
