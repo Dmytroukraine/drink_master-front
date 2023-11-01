@@ -87,18 +87,21 @@ export const CalendarGlobalStyles = createGlobalStyle`
     color: white;
   }
   .react-datepicker__navigation {
-    margin-top: 26px;
+    margin-top: 0;
     color: white;
   }
+  
   .react-datepicker__navigation--previous {
     left: 7px;
     width: 18px;
     height: 18px;
+    margin-top: 26px;
   }
   .react-datepicker__navigation--next {
     right: 7px;
     width: 18px;
     height: 18px;
+    margin-top: 26px;
   }
   .react-datepicker__navigation-icon::before:hover:focus {
     border-color: white;
@@ -169,6 +172,33 @@ export const CalendarGlobalStyles = createGlobalStyle`
   .react-datepicker__triangle {
     visibility: hidden;
   }
+
+  .react-datepicker__header__dropdown{
+    color: #fafafa;
+    font-size: 12px;
+    align-content: center;
+  }
+  .react-datepicker__year-dropdown{
+    background:#161F37;
+    width: 35%;
+    padding: 10px 3px;
+  }
+ .react-datepicker__navigation--years-upcoming{
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent; 
+  border-bottom: 7px solid #fafafa;
+  
+ }
+
+ .react-datepicker__navigation--years-previous{
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent; 
+  border-top: 7px solid #fafafa;
+ }
 `;
 
 export const TitleWrapper = styled.button`
