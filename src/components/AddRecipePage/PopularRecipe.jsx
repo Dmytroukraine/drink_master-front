@@ -216,7 +216,7 @@ export const PopularRecipe = () => {
             <ul className={styles.popularList}>
                 {popularJSON.map(drink => <Link to="/drink" className={styles.drink} key={drink._id} id={drink._id}>
                     <img
-                        className={styles.drinkImg}
+                        className={styles.drinkImgThumb}
                         src={drink.drinkThumb}
                         alt={drink.drinkThumb}
                     />
