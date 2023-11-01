@@ -1,10 +1,12 @@
-import { useDeleteDrinkFavoriteMutation } from 'redux/drinkSlice';
+// import { useDeleteDrinkFavoriteMutation } from 'redux/drinkSlice';
 import { DrinkItem } from '../FavouriteDrinksPage/DrinkItem';
 import css from '../FavouriteDrinksPage/DrinkList.module.css';
 
-export function DrinksList({ drinks }) {
-  const [deleteFavoriteDrink] = useDeleteDrinkFavoriteMutation();
 
+export function DrinksList({ drinks }) {
+  // const [deleteFavoriteDrink] = useDeleteDrinkFavoriteMutation();
+  
+  // console.log(drinks);
   return (
     <ul className={css.drinkCard}>
       {drinks.map(drink => {
@@ -12,7 +14,7 @@ export function DrinksList({ drinks }) {
           <DrinkItem
             key={drink._id}
             drink={drink}
-            onDelete={deleteFavoriteDrink}
+            // onDelete={deleteFavoriteDrink}
           />
         );
       })}

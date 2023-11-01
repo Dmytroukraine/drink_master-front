@@ -18,6 +18,8 @@ export async function getDrinksById(id) {
   const { data } = await axios.get(`/api/drinks/${id}`);
   return data;
 }
+
+
 // Example 
 // const testId = '639b6de9ff77d221f190c50f';
 
