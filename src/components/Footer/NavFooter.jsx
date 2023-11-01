@@ -4,31 +4,26 @@ import css from './NavFooter.module.css'
 
 
 
-export const NavFooter = ({ isDesktop = false }) => {
+export const NavFooter = () => {
   return (
     <ul className={css.navigation}>
       <li>
-        <NavLink className={css.btn} to="/home">
-          Home
-        </NavLink>
-      </li>
-      <li>
-        <NavLink className={css.btn} to="/drinks">
+        <NavLink className={css.navText} to="/drinks">
           Drinks
         </NavLink>
       </li>
       <li>
-        <NavLink className={css.btn} to="/add">
+        <NavLink className={css.navText} to="/add">
           Add drink
         </NavLink>
       </li>
       <li>
-        <NavLink className={css.btn} to="/my">
+        <NavLink className={css.navText} to="/my">
           My Drinks
         </NavLink>
       </li>
       <li>
-        <NavLink className={css.btn} to="/favorites">
+        <NavLink className={css.navText} to="/favorites">
           Favorites
         </NavLink>
       </li>
