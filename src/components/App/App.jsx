@@ -32,6 +32,7 @@ import SharedLayout from 'components/SharedLayout/SharedLayout';
 import { HomePage } from 'pages/HomePage';
 import FavoriteDrinksPage from 'pages/FavouriteDrinksPage';
 
+
 const ErrorPage = lazy(() => import('pages/404Page'));
 
 const App = () => {
