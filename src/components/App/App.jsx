@@ -71,6 +71,7 @@ const App = () => {
             element={<RestrictedRoute component={FavoriteDrinksPage} />}
           />
           
+          
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
