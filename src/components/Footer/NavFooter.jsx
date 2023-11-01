@@ -24,7 +24,7 @@ export const NavFooter = () => {
       </li>
       <li>
         <NavLink className={css.navText} to="/favorites">
-          Favorites
+        Favorites drinks
         </NavLink>
       </li>
     </ul>

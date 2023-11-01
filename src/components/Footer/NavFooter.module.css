@@ -1,0 +1,7 @@
+.navigation{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 40px;
+  color: #F3F3F3;
+}
