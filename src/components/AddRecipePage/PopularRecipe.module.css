@@ -1,0 +1,45 @@
+.popularContainer {
+    margin-left: 20px;
+    width: 336px;
+    height: 484px;
+}
+.title {
+    text-align: left;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #F3F3F3;
+}
+.popularList{
+    margin-top: 28px;
+}
+.drink {
+    display: flex;
+    width: 336px;
+    height: 90px;
+    margin-bottom: 14px;
+}
+.drinkImg{
+    width: 90px;
+    height: 90px;
+    border-radius: 5px;
+}
+.drinkText {
+    margin-left: 14px;
+    width: 232px;
+    height: 90px;
+}
+.drinkTitle {
+    text-align: left;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: #F3F3F3;
+}
+.drinkInstructions {
+    text-align: left;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #F3F3F3;
+}

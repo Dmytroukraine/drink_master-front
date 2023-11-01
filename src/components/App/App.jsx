@@ -32,6 +32,7 @@ import SharedLayout from 'components/SharedLayout/SharedLayout';
 import { HomePage } from 'pages/HomePage';
 import FavoriteDrinksPage from 'pages/FavouriteDrinksPage';
 
+
 const ErrorPage = lazy(() => import('pages/404Page'));
 
 const App = () => {
@@ -69,8 +70,7 @@ const App = () => {
             path="/favorites"
             element={<RestrictedRoute component={FavoriteDrinksPage} />}
           />
-
-
+          
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
