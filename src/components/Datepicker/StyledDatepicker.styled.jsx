@@ -23,12 +23,12 @@ export const CalendarGlobalStyles = createGlobalStyle`
   }
   .react-datepicker {
     position: absolute;
-    transform: translate(130%, -50%);
+    transform: translate(125%, -40%);
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 327px;
-    height: 320px;
+    height: 330px;
     padding: 9px 18px;
     background:#161F37;
     border-radius: 8px;
@@ -36,7 +36,7 @@ export const CalendarGlobalStyles = createGlobalStyle`
     font-size: 14px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (max-width: 768px) {
     .react-datepicker {
       transform: translate(0%, 5%);
       z-index: 100;
