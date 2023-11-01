@@ -45,18 +45,18 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route
+        {/* <Route
           path="/welcome"
           element={<RestrictedRoute component={WelcomePage} />}
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/signup"
           element={<RestrictedRoute component={SignupPage} />}
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/signin"
           element={<RestrictedRoute component={SigninPage} />}
-        />
+        /> */}
 
         <Route path="/" element={<PrivateRoute component={SharedLayout} />}/>
          
