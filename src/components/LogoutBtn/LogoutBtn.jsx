@@ -1,4 +1,4 @@
-import { useLogoutMutation } from 'redux/authSlice';
+import { useLogoutMutation } from 'redux/authSlice/authSlice';
 import { notification } from 'components/Shared/notification';
 import { redirect } from 'react-router-dom';
 import css from './LogoutBtn.module.css';

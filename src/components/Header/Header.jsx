@@ -1,5 +1,5 @@
 import React from 'react';
-import { getUserState } from 'redux/userSelectors';
+import { getUserState } from 'redux/userSlice/userSelectors';
 import { useSelector } from 'react-redux';
 import Logo from './Logo';
 import UserLogo from './UserLogo';

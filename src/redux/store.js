@@ -1,9 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { authApi } from './authSlice';
-import { recipesApi } from './recipesSlice';
-import { userReducer } from './userSlice';
-import { myRecipesApi } from './myRecipesSlice';
-import { drinksFavoriteApi } from './drinkSlice';
+import { authApi } from './authSlice/authSlice';
+import { filtersApi } from './filtersSlice/filtersSlice';
+import { userReducer } from './userSlice/userSlice';
+import { myRecipesApi } from './drinkSlice/myRecipesSlice';
+import { drinksFavoriteApi } from './drinkSlice/drinkFavoriteSlice';
+import { drinksApi } from './drinkSlice/drinksSlice';
 import { getRequestedDrink } from './searchOperations';
 import { ingredientsSlice } from './ingredients/ingredientsSlice';
 
@@ -28,8 +29,9 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
-  [recipesApi.reducerPath]: recipesApi.reducer,
+  [filtersApi.reducerPath]: filtersApi.reducer,
   [myRecipesApi.reducerPath]: myRecipesApi.reducer,
+  [drinksApi.reducerPath]: drinksApi.reducer,
   [drinksFavoriteApi.reducerPath]: drinksFavoriteApi.reducer,
   [getRequestedDrink.reducerPath]: getRequestedDrink.reducer,
 
@@ -46,9 +48,10 @@ export const store = configureStore({
       },
     })
       .concat(authApi.middleware)
-      .concat(recipesApi.middleware)
+      .concat(filtersApi.middleware)
       .concat(myRecipesApi.middleware)
       .concat(drinksFavoriteApi.middleware)
+      .concat(drinksApi.middleware)
       .concat(getRequestedDrink.middleware),
 });
 
