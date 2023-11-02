@@ -90,7 +90,7 @@
     color: #161f37;
 }
 
-.button:disabled {
+/* .button:disabled {
     background-color: #161f37;
     border: 1px solid rgba(243, 243, 243, 0.2);
     color: rgba(243, 243, 243, 0.2);
@@ -106,4 +106,4 @@
     padding: 0;
     margin: 0;
 
-}
+} */
