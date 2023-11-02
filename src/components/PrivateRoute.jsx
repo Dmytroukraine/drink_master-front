@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { getUserState } from 'redux/userSelectors';
+import { getUserState } from 'redux/userSlice/userSelectors';
 import { Loading } from './Loader/Loader';
-import { useCurrentUserQuery } from 'redux/authSlice';
+import { useCurrentUserQuery } from 'redux/authSlice/authSlice';
 
 const PrivateRoute = ({ component: Component, redirectTo = '/welcome' }) => {
   const {

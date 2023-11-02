@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { resetUser, setUser } from './userSlice';
+import { resetUser, setUser } from '../userSlice/userSlice';
 
 // const BASE_URL = `${process.env.REACT_APP_BASE_URL}/api`;
 const BASE_URL = 'https://drink-master-service.onrender.com';

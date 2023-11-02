@@ -1,9 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import axios from 'axios';
 
-// const BASE_URL = `${process.env.REACT_APP_BASE_URL}/api/drinks/favorite`;
-
-
 
 const BASE_URL = 'https://drink-master-service.onrender.com/api/drinks/'
 axios.defaults.baseURL = BASE_URL;
@@ -33,10 +30,15 @@ export const drinksFavoriteApi = createApi({
       query: id => ({ url: `/favorite/remove/${id}`, method: 'DELETE' }),
       invalidatesTags: ['drinksFavorite'],
     }),
+    addDrinkFavorite: builder.mutation({
+      query: id => ({ url: `/favorite/add/${id}`, method: 'POST' }),
+      invalidatesTags: ['drinksFavorite'],
+    }),
   }),
 });
 
 export const {
   useGetDrinkFavoriteAllQuery,
   useDeleteDrinkFavoriteMutation,
+  useAddDrinkFavoriteMutation,
 } = drinksFavoriteApi;
