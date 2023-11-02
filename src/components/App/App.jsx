@@ -32,11 +32,16 @@ import SharedLayout from 'components/SharedLayout/SharedLayout';
 import { HomePage } from 'pages/HomePage';
 import { RecipePage } from 'pages/RecipePage';
 import FavoriteDrinksPage from 'pages/FavouriteDrinksPage';
+import useLocalStorage from 'use-local-storage';
+
+
 
 
 const ErrorPage = lazy(() => import('pages/404Page'));
 
 const App = () => {
+ 
+  const theme = useLocalStorage('theme' ? 'dark' : 'light')
   const user = useSelector(getUserState);
   const skip = !user.token && !user.isLoggedIn;
 
@@ -45,6 +50,7 @@ const App = () => {
   if (isLoading) return <Loading size={100} />;
 
   return (
+    <div  data-theme={theme}>
     <>
       <Routes>
         <Route
@@ -84,7 +90,9 @@ const App = () => {
         </Route>
       </Routes>
       <ToastContainer />
-    </>
+      </>
+    </div>
+    
   );
 };
 

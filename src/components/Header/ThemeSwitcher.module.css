@@ -1,0 +1,25 @@
+.btn_theme_switcher {
+    position: relative;
+    height: 20px;
+    width: 40px;
+    border-radius: 100px;
+    background-color: var(--primary-white-color);
+    border: none;
+}
+
+.btn_theme_switcher::before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    background: var(--main-bg-color);
+    border-radius: 50%;
+    top: 50%;
+    left: 1px;
+    transform: translateY(-50%);
+    transition: all 0.3s ease-in-out;
+}
+
+.btn_theme_switcher ::before {
+    left: calc(100% - 18px - 1px);
+}

@@ -5,6 +5,9 @@ import Logo from './Logo';
 import UserLogo from './UserLogo';
 import NavPages, { Menu } from './Navigation';
 import css from './Header.module.css';
+import ThemeSwitcher from './ThemeSwitcher';
+
+
 
 const Header = () => {
   const { user } = useSelector(getUserState);
@@ -14,7 +17,12 @@ const Header = () => {
       <Logo />
       <Menu isDesktop />
       <div className={css.group}>
+
+        <ThemeSwitcher></ThemeSwitcher>
+       
+
         <UserLogo userName={user.name} />
+
         <NavPages />
       </div>
     </div>
