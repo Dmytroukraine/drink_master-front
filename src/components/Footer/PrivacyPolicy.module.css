@@ -14,3 +14,13 @@ padding-bottom: 20px;
   display: flex;
   column-gap: 14px;
 }
+@media screen and (min-width: 768px) {
+  .privacyPolicy{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+  }
+  .groupText{
+    padding-right: 136px;
+  }
+}
