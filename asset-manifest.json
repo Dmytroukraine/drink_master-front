@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/drink_master-front/static/css/main.db1c0330.css",
-    "main.js": "/drink_master-front/static/js/main.1d815cbd.js",
-    "static/css/308.e8b11fdf.chunk.css": "/drink_master-front/static/css/308.e8b11fdf.chunk.css",
-    "static/js/308.a7116bc0.chunk.js": "/drink_master-front/static/js/308.a7116bc0.chunk.js",
+    "main.css": "/drink_master-front/static/css/main.b9b3305e.css",
+    "main.js": "/drink_master-front/static/js/main.d74bc29e.js",
+    "static/css/442.882167c1.chunk.css": "/drink_master-front/static/css/442.882167c1.chunk.css",
+    "static/js/442.cc314d57.chunk.js": "/drink_master-front/static/js/442.cc314d57.chunk.js",
     "static/media/no-content-cocktail@2x.png": "/drink_master-front/static/media/no-content-cocktail@2x.c484f488d7f32c744feb.png",
     "static/media/welcomePage-background_desk@2x.jpg": "/drink_master-front/static/media/welcomePage-background_desk@2x.2135a4544a1b4c73641a.jpg",
     "static/media/welcomePage-background_tab@2x.jpg": "/drink_master-front/static/media/welcomePage-background_tab@2x.c9a4713a6996b3d5525d.jpg",
@@ -22,13 +22,13 @@
     "static/media/add_photo.svg": "/drink_master-front/static/media/add_photo.0176940aef843e86785782121035d3ee.svg",
     "static/media/logo.svg": "/drink_master-front/static/media/logo.6cb16cf1ac1cac61875038b493cf9861.svg",
     "static/media/x.svg": "/drink_master-front/static/media/x.358abb3c7267c7a7485d2f239b2827e0.svg",
-    "main.db1c0330.css.map": "/drink_master-front/static/css/main.db1c0330.css.map",
-    "main.1d815cbd.js.map": "/drink_master-front/static/js/main.1d815cbd.js.map",
-    "308.e8b11fdf.chunk.css.map": "/drink_master-front/static/css/308.e8b11fdf.chunk.css.map",
-    "308.a7116bc0.chunk.js.map": "/drink_master-front/static/js/308.a7116bc0.chunk.js.map"
+    "main.b9b3305e.css.map": "/drink_master-front/static/css/main.b9b3305e.css.map",
+    "main.d74bc29e.js.map": "/drink_master-front/static/js/main.d74bc29e.js.map",
+    "442.882167c1.chunk.css.map": "/drink_master-front/static/css/442.882167c1.chunk.css.map",
+    "442.cc314d57.chunk.js.map": "/drink_master-front/static/js/442.cc314d57.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.db1c0330.css",
-    "static/js/main.1d815cbd.js"
+    "static/css/main.b9b3305e.css",
+    "static/js/main.d74bc29e.js"
   ]
 }
