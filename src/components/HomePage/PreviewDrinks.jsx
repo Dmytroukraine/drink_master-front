@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import s from './PreviewDrinks.module.css';
 import data from './data.json';
 
@@ -23,7 +24,10 @@ export const PreviewDrinks = () => {
           data={otherAndUnknow}
           category="Other/Unknow"
         ></CocktailList>
-        <Button text="Other drinks" />
+
+        <NavLink to="/drinks">
+          <Button text="Other drinks" />
+        </NavLink>
       </div>
     </section>
   );

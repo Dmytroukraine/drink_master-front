@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import s from './PreviewDrinks.module.css';
 
 export const CocktailListItem = ({ picture, title, link, alt }) => {
@@ -8,9 +9,10 @@ export const CocktailListItem = ({ picture, title, link, alt }) => {
       </div>
       <div className={s.footerCard}>
         <p className={s.name}>{title}</p>
-        <a className={s.seeMore} href={link}>
+
+        <NavLink className={s.seeMore} to={link}>
           See more
-        </a>
+        </NavLink>
       </div>
     </li>
   );
