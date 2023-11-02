@@ -10,6 +10,7 @@ const Footer = () => {
   return (
     <>
     <div className={css.footer}>
+      <div className={css.wraperMediaTablet}>
       <div className={css.wraperMedia}>
       <div>
       <Logo/> 
@@ -19,6 +20,7 @@ const Footer = () => {
       </div>
      
       <SubscribeForm/>
+      </div>
       <PrivacyPolicy />
     </div>
     </>
