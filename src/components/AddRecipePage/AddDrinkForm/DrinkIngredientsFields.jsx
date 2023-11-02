@@ -1,16 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+
 import { v4 as uuidv4 } from 'uuid';
 import css from './DrinkIngredientsFields.module.css';
 
-export const DrinkIngredientsFields = () => {
-  const [count, setCount] = useState(3);
+import { getDrinksIngredients } from 'services/filtersAPI';
 
-  const initialIngredients = Array.from({ length: 3 }, () => ({
-    id: uuidv4(),
-    ingredient: '',
-    volumeIngredient: 1,
-  }));
-  const [arrIngredients, setArrIngredients] = useState(initialIngredients);
+import { CustomSelect } from './CustomSelect';
+
+export const DrinkIngredientsFields = ({
+  arrIngredients,
+  setArrIngredients,
+}) => {
+  const [count, setCount] = useState(3);
+  const [ingredientsData, setIngredientsData] = useState([]);
+
+  const userToken = useSelector(state => state.user.token);
+
+  useEffect(() => {
+    async function fetchIngredientsData() {
+      try {
+        const data = await getDrinksIngredients(userToken);
+
+        const ingredientsArray = data
+          .filter(el => el.title)
+          .map(el => el.title);
+        setIngredientsData(ingredientsArray);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    if (userToken) {
+      fetchIngredientsData();
+    }
+  }, [userToken]);
 
   class Count {
     increment = () => {
@@ -21,8 +45,8 @@ export const DrinkIngredientsFields = () => {
         ...prevState,
         {
           id: uuidv4(),
-          ingredient: '',
-          volumeIngredient: 1,
+          title: '',
+          measure: '1',
         },
       ]);
     };
@@ -50,19 +74,15 @@ export const DrinkIngredientsFields = () => {
   function onChange(id, value) {
     const validValue = parseFloat(value);
 
-    if (isNaN(validValue) || value > 9) return;
-
     setArrIngredients(prevState =>
       prevState.map(volumeIngredient => {
         if (volumeIngredient.id === id) {
-          return { ...volumeIngredient, volumeIngredient: validValue };
+          return { ...volumeIngredient, measure: validValue + '' };
         }
         return volumeIngredient;
       })
     );
   }
-
-  console.log(arrIngredients);
 
   return (
     <div className={css.ingredients}>
@@ -70,6 +90,7 @@ export const DrinkIngredientsFields = () => {
         <h2>Ingredients</h2>
         <div className={css.counter}>
           <button
+            type="button"
             onClick={counter.decrement}
             className={`${css.counterBtn} ${
               count === 3 ? css.minCounterBtn : ''
@@ -79,6 +100,7 @@ export const DrinkIngredientsFields = () => {
           </button>
           <p>{count}</p>
           <button
+            type="button"
             onClick={counter.increment}
             className={`${css.counterBtn} ${
               count === 6 ? css.minCounterBtn : ''
@@ -89,24 +111,37 @@ export const DrinkIngredientsFields = () => {
         </div>
       </div>
       <ul>
-        {arrIngredients.map(({ id, ingredient, volumeIngredient }) => (
+        {arrIngredients.map(({ id, title, measure }) => (
           <li key={id} className={css.ingredientItem}>
-            <div className={css.ingredientSelect}>{ingredient}</div>
+            <CustomSelect
+              select={title}
+              setSelect={newIngredient => {
+                setArrIngredients(prevState =>
+                  prevState.map(ingredientObj => {
+                    if (ingredientObj.id === id) {
+                      return { ...ingredientObj, title: newIngredient };
+                    }
+                    return ingredientObj;
+                  })
+                );
+              }}
+              options={ingredientsData}
+            />
             <div
               className={css.volumeIngredient}
               onClick={() => document.getElementById(`input_${id}`).focus()}
             >
               <input
                 type="number"
-                defaultValue={volumeIngredient}
+                defaultValue={measure}
                 onChange={e => onChange(id, e.target.value)}
                 className={css.numberCl}
                 id={`input_${id}`}
               />
               <p className={css.volumeIngredientText}>cl</p>
             </div>
-
             <button
+              type="button"
               onClick={() => removeIngredient(id)}
               className={css.removeBtn}
             >

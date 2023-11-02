@@ -6,23 +6,28 @@ import s from './button.module.css';
 // width: '250px'
 // padding: '10px 15px 10px 30px'
 // fontSize: '14px'
+// marginLeft = '0',
 
 //Example:
 // <Button text="Click here!" padding='0 0 0 0 0' width='250px' fontSize='25px'/>
 
 export const Button = ({
+  handleClick,
   text,
   buttonClass = 'button',
   width = '',
   padding = '',
-  fontSize= ''
+  fontSize = '',
+  marginLeft = '',
 }) => {
   return (
     <button
+      onClick={handleClick}
       style={{
         width: `${width}`,
         padding: `${padding}`,
-        fontSize: `${fontSize}`
+        fontSize: `${fontSize}`,
+        marginLeft: `${marginLeft}`,
       }}
       className={s[buttonClass]}
     >

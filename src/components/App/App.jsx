@@ -18,10 +18,10 @@
 
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
-// import WelcomePage from 'pages/WelcomePage';
-// import SigninPage from 'pages/SigninPage';
-// import SignupPage from 'pages/SignupPage';
-// import PrivateRoute from 'components/PrivateRoute';
+import WelcomePage from 'pages/WelcomePage';
+import SigninPage from 'pages/SigninPage';
+import SignupPage from 'pages/SignupPage';
+import PrivateRoute from 'components/PrivateRoute';
 import RestrictedRoute from 'components/RestrictedRoute';
 import { ToastContainer } from 'react-toastify';
 import { useSelector } from 'react-redux';
@@ -30,11 +30,15 @@ import { getUserState } from 'redux/userSelectors';
 import { Loading } from 'components/Loader/Loader';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 import { HomePage } from 'pages/HomePage';
+import { RecipePage } from 'pages/RecipePage';
 import FavoriteDrinksPage from 'pages/FavouriteDrinksPage';
+import useLocalStorage from 'use-local-storage';
 
 const ErrorPage = lazy(() => import('pages/404Page'));
 
 const App = () => {
+ 
+  const theme = useLocalStorage('theme' ? 'dark' : 'light')
   const user = useSelector(getUserState);
   const skip = !user.token && !user.isLoggedIn;
 
@@ -43,25 +47,27 @@ const App = () => {
   if (isLoading) return <Loading size={100} />;
 
   return (
+    <div  data-theme={theme}>
     <>
       <Routes>
-        {/* <Route
+        <Route
           path="/welcome"
           element={<RestrictedRoute component={WelcomePage} />}
-        /> */}
-        {/* <Route
+        />
+        <Route
           path="/signup"
           element={<RestrictedRoute component={SignupPage} />}
         />
         <Route
           path="/signin"
           element={<RestrictedRoute component={SigninPage} />}
-
         />
-        <Route path="/" element={<PrivateRoute component={SharedLayout} />}>
 
-        /> */}
-        <Route path="/" element={<RestrictedRoute component={SharedLayout} />}>
+
+        <Route path="/drink/:drinkId" element={<RecipePage />} />
+        <Route path="/" element={<PrivateRoute component={SharedLayout} />}/>
+          <Route path="/" element={<RestrictedRoute component={SharedLayout} />}>
+
           <Route
             path="/home"
             element={<RestrictedRoute component={HomePage} />}
@@ -76,7 +82,9 @@ const App = () => {
         </Route>
       </Routes>
       <ToastContainer />
-    </>
+      </>
+    </div>
+    
   );
 };
 

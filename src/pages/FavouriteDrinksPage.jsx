@@ -1,3 +1,4 @@
+
 import { Loading } from '../components/Loader/Loader';
 import { useGetDrinkFavoriteAllQuery } from 'redux/drinkSlice';
 import { PageTitle } from '../components/PageTitle/PageTitle';
@@ -5,6 +6,7 @@ import { PageTitle } from '../components/PageTitle/PageTitle';
 import NoContentSection from 'components/404Page/NoContent';
 import { DrinksList } from '../components/FavouriteDrinksPage/DrinkList';
 import BasicImg from '../images/blue_iced_tea_large@1x.png';
+
 
 import css from './FavouriteDrinksPage.module.css';
 
@@ -14,11 +16,13 @@ const FavouriteDrinksPage = () => {
   // console.log(data);
   // console.log(data.length);
 
+
   return (
     <div>
       {/* {isError && { isError }} */}
       <PageTitle title="Favorites" />
       <div>
+
         {isLoading && <Loading />}
         {data.length > 0 ? (<DrinksList drinks={data} />) : (<NoContentSection children={
           <div>
@@ -36,6 +40,7 @@ const FavouriteDrinksPage = () => {
         }/>)
         }
         {/* {data.length > 1 && <Paginator drinks={data} />} */}
+
       </div>
     </div>
   );

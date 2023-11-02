@@ -3,13 +3,13 @@ import React from 'react';
 import stop from '../../images/thumb-placeholder-large.png';
 import css from '../FavouriteDrinksPage/DrinkItem.module.css';
 
-
 export const DrinkItem = ({ drink, onDelete }) => {
 
   return (
     <li className={css.drinksListItem} key={drink._id}>
       <img
         src={drink.drinkThumb || stop}
+
         alt={drink.title}
         className={css.imageDrinkItem}
         onError={event => ((event.target.src = stop))}
@@ -28,9 +28,11 @@ export const DrinkItem = ({ drink, onDelete }) => {
         <button
           type="button"
           className={css.btn_cirkle}
+
           onClick={() => {
             onDelete(drink._id); 
           }}
+
         >
           <svg
             width="24"
@@ -52,3 +54,4 @@ export const DrinkItem = ({ drink, onDelete }) => {
     </li>
   );
 };
+
