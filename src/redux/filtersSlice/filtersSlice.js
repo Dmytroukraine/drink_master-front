@@ -1,8 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const BASE_URL = `${process.env.REACT_APP_BASE_URL}/api`;
+// const BASE_URL = `${process.env.REACT_APP_BASE_URL}/api`;
+const BASE_URL = 'https://drink-master-service.onrender.com/api/';
 
-export const recipesApi = createApi({
+export const filtersApi = createApi({
   reducerPath: 'recipesApi',
   baseQuery: fetchBaseQuery({
     baseUrl: BASE_URL,
@@ -67,4 +68,4 @@ export const {
   useToggleFavoriteMutation,
   useGetFavoritesQuery,
   useGetPopularListQuery,
-} = recipesApi;
+} = filtersApi;

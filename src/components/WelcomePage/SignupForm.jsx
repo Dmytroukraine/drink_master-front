@@ -7,7 +7,7 @@ import css from './SignupForm.module.css';
 import {
   useSigninMutation,
   useSignupMutation,
-} from 'redux/authSlice';
+} from 'redux/authSlice/authSlice';
 import { notification } from 'components/Shared/notification';
 import { Loading } from 'components/Loader/Loader';
 import { useState } from 'react';

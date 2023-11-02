@@ -1,6 +1,6 @@
 
 import { Loading } from '../components/Loader/Loader';
-import { useGetDrinkFavoriteAllQuery } from 'redux/drinkSlice';
+import { useGetDrinkFavoriteAllQuery } from 'redux/drinkSlice/drinkFavoriteSlice';
 import { PageTitle } from '../components/PageTitle/PageTitle';
 // import { Paginator } from '../components/Paginator/Paginator';
 import NoContentSection from 'components/404Page/NoContent';
