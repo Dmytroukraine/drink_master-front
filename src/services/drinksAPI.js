@@ -9,7 +9,9 @@ export async function getDrinksMainPage() {
 }
 
 export async function getDrinksPopular() {
-  const { data } = await axios.get(`/api/drinks/popular`);
+  // const { data } = await axios.get(`/api/drinks/popular`);
+  const { data } = await axios.get(`/popular`);
+  console.log("data", data);
   return data;
 }
 
