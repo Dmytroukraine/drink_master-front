@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 import { v4 as uuidv4 } from 'uuid';
 
 import { DrinkIngredientsFields } from './DrinkIngredientsFields';
@@ -6,7 +8,12 @@ import { RecipeDescriptField } from './RecipeDescriptField';
 import { AddDrinkBtn } from './AddDrinkBtn';
 import { CustomSelect } from './CustomSelect';
 
+import { getDrinksCategory } from 'services/filtersAPI';
+import { getDrinksGlass } from 'services/filtersAPI';
+
 import css from './AddDrinkForm.module.css';
+
+import { useSelector } from 'react-redux';
 
 export const AddDrinkForm = () => {
   const [selectedImg, setSelectedImg] = useState(null);
@@ -14,28 +21,66 @@ export const AddDrinkForm = () => {
   const [aboutRecipe, setAboutRecipe] = useState('');
   const [category, setCategory] = useState('Category');
   const [glass, setGlass] = useState('Glass');
-  const [alcoholic, setAlcoholic] = useState(true);
+  const [alcoholic, setAlcoholic] = useState('Alcoholic');
 
   const [uploadImg, setuploadImg] = useState(false);
 
   const initialIngredients = Array.from({ length: 3 }, () => ({
     id: uuidv4(),
-    ingredient: '',
-    volumeIngredient: 1,
+    title: '',
+    measure: '1',
   }));
 
   const [arrIngredients, setArrIngredients] = useState(initialIngredients);
   const [preparation, setPreparation] = useState('');
 
-  const drink = {
-    img: selectedImg,
-    title: itemTitle,
-    recipe: aboutRecipe,
+  const [categoryData, setCategoryData] = useState(null);
+  const [glassData, setGlassData] = useState(null);
+
+  const userToken = useSelector(state => state.user.token);
+
+  useEffect(() => {
+    async function fetchGlassData() {
+      try {
+        const data = await getDrinksCategory(userToken);
+        setCategoryData(data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    if (userToken) {
+      fetchGlassData();
+    }
+
+    async function fetchCategoryData() {
+      try {
+        const data = await getDrinksGlass(userToken);
+        setGlassData(data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    if (userToken) {
+      fetchCategoryData();
+    }
+  }, [userToken]);
+
+  const simplifiedIngredients = arrIngredients.map(({ title, measure }) => ({
+    title,
+    measure,
+  }));
+
+  const simplifiedDrink = {
+    drinkThumb: selectedImg,
+    drink: itemTitle,
+    shortDescription: aboutRecipe,
     category: category,
     glass: glass,
     alcoholic: alcoholic,
-    ingredients: arrIngredients,
-    preparation: preparation,
+    instructions: preparation,
+    ingredients: simplifiedIngredients,
   };
 
   class AddImg {
@@ -54,22 +99,37 @@ export const AddDrinkForm = () => {
   }
 
   class Form {
-    handleSubmit = e => {
+    handleSubmit = async e => {
       e.preventDefault();
 
-      if (
-        drink.img === null ||
-        drink.title === '' ||
-        drink.recipe === '' ||
-        drink.category === '' ||
-        drink.glass === '' ||
-        drink.preparation === ''
-      ) {
-        alert('Fill in all fields');
-        return;
-      }
+      // if (
+      //   drink.img === null ||
+      //   drink.title === '' ||
+      //   drink.recipe === '' ||
+      //   drink.category === '' ||
+      //   drink.glass === '' ||
+      //   drink.preparation === ''
+      // ) {
+      //   alert('Fill in all fields');
+      //   return;
+      // }
 
-      console.log(drink);
+      console.log(simplifiedDrink);
+
+      try {
+        const response = await axios.post(
+          'https://drink-master-service.onrender.com/api/drinks/own/add',
+          simplifiedDrink,
+          {
+            headers: {
+              Authorization: `Bearer ${userToken}`,
+            },
+          }
+        );
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
     };
 
     handleChange = e => {
@@ -95,11 +155,11 @@ export const AddDrinkForm = () => {
 
       switch (id) {
         case 'alcoholic':
-          setAlcoholic(true);
+          setAlcoholic('Alcoholic');
           break;
 
         case 'nonAlcoholic':
-          setAlcoholic(false);
+          setAlcoholic('Non alcoholic');
           break;
 
         default:
@@ -157,9 +217,17 @@ export const AddDrinkForm = () => {
             onChange={form.handleChange}
             className={css.addDrinkInput}
           />
-          <CustomSelect select={category} setSelect={setCategory} />
+          <CustomSelect
+            select={category}
+            setSelect={setCategory}
+            options={categoryData}
+          />
 
-          <CustomSelect select={glass} setSelect={setGlass} />
+          <CustomSelect
+            select={glass}
+            setSelect={setGlass}
+            options={glassData}
+          />
 
           <div className={css.informationAlcoholic}>
             <p>
@@ -168,7 +236,7 @@ export const AddDrinkForm = () => {
                 id="alcoholic"
                 name="alcoholType"
                 onChange={form.handleChangeRadioBtn}
-                checked={alcoholic === true}
+                checked={alcoholic === 'Alcoholic'}
               />
 
               <label htmlFor="alcoholic">Alcoholic</label>
@@ -180,7 +248,7 @@ export const AddDrinkForm = () => {
                 id="nonAlcoholic"
                 name="alcoholType"
                 onChange={form.handleChangeRadioBtn}
-                checked={alcoholic === false}
+                checked={alcoholic === 'Non alcoholic'}
               />
               <label htmlFor="nonAlcoholic">Non-alcoholic</label>
             </p>
