@@ -6,12 +6,12 @@ import user from '../../images/user.png';
 import css from './UserLogo.module.css';
 
 const UserLogo = props => {
-  const { userName, avatarLink } = props;
+  const { userName, avatarURL } = props;
 
   const [isOpen, setIsOpen] = useState(false);
   const [isShowModal, setIsShowModal] = useState(false);
 
-  const link = avatarLink ? avatarLink : user;
+  const url = avatarURL ? avatarURL : user;
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -23,12 +23,12 @@ const UserLogo = props => {
 
   return (
     <div onClick={toggleMenu} className={css.userlogo}>
-      <img className={css.avatar} src={link} alt="user" />
+      <img className={css.avatar} src={url} alt="user" />
       <p className={css.username}>{userName}</p>
 
       {isOpen ? <UserLogoPopup isOpen={isOpen} onClick={toggleModal} /> : null}
       <ModalWrap toggle={toggleModal} isOpen={isShowModal}>
-        <UserInfoModal />
+        <UserInfoModal userName={userName} avatarURL={avatarURL} />
       </ModalWrap>
     </div>
   );

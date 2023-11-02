@@ -14,7 +14,7 @@ const Header = () => {
       <Logo />
       <Menu isDesktop />
       <div className={css.group}>
-        <UserLogo userName={user.name} />
+        <UserLogo userName={user.name} avatarURL={user.avatarURL} />
         <NavPages />
       </div>
     </div>

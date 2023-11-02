@@ -1,5 +1,4 @@
 import { useLogoutMutation } from 'redux/authSlice';
-import { notification } from 'components/Shared/notification';
 import { redirect } from 'react-router-dom';
 import css from './LogoutBtn.module.css';
 
@@ -9,8 +8,7 @@ const LogoutBtn = ({ isDisabled = false }) => {
   const logout = () => {
     dispatch()
       .unwrap()
-      .then(() => redirect('/welcome'))
-      .catch(e => notification(e.data.message));
+      .then(() => redirect('/welcome'));
   };
 
   return (

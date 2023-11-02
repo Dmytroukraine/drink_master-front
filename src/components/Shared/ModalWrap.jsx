@@ -28,10 +28,10 @@ const ModalWrap = ({ children, ...props }) => {
       onClick={toggle}
       className={isOpen ? css.modal + ' ' + css.active : css.modal}
     >
-      <div className={css.close}>
-        <img src={x} alt="Close Icon" />
-      </div>
       <div onClick={e => e.stopPropagation()} className={css.content}>
+        <div onClick={toggle} className={css.close}>
+          <img src={x} alt="Close Icon" />
+        </div>
         {children}
       </div>
     </div>
