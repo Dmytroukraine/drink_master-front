@@ -1,6 +1,6 @@
+@import 'style/common/var.css';
 @import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap');
-@import 'style/common/var.css';
 @import 'style/common/base.css';
 @import 'style/common/utils.css';
 @import 'style/common/scroll-bar.css';

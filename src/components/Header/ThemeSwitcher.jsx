@@ -1,11 +1,19 @@
 import css from './ThemeSwitcher.module.css';
-import toggleTheme from '../App/App'
-import theme from '../App/App'
+import useLocalStorage from 'use-local-storage';
 
 const ThemeSwitcher = () => {
 
+const [theme, setTheme] = useLocalStorage('theme' ? 'dark' : 'light')
+
+const switchTheme = () => {
+  const newTheme = theme === 'light' ? 'dark' : 'light';
+  setTheme (newTheme)
+    }
+    
+    
+
 return (
-<button className={css.btn_theme_switcher} onChange={toggleTheme} checked={theme === "dark"}></button>
+<button className={css.btn_theme_switcher} onClick={switchTheme}></button>
 );
 };
 

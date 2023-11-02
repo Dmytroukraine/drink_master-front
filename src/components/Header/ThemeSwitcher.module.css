@@ -3,7 +3,7 @@
     height: 20px;
     width: 40px;
     border-radius: 100px;
-    background-color: #F3F3F3;
+    background-color: var(--primary-white-color);
     border: none;
 }
 
@@ -12,7 +12,7 @@
     position: absolute;
     height: 18px;
     width: 18px;
-    background: #161F37;
+    background: var(--main-bg-color);
     border-radius: 50%;
     top: 50%;
     left: 1px;
@@ -20,6 +20,6 @@
     transition: all 0.3s ease-in-out;
 }
 
-.btn_theme_switcher.dark-mode::before {
+.btn_theme_switcher ::before {
     left: calc(100% - 18px - 1px);
 }
