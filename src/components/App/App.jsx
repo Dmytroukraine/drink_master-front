@@ -61,13 +61,13 @@ const App = () => {
         />
 
         <Route path="/drink/:drinkId" element={<RecipePage />} />
-        <Route path="/" element={<PrivateRoute component={SharedLayout} />}>
-          {/* <Route path="/" element={<RestrictedRoute component={SharedLayout} />}> */}
+        <Route path="/" element={<PrivateRoute component={SharedLayout} />}/>
+          <Route path="/" element={<RestrictedRoute component={SharedLayout} />}>
 
 
-        <Route path="/" element={<PrivateRoute component={SharedLayout} />} />
+        
 
-        <Route path="/" element={<RestrictedRoute component={SharedLayout} />}>
+       
 
 
           <Route
