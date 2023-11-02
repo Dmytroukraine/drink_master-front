@@ -1,7 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { resetUser, setUser } from './userSlice';
 
-const BASE_URL = `${process.env.REACT_APP_BASE_URL}/api`;
+// const BASE_URL = `${process.env.REACT_APP_BASE_URL}/api`;
+const BASE_URL = 'https://drink-master-service.onrender.com';
 
 export const authApi = createApi({
   reducerPath: 'authApi',
@@ -20,10 +21,10 @@ export const authApi = createApi({
   tagTypes: ['auth'],
   endpoints: builder => ({
     signup: builder.mutation({
-      query: ({ name, email, password }) => ({
+      query: ({ name, email, password, birthDate }) => ({
         url: '/auth/signup',
         method: 'POST',
-        body: { name, email, password },
+        body: { name, email, password, birthDate },
       }),
       invalidatesTags: ['auth'],
     }),
@@ -40,7 +41,7 @@ export const authApi = createApi({
     }),
     currentUser: builder.query({
       query: () => ({
-        url: '/auth/current',
+        url: '/users/current',
       }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         dispatch(setUser((await queryFulfilled).data));
@@ -48,7 +49,7 @@ export const authApi = createApi({
     }),
     logout: builder.mutation({
       query: () => ({
-        url: `/auth/logout`,
+        url: `/auth/signout`,
         method: 'POST',
       }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {

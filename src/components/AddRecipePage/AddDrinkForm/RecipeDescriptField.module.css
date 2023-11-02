@@ -1,0 +1,17 @@
+.textarea {
+  width: 480px;
+  height: 184px;
+  background: none;
+
+  border: 1px solid var(--primary-white-color);
+  border-radius: 20px;
+  outline: none;
+  color: var(--primary-white-color);
+
+  padding: 14px 24px;
+  margin-bottom: 20px;
+}
+
+.preparationTitle {
+  margin-bottom: 40px;
+}

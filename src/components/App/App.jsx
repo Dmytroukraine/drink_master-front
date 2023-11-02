@@ -31,6 +31,8 @@ import { Loading } from 'components/Loader/Loader';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 import { HomePage } from 'pages/HomePage';
 import { RecipePage } from 'pages/RecipePage';
+import FavoriteDrinksPage from 'pages/FavouriteDrinksPage';
+
 
 const ErrorPage = lazy(() => import('pages/404Page'));
 
@@ -57,13 +59,25 @@ const App = () => {
           path="/signin"
           element={<RestrictedRoute component={SigninPage} />}
         />
+
         <Route path="/drink/:drinkId" element={<RecipePage />} />
         <Route path="/" element={<PrivateRoute component={SharedLayout} />}>
           {/* <Route path="/" element={<RestrictedRoute component={SharedLayout} />}> */}
 
+
+        <Route path="/" element={<PrivateRoute component={SharedLayout} />} />
+
+        <Route path="/" element={<RestrictedRoute component={SharedLayout} />}>
+
+
           <Route
             path="/home"
             element={<RestrictedRoute component={HomePage} />}
+          />
+
+          <Route
+            path="/favorites"
+            element={<RestrictedRoute component={FavoriteDrinksPage} />}
           />
 
           <Route path="*" element={<ErrorPage />} />

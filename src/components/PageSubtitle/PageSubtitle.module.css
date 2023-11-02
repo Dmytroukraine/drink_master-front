@@ -1,0 +1,13 @@
+.PageSubtitle {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 32px;
+  color: #f3f3f3;
+}
+
+@media screen and (min-width: 768px) {
+  .PageSubtitle {
+    font-size: 40px;
+    line-height: 44px;
+  }
+}

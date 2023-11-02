@@ -5,14 +5,20 @@ import { Loading } from './Loader/Loader';
 import { useCurrentUserQuery } from 'redux/authSlice';
 
 const PrivateRoute = ({ component: Component, redirectTo = '/welcome' }) => {
+  const {
+    isLoggedIn,
+    // isRefreshing
+  } = useSelector(getUserState);
+  // const shouldRedirect = !isLoggedIn && !isRefreshing;
+
   const user = useSelector(getUserState);
   const skip = !user.token && !user.isLoggedIn;
 
   const { data, isLoading, isError } = useCurrentUserQuery('', { skip });
 
-  if (user.isLoggedIn && data) return <Component />;
+  if (isLoggedIn && data) return <Component />;
 
-  if (isError || (!user.isLoggedIn && !user.token))
+  if (isError || (!isLoggedIn && !user.token))
     return <Navigate to={redirectTo} />;
 
   if (isLoading) return <Loading size={150} />;

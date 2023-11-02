@@ -18,12 +18,17 @@ export async function getDrinksById(id) {
   return data;
 }
 
+
 // export async function getAllIngredients() {
 //   const { data } = await axios.get(`/api/filters/ingredients`);
 //   return data;
 // }
 
 // Example
+
+
+// Example 
+
 // const testId = '639b6de9ff77d221f190c50f';
 
 // getDrinksById(testId)

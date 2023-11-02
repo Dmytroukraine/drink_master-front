@@ -1,0 +1,13 @@
+.addBtn {
+  width: 118px;
+  height: 54px;
+
+  border: none;
+  border-radius: 50px;
+
+  background-color: var(--primary-white-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

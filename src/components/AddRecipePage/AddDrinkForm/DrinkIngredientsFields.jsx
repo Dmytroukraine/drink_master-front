@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import css from './DrinkIngredientsFields.module.css';
 
-export const DrinkIngredientsFields = () => {
-  const [count, setCount] = useState(3);
+import { CustomSelect } from './CustomSelect';
 
-  const initialIngredients = Array.from({ length: 3 }, () => ({
-    id: uuidv4(),
-    ingredient: '',
-    volumeIngredient: 1,
-  }));
-  const [arrIngredients, setArrIngredients] = useState(initialIngredients);
+export const DrinkIngredientsFields = ({
+  arrIngredients,
+  setArrIngredients,
+}) => {
+  const [count, setCount] = useState(3);
 
   class Count {
     increment = () => {
@@ -50,8 +48,6 @@ export const DrinkIngredientsFields = () => {
   function onChange(id, value) {
     const validValue = parseFloat(value);
 
-    if (isNaN(validValue) || value > 9) return;
-
     setArrIngredients(prevState =>
       prevState.map(volumeIngredient => {
         if (volumeIngredient.id === id) {
@@ -62,14 +58,13 @@ export const DrinkIngredientsFields = () => {
     );
   }
 
-  console.log(arrIngredients);
-
   return (
     <div className={css.ingredients}>
       <div className={css.panelCounter}>
         <h2>Ingredients</h2>
         <div className={css.counter}>
           <button
+            type="button"
             onClick={counter.decrement}
             className={`${css.counterBtn} ${
               count === 3 ? css.minCounterBtn : ''
@@ -79,6 +74,7 @@ export const DrinkIngredientsFields = () => {
           </button>
           <p>{count}</p>
           <button
+            type="button"
             onClick={counter.increment}
             className={`${css.counterBtn} ${
               count === 6 ? css.minCounterBtn : ''
@@ -91,7 +87,19 @@ export const DrinkIngredientsFields = () => {
       <ul>
         {arrIngredients.map(({ id, ingredient, volumeIngredient }) => (
           <li key={id} className={css.ingredientItem}>
-            <div className={css.ingredientSelect}>{ingredient}</div>
+            <CustomSelect
+              select={ingredient}
+              setSelect={newIngredient => {
+                setArrIngredients(prevState =>
+                  prevState.map(ingredientObj => {
+                    if (ingredientObj.id === id) {
+                      return { ...ingredientObj, ingredient: newIngredient };
+                    }
+                    return ingredientObj;
+                  })
+                );
+              }}
+            />
             <div
               className={css.volumeIngredient}
               onClick={() => document.getElementById(`input_${id}`).focus()}
@@ -105,8 +113,8 @@ export const DrinkIngredientsFields = () => {
               />
               <p className={css.volumeIngredientText}>cl</p>
             </div>
-
             <button
+              type="button"
               onClick={() => removeIngredient(id)}
               className={css.removeBtn}
             >
