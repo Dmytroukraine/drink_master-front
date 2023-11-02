@@ -60,7 +60,6 @@ const App = () => {
 
         /> */}
         <Route path="/" element={<RestrictedRoute component={SharedLayout} />}>
-
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
