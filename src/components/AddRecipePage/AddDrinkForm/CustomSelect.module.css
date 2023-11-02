@@ -60,3 +60,17 @@
   cursor: pointer;
   transition: all 0.2s;
 }
+
+.customSelectContent {
+  /* Your existing styles here */
+
+  /* Add the following styles for the scrollable container */
+  max-height: 200px; /* Adjust the height as needed */
+  overflow-y: auto;
+}
+
+.customSelectContentWrapper {
+  /* Add the following styles for the content wrapper */
+  max-height: 100%;
+  overflow: hidden;
+}

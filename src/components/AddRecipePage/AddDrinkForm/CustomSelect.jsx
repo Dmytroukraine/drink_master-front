@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import css from './CustomSelect.module.css';
 
-export const CustomSelect = ({ select, setSelect }) => {
+export const CustomSelect = ({ select, setSelect, options }) => {
   const [isActive, setIsActive] = useState(false);
-  const options = ['test-1', 'test-2', 'test-3'];
   const customSelectRef = useRef(null);
 
   const handleClickOutside = event => {
@@ -33,7 +32,11 @@ export const CustomSelect = ({ select, setSelect }) => {
       {isActive && (
         <div className={css.customSelectContent}>
           {options.map(el => (
-            <div onClick={() => setSelect(el)} className={css.customSelectItem}>
+            <div
+              key={el}
+              onClick={() => setSelect(el)}
+              className={css.customSelectItem}
+            >
               {el}
             </div>
           ))}

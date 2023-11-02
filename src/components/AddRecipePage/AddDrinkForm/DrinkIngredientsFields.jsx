@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+
 import { v4 as uuidv4 } from 'uuid';
 import css from './DrinkIngredientsFields.module.css';
+
+import { getDrinksIngredients } from 'services/filtersAPI';
 
 import { CustomSelect } from './CustomSelect';
 
@@ -9,6 +13,28 @@ export const DrinkIngredientsFields = ({
   setArrIngredients,
 }) => {
   const [count, setCount] = useState(3);
+  const [ingredientsData, setIngredientsData] = useState([]);
+
+  const userToken = useSelector(state => state.user.token);
+
+  useEffect(() => {
+    async function fetchIngredientsData() {
+      try {
+        const data = await getDrinksIngredients(userToken);
+
+        const ingredientsArray = data
+          .filter(el => el.title)
+          .map(el => el.title);
+        setIngredientsData(ingredientsArray);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    if (userToken) {
+      fetchIngredientsData();
+    }
+  }, [userToken]);
 
   class Count {
     increment = () => {
@@ -19,8 +45,8 @@ export const DrinkIngredientsFields = ({
         ...prevState,
         {
           id: uuidv4(),
-          ingredient: '',
-          volumeIngredient: 1,
+          title: '',
+          measure: '1',
         },
       ]);
     };
@@ -51,7 +77,7 @@ export const DrinkIngredientsFields = ({
     setArrIngredients(prevState =>
       prevState.map(volumeIngredient => {
         if (volumeIngredient.id === id) {
-          return { ...volumeIngredient, volumeIngredient: validValue };
+          return { ...volumeIngredient, measure: validValue + '' };
         }
         return volumeIngredient;
       })
@@ -85,20 +111,21 @@ export const DrinkIngredientsFields = ({
         </div>
       </div>
       <ul>
-        {arrIngredients.map(({ id, ingredient, volumeIngredient }) => (
+        {arrIngredients.map(({ id, title, measure }) => (
           <li key={id} className={css.ingredientItem}>
             <CustomSelect
-              select={ingredient}
+              select={title}
               setSelect={newIngredient => {
                 setArrIngredients(prevState =>
                   prevState.map(ingredientObj => {
                     if (ingredientObj.id === id) {
-                      return { ...ingredientObj, ingredient: newIngredient };
+                      return { ...ingredientObj, title: newIngredient };
                     }
                     return ingredientObj;
                   })
                 );
               }}
+              options={ingredientsData}
             />
             <div
               className={css.volumeIngredient}
@@ -106,7 +133,7 @@ export const DrinkIngredientsFields = ({
             >
               <input
                 type="number"
-                defaultValue={volumeIngredient}
+                defaultValue={measure}
                 onChange={e => onChange(id, e.target.value)}
                 className={css.numberCl}
                 id={`input_${id}`}
