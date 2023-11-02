@@ -30,10 +30,15 @@ export const drinksFavoriteApi = createApi({
       query: id => ({ url: `/favorite/remove/${id}`, method: 'DELETE' }),
       invalidatesTags: ['drinksFavorite'],
     }),
+    addDrinkFavorite: builder.mutation({
+      query: id => ({ url: `/favorite/add/${id}`, method: 'POST' }),
+      invalidatesTags: ['drinksFavorite'],
+    }),
   }),
 });
 
 export const {
   useGetDrinkFavoriteAllQuery,
   useDeleteDrinkFavoriteMutation,
+  useAddDrinkFavoriteMutation,
 } = drinksFavoriteApi;
