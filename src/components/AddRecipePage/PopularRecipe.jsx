@@ -1,54 +1,66 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // import { PopularLink } from "./PopularDrinks.styled";
-import pictureTest from '../../images/blue_iced_tea_large@1x.png';
+import { getDrinksPopular } from "services/drinksAPI";
+// import pictureTest from '../../images/blue_iced_tea_large@1x.png';
+// import { popularJSON } from "data/popularRecipe";
+import { useState } from "react";
+import { useEffect } from "react";
+import styles from "./PopularRecipe.module.css"
+import axios from "axios";
 
 // import axios from "axios";
 
-// useEffect(() => {
-//     get/popular
-// },[])
 
-// тимчасовий масив
 
-const populardrinks = [
-        {
-            img: pictureTest,
-            id: 1,
-            name: "drink1",
-            about: "Lorem Ipsum Lorem Ipsum Lorem Ipsum"
-        },
-        {
-            img: pictureTest,
-            id: 2,
-            name: "drink2",
-            about: "Lorem Ipsum Lorem Ipsum Lorem Ipsum"
-        },
-        {
-            img: pictureTest,
-            id: 3,
-            name:" drink3",
-            about: "Lorem Ipsum Lorem Ipsum Lorem Ipsum"
-        },
-        {
-            img: pictureTest,
-            id: 4,
-            name: "drink4",
-            about: "Lorem Ipsum Lorem Ipsum Lorem Ipsum"
-        }
-]
+// тимчасовий токен
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDM2MGU5MGY3ZWI0OTdkYjVjZGIzYyIsImlhdCI6MTY5ODkxNDUzOCwiZXhwIjoxNjk4OTk3MzM4fQ.lCvEipEi0MnV7TIFbtobXq_7bbhloljmRA1pVAubtgg"
+axios.defaults.headers.common.Authorization = `Bearer ${token} `
+
+export const PopularRecipe = () => {
+    const [popular, setPopular] = useState([]);
+    useEffect(() => {
+        getDrinksPopular()
+            .then(result => {
+                // console.log("result", result);
+                return setPopular([...result]);
+                        // popular.push(result)
+                    }).catch (error => {
+                        return console.log(error);
+                    })
+                    .finally(()=> console.log("finally"));
+       
+    },[])
+    // console.log("popular", popular);
     
-export const PopularRecipe = () => (
-    <ul>
-        {populardrinks.map(drink => <Link to="/drink" key={drink.id} id={drink.id}>
-            <img
-                src={drink.img}
-                alt={drink.name}
-            />
-            <div>
-                <h3>{drink.name}</h3>
-                <p>{drink.about}</p>
-            </div>
-        </Link>)}
-    </ul>
-)
+
+    return (
+        <div className={styles.popularContainer}>
+            <h3 className={styles.title}>Popular drinks</h3>
+            <ul className={styles.popularList}>
+                {popular.map(recipe => {
+                    const { _id, drink, shortDescription, drinkThumb} = recipe;
+                    // console.log("_id", _id);
+                    return (
+                        <Link
+                            to={`/drink/${_id}`}
+                            className={styles.drink}
+                            key={_id}
+                            id={_id}>
+                    <img
+                        className={styles.drinkImgThumb}
+                        src={drinkThumb}
+                        alt={drinkThumb}
+                    />
+                    <div className={styles.drinkText}>
+                        <h3 className={styles.drinkTitle}>{drink}</h3>
+                        <p className={styles.drinkInstructions}>{shortDescription}</p>
+                    </div>
+                </Link>
+                    )
+                })
+                }
+            </ul>
+        </div>
+    
+)}

@@ -1,9 +1,13 @@
 import { NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { BiCheckCircle, BiErrorCircle } from 'react-icons/bi';
+import { BiCheckCircle, BiErrorCircle, BiCalendarCheck } from 'react-icons/bi';
+// import { IoCalendarNumberOutline } from 'react-icons/io';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
 import css from './SignupForm.module.css';
-import { useSigninMutation, useSignupMutation } from 'redux/authSlice';
+import {
+  useSigninMutation,
+  useSignupMutation,
+} from 'redux/authSlice';
 import { notification } from 'components/Shared/notification';
 import { Loading } from 'components/Loader/Loader';
 import { useState } from 'react';
@@ -28,7 +32,12 @@ const SignupForm = () => {
   });
 
   const onSubmit = ({ name, email, password }) => {
-    dispatch({ name, email: email.toLowerCase(), password })
+    dispatch({
+      name,
+      email: email.toLowerCase(),
+      password,
+      birthDate: '2002-02-03T00:00:00+00:00',
+    })
       .unwrap()
       .then(() => {
         login({ email, password })
@@ -80,6 +89,14 @@ const SignupForm = () => {
         {errors.name && <p className={css.error}>{errors.name.message}</p>}
         <div className={css.input}>
           <StyledDatepicker />
+          <BiCalendarCheck
+            style={{
+              width: '24px',
+              height: '24px',
+              color: '#3CBC81',
+              margin: '0 24px 0 0 ',
+            }}
+          />
         </div>
         <label className={css.label}>
           <input

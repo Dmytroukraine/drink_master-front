@@ -30,8 +30,10 @@ import { getUserState } from 'redux/userSelectors';
 import { Loading } from 'components/Loader/Loader';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 import { HomePage } from 'pages/HomePage';
+import { RecipePage } from 'pages/RecipePage';
 import FavoriteDrinksPage from 'pages/FavouriteDrinksPage';
 import useLocalStorage from 'use-local-storage';
+
 
 
 
@@ -64,18 +66,25 @@ const App = () => {
           element={<RestrictedRoute component={SigninPage} />}
         />
 
+        <Route path="/drink/:drinkId" element={<RecipePage />} />
         <Route path="/" element={<PrivateRoute component={SharedLayout} />}/>
-         
-       
-        <Route path="/" element={<RestrictedRoute component={SharedLayout} />}>
+          <Route path="/" element={<RestrictedRoute component={SharedLayout} />}>
 
-          <Route path="/home" element={<RestrictedRoute component={HomePage} />}/>
+
+        
+
+       
+
+
+          <Route
+            path="/home"
+            element={<RestrictedRoute component={HomePage} />}
+          />
 
           <Route
             path="/favorites"
             element={<RestrictedRoute component={FavoriteDrinksPage} />}
           />
-
 
           <Route path="*" element={<ErrorPage />} />
         </Route>

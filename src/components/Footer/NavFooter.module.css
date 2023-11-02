@@ -1,0 +1,18 @@
+.navigation{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 40px;
+  color: #F3F3F3;
+}
+@media screen and (min-width: 768px) {
+  .navigation{
+margin-top: 48px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .navigation{
+margin-top: 0;
+padding-left: 440px;
+  }
+}
