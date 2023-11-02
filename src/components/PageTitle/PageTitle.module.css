@@ -3,8 +3,6 @@
   font-size: 32px;
   font-weight: 600;
   line-height: 1.1875;
-  margin-top: 75px;
-  margin-left: 20px;
 }
 
 @media screen and (min-width: 768px) {
@@ -22,4 +20,8 @@
     margin-top: 158px;
     margin-left: 100px;
   }
+}
+
+.TitleWrap {
+  padding: 0px 20px;
 }
