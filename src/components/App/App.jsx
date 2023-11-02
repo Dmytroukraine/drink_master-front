@@ -33,12 +33,12 @@ import { HomePage } from 'pages/HomePage';
 import { RecipePage } from 'pages/RecipePage';
 import FavoriteDrinksPage from 'pages/FavouriteDrinksPage';
 import useLocalStorage from 'use-local-storage';
+import DrinksPage from 'pages/DrinksPage';
 
 const ErrorPage = lazy(() => import('pages/404Page'));
 
 const App = () => {
- 
-  const theme = useLocalStorage('theme' ? 'dark' : 'light')
+  const theme = useLocalStorage('theme' ? 'dark' : 'light');
   const user = useSelector(getUserState);
   const skip = !user.token && !user.isLoggedIn;
 
@@ -47,44 +47,36 @@ const App = () => {
   if (isLoading) return <Loading size={100} />;
 
   return (
-    <div  data-theme={theme}>
-    <>
-      <Routes>
-        <Route
-          path="/welcome"
-          element={<RestrictedRoute component={WelcomePage} />}
-        />
-        <Route
-          path="/signup"
-          element={<RestrictedRoute component={SignupPage} />}
-        />
-        <Route
-          path="/signin"
-          element={<RestrictedRoute component={SigninPage} />}
-        />
-
-
-        <Route path="/drink/:drinkId" element={<RecipePage />} />
-        <Route path="/" element={<PrivateRoute component={SharedLayout} />}/>
-          <Route path="/" element={<RestrictedRoute component={SharedLayout} />}>
-
+    <div data-theme={theme}>
+      <>
+        <Routes>
           <Route
-            path="/home"
-            element={<RestrictedRoute component={HomePage} />}
+            path="/welcome"
+            element={<RestrictedRoute component={WelcomePage} />}
+          />
+          <Route
+            path="/signup"
+            element={<RestrictedRoute component={SignupPage} />}
+          />
+          <Route
+            path="/signin"
+            element={<RestrictedRoute component={SigninPage} />}
           />
 
-          <Route
-            path="/favorites"
-            element={<RestrictedRoute component={FavoriteDrinksPage} />}
-          />
+          {/* <Route path="/" element={<PrivateRoute component={SharedLayout} />} /> */}
+          <Route path="/" element={<PrivateRoute component={SharedLayout} />}>
+            <Route path="home" element={<HomePage />} />
+            <Route path="drinks" element={<DrinksPage />} />
 
-          <Route path="*" element={<ErrorPage />} />
-        </Route>
-      </Routes>
-      <ToastContainer />
+            <Route path="favorites" element={<FavoriteDrinksPage />} />
+            <Route path="drink/:drinkId" element={<RecipePage />} />
+
+            <Route path="*" element={<ErrorPage />} />
+          </Route>
+        </Routes>
+        <ToastContainer />
       </>
     </div>
-    
   );
 };
 
