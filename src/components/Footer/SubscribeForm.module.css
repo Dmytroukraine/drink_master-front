@@ -31,3 +31,14 @@ background: transparent;
 .subscribeFormButton:disabled{
   opacity: 0.5;
 }
+@media screen and (min-width: 768px) {
+  .subscribeFormButton {
+    width: 310px;
+  }
+  .subscribeFormImput{
+    width: 310px;
+  }
+  .subscribeFormText{
+    width: 310px;
+  }
+}

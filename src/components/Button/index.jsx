@@ -12,6 +12,7 @@ import s from './button.module.css';
 // <Button text="Click here!" padding='0 0 0 0 0' width='250px' fontSize='25px'/>
 
 export const Button = ({
+  handleClick,
   text,
   buttonClass = 'button',
   width = '',
@@ -21,11 +22,12 @@ export const Button = ({
 }) => {
   return (
     <button
+      onClick={handleClick}
       style={{
         width: `${width}`,
         padding: `${padding}`,
         fontSize: `${fontSize}`,
-        marginLeft: `${marginLeft}`
+        marginLeft: `${marginLeft}`,
       }}
       className={s[buttonClass]}
     >
