@@ -4,6 +4,7 @@ import { recipesApi } from './recipesSlice';
 import { userReducer } from './userSlice';
 import { myRecipesApi } from './myRecipesSlice';
 import { drinksFavoriteApi } from './drinkSlice';
+import { ingredientsSlice } from './ingredients/ingredientsSlice';
 
 import {
   persistStore,
@@ -27,8 +28,10 @@ const rootReducer = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
   [recipesApi.reducerPath]: recipesApi.reducer,
   [myRecipesApi.reducerPath]: myRecipesApi.reducer,
-  [drinksFavoriteApi.reducerPath]: drinksFavoriteApi.reducer, 
+  [drinksFavoriteApi.reducerPath]: drinksFavoriteApi.reducer,
+
   user: persistReducer(persistConfig, userReducer),
+  ingredients: ingredientsSlice.reducer,
 });
 
 export const store = configureStore({
