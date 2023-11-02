@@ -18,9 +18,9 @@
 
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
-import WelcomePage from 'pages/WelcomePage';
-import SigninPage from 'pages/SigninPage';
-import SignupPage from 'pages/SignupPage';
+// import WelcomePage from 'pages/WelcomePage';
+// import SigninPage from 'pages/SigninPage';
+// import SignupPage from 'pages/SignupPage';
 import PrivateRoute from 'components/PrivateRoute';
 import RestrictedRoute from 'components/RestrictedRoute';
 import { ToastContainer } from 'react-toastify';
@@ -31,10 +31,20 @@ import { Loading } from 'components/Loader/Loader';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 import { HomePage } from 'pages/HomePage';
 import FavoriteDrinksPage from 'pages/FavouriteDrinksPage';
+import { createContext } from 'react';
+import { useState } from 'react';
+
+export const ThemeContext = createContext(null);
+
+
 
 const ErrorPage = lazy(() => import('pages/404Page'));
 
 const App = () => {
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === "light" ? "dark" : "light"))
+};
+  const [theme, setTheme] = useState("dark");
   const user = useSelector(getUserState);
   const skip = !user.token && !user.isLoggedIn;
 
@@ -43,9 +53,11 @@ const App = () => {
   if (isLoading) return <Loading size={100} />;
 
   return (
+    <ThemeContext.Provider value={{ theme, setTheme }} >
+      <div id={theme}>
     <>
       <Routes>
-        <Route
+        {/* <Route
           path="/welcome"
           element={<RestrictedRoute component={WelcomePage} />}
         />
@@ -56,7 +68,7 @@ const App = () => {
         <Route
           path="/signin"
           element={<RestrictedRoute component={SigninPage} />}
-        />
+        /> */}
 
         <Route path="/" element={<PrivateRoute component={SharedLayout} />}/>
          
@@ -75,7 +87,8 @@ const App = () => {
         </Route>
       </Routes>
       <ToastContainer />
-    </>
+      </></div>
+    </ThemeContext.Provider>
   );
 };
 

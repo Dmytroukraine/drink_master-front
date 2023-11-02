@@ -3,7 +3,7 @@
     height: 20px;
     width: 40px;
     border-radius: 100px;
-    background-color: var(--primary-white-color);
+    background-color: #F3F3F3;
     border: none;
 }
 
@@ -12,7 +12,7 @@
     position: absolute;
     height: 18px;
     width: 18px;
-    background: var(--secondary-bg-blue-color);
+    background: #161F37;
     border-radius: 50%;
     top: 50%;
     left: 1px;
