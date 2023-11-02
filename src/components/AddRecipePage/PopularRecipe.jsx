@@ -5,32 +5,57 @@ import { getDrinksPopular } from "services/drinksAPI";
 // import pictureTest from '../../images/blue_iced_tea_large@1x.png';
 // import { popularJSON } from "data/popularRecipe";
 import { useState } from "react";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import styles from "./PopularRecipe.module.css"
 import axios from "axios";
+import { useSelector } from "react-redux";
+import { getUserState } from "redux/userSelectors";
 
 // import axios from "axios";
 
 
 
 // тимчасовий токен
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDM2MGU5MGY3ZWI0OTdkYjVjZGIzYyIsImlhdCI6MTY5ODkxNDUzOCwiZXhwIjoxNjk4OTk3MzM4fQ.lCvEipEi0MnV7TIFbtobXq_7bbhloljmRA1pVAubtgg"
-axios.defaults.headers.common.Authorization = `Bearer ${token} `
+// const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDNhMjNiMGY3ZWI0OTdkYjVkMWM5NCIsImlhdCI6MTY5ODkzMjQ4NSwiZXhwIjoxNjk5MDE1Mjg1fQ.pL3xnvAw08_IVOmOjF95HBZQgh2FExouOutmOHihmgc"
+// axios.defaults.headers.common.Authorization = `Bearer ${token} `
+
 
 export const PopularRecipe = () => {
     const [popular, setPopular] = useState([]);
-    useEffect(() => {
-        getDrinksPopular()
-            .then(result => {
-                // console.log("result", result);
-                return setPopular([...result]);
+    // const user = useSelector(getUserState);
+    // const { token } = useSelector(getUserState);
+    const { token } = useSelector(getUserState);
+    console.log("token", token);
+    // const token = user.token;
+    axios.defaults.headers.common.Authorization = `Bearer ${token} `
+
+    getDrinksPopular()
+        .then(result => {
+            console.log("result", result);
+            
+            return setPopular([...result]);
                         // popular.push(result)
-                    }).catch (error => {
-                        return console.log(error);
-                    })
-                    .finally(()=> console.log("finally"));
+        }).catch (error => {
+            return console.log(error);
+        })
+        .finally(()=> console.log("finally"));
+    
+    // useEffect(() => {
+    //     // const user = useSelector(getUserState);
+    //     // const token = user.token;
+    //     // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDNhMjNiMGY3ZWI0OTdkYjVkMWM5NCIsImlhdCI6MTY5ODkzMjQ4NSwiZXhwIjoxNjk5MDE1Mjg1fQ.pL3xnvAw08_IVOmOjF95HBZQgh2FExouOutmOHihmgc"
+    //     // axios.defaults.headers.common.Authorization = `Bearer ${token} `
+    //     getDrinksPopular()
+    //         .then(result => {
+    //             console.log("result", result);
+    //             return setPopular([...result]);
+    //                     // popular.push(result)
+    //                 }).catch (error => {
+    //                     return console.log(error);
+    //                 })
+    //                 .finally(()=> console.log("finally"));
        
-    },[])
+    // },[])
     // console.log("popular", popular);
     
 
