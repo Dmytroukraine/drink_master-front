@@ -7,6 +7,7 @@ import { drinksFavoriteApi } from './drinkSlice/drinkFavoriteSlice';
 import { drinksApi } from './drinkSlice/drinksSlice';
 import { getRequestedDrink } from './searchOperations';
 import { ingredientsSlice } from './ingredients/ingredientsSlice';
+import { drinksPopularApi } from './getPopularOperation';
 
 
 import {
@@ -34,6 +35,7 @@ const rootReducer = combineReducers({
   [drinksApi.reducerPath]: drinksApi.reducer,
   [drinksFavoriteApi.reducerPath]: drinksFavoriteApi.reducer,
   [getRequestedDrink.reducerPath]: getRequestedDrink.reducer,
+  [drinksPopularApi.reducerPath]: drinksPopularApi.reducer,
 
   user: persistReducer(persistConfig, userReducer),
   ingredients: ingredientsSlice.reducer,
@@ -51,6 +53,7 @@ export const store = configureStore({
       .concat(filtersApi.middleware)
       .concat(myRecipesApi.middleware)
       .concat(drinksFavoriteApi.middleware)
+      .concat(drinksPopularApi.middleware)
       .concat(drinksApi.middleware)
       .concat(getRequestedDrink.middleware),
 });
