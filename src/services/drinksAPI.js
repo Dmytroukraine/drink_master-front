@@ -13,14 +13,22 @@ export async function getDrinksPopular() {
   return data;
 }
 
-
 export async function getDrinksById(id) {
   const { data } = await axios.get(`/api/drinks/${id}`);
   return data;
 }
 
 
+// export async function getAllIngredients() {
+//   const { data } = await axios.get(`/api/filters/ingredients`);
+//   return data;
+// }
+
+// Example
+
+
 // Example 
+
 // const testId = '639b6de9ff77d221f190c50f';
 
 // getDrinksById(testId)
