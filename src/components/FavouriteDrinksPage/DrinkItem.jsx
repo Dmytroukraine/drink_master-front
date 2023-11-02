@@ -1,15 +1,18 @@
 import { Link } from 'react-router-dom';
+import React from 'react';
 import stop from '../../images/thumb-placeholder-large.png';
 import css from '../FavouriteDrinksPage/DrinkItem.module.css';
 
-// export const DrinkItem = ({ drink, onDelete }) => {
-export const DrinkItem = ({ drink }) => {
+export const DrinkItem = ({ drink, onDelete }) => {
+
   return (
     <li className={css.drinksListItem} key={drink._id}>
       <img
-        src={drink.drinkThumb ? `${drink.drinkThumb}` : `${stop}`}
+        src={drink.drinkThumb || stop}
+
         alt={drink.title}
         className={css.imageDrinkItem}
+        onError={event => ((event.target.src = stop))}
       />
 
       <div className={css.drinkMargin}>
@@ -19,15 +22,17 @@ export const DrinkItem = ({ drink }) => {
       </div>
 
       <div className={css.btnBlock}>
-        <Link to={`/drink/:drinkId`}>
+        <Link to={`/drink/${drink._id}`}>
           <button className={css.btn}>See more</button>
         </Link>
         <button
           type="button"
           className={css.btn_cirkle}
-          // onClick={() => {
-          //   onDelete(drink._id); //проверить _id.$od
-          // }}
+
+          onClick={() => {
+            onDelete(drink._id); 
+          }}
+
         >
           <svg
             width="24"

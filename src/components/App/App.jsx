@@ -34,9 +34,6 @@ import { RecipePage } from 'pages/RecipePage';
 import FavoriteDrinksPage from 'pages/FavouriteDrinksPage';
 import useLocalStorage from 'use-local-storage';
 
-
-
-
 const ErrorPage = lazy(() => import('pages/404Page'));
 
 const App = () => {
@@ -66,15 +63,10 @@ const App = () => {
           element={<RestrictedRoute component={SigninPage} />}
         />
 
+
         <Route path="/drink/:drinkId" element={<RecipePage />} />
         <Route path="/" element={<PrivateRoute component={SharedLayout} />}/>
           <Route path="/" element={<RestrictedRoute component={SharedLayout} />}>
-
-
-        
-
-       
-
 
           <Route
             path="/home"

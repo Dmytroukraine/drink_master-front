@@ -1,6 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import axios from 'axios';
+
 // const BASE_URL = `${process.env.REACT_APP_BASE_URL}/api/drinks/favorite`;
+
 
 
 const BASE_URL = 'https://drink-master-service.onrender.com/api/drinks/'
@@ -11,6 +13,7 @@ export const drinksFavoriteApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: BASE_URL,
     prepareHeaders: (headers, { getState }) => {
+      // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDE0NjcxOGRhNGFkMWQ0Y2I0ZmQ5MyIsImlhdCI6MTY5ODkxNTg0NCwiZXhwIjoxNjk4OTk4NjQ0fQ.WZDSZ2CMZ36U5VYLguFpxKreC4lGU0QUxNctE89Xr_0"
       const token = getState().user.token;
 
       if (token) {
