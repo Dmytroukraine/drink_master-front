@@ -24,7 +24,6 @@
         /* max-width: calc(100vw - 64px); */
         width: 704px;
         gap: 80px 20px;
-        /* outline: 4px solid rgb(41, 49, 51); */
     }
 }
 
@@ -36,6 +35,5 @@
         padding-left: 0px;
         padding-right: 0px;
         gap: 80px 20px;
-        /* outline: 4px solid rgb(41, 49, 51); */
     }
 }

@@ -1,46 +1,44 @@
-import { Loader } from '../components/Loader/Loader';
+import { Loading } from '../components/Loader/Loader';
 import { useGetDrinkFavoriteAllQuery } from 'redux/drinkSlice';
 import { PageTitle } from '../components/PageTitle/PageTitle';
-import { Paginator } from '../components/Paginator/Paginator';
-import { DrinkList } from '../components/FavouriteDrinksPage/DrinkList';
+// import { Paginator } from '../components/Paginator/Paginator';
+import NoContentSection from 'components/404Page/NoContent';
+import { DrinksList } from '../components/FavouriteDrinksPage/DrinkList';
+import BasicImg from '../images/blue_iced_tea_large@1x.png';
 
 import css from './FavouriteDrinksPage.module.css';
 
-export const FavouriteDrinksPage = () => {
-  const { data, isLoading } = useGetDrinkFavoriteAllQuery();
+const FavouriteDrinksPage = () => {
+  const { data = [], isLoading } = useGetDrinkFavoriteAllQuery();
+  // console.log(useGetDrinkFavoriteAllQuery());
+  // console.log(data);
+  // console.log(data.length);
 
   return (
     <div>
-      {/* {error && { error }} */}
+      {/* {isError && { isError }} */}
       <PageTitle title="Favorites" />
       <div>
-        {isLoading && <Loader />}
-        {data ? (
-          <DrinkList drinks={data} />
-        ) : (
+        {isLoading && <Loading />}
+        {data.length > 0 ? (<DrinksList drinks={data} />) : (<NoContentSection children={
           <div>
-            <img
-              className={css.drinkNotImg}
-              srcSet="
-                    ../images/blue_iced_tea_large@1x.png 467w,
-                    ../images/blue_iced_tea_large@2x.png 934w,
-                    ../images/blue_iced_tea_medium@1x.png 284w,
-                    ../images/blue_iced_tea_medium@2x.png 568w,
-                    ../images/blue_iced_tea_smal@1x.png 157w,
-                    ../images/blue_iced_tea_small@2x.png 314w"
-              sizes="(min-width: 1440px) 467px, (min-width: 768px) 284px, (min-width: 375px) 157px, 100vw"
-              src="../images/blue_iced_tea_large@1x.png"
-              alt="A coctail"
-              width="261"
-              height="326"
-            />
-            <p class="drinkNotImgText">
-              You haven't added any favorite cocktails yet
-            </p>
-          </div>
-        )}
-        {data.length > 0 && <Paginator drinks={data} />}
+          <img
+            className={css.drinkNotImg}
+            src={BasicImg}
+            alt="A coctail"
+            width="261"
+            height="326"
+          />
+          <p className={css.drinkNotImgText}>
+            You haven't added any favorite cocktails yet
+          </p>
+        </div>
+        }/>)
+        }
+        {/* {data.length > 1 && <Paginator drinks={data} />} */}
       </div>
     </div>
   );
 };
+
+export default FavouriteDrinksPage;
