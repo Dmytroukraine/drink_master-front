@@ -7,10 +7,8 @@ import NavPages, { Menu } from './Navigation';
 import css from './Header.module.css';
 import ThemeSwitcher from './ThemeSwitcher';
 
-
-
 const Header = () => {
-  const { user, avatarURL } = useSelector(getUserState);
+  const { user } = useSelector(getUserState);
 
   return (
     <div className={css.header}>
@@ -18,7 +16,7 @@ const Header = () => {
       <Menu isDesktop />
       <div className={css.group}>
         <ThemeSwitcher></ThemeSwitcher>
-        <UserLogo userName={user.name} avatarURL={avatarURL} />
+        <UserLogo userName={user.name} avatarURL={user.avatarURL} />
         <NavPages />
       </div>
     </div>
