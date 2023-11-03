@@ -90,9 +90,20 @@
     color: #161f37;
 }
 
-.button:disabled {
+/* .button:disabled {
     background-color: #161f37;
     border: 1px solid rgba(243, 243, 243, 0.2);
     color: rgba(243, 243, 243, 0.2);
     cursor: not-allowed;
 }
+
+.hidden {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+
+} */

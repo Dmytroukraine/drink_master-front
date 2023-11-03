@@ -9,7 +9,20 @@
     z-index: 10;
 }
 
-.button {
+@media screen and (min-width: 1024px) {
+    .userLogoPopup {
+        top: 48px;
+        right: -6px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .userLogoPopup {
+        top: 48px;
+    }
+}
+
+/* .button {
     background-color: transparent;
     margin: 0;
     border: none;
@@ -22,4 +35,4 @@
 .text {
     font-size: 14px;
     color: #f3f3f3;
-}
+} */
