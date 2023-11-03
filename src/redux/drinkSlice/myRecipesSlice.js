@@ -1,6 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import axios from 'axios';
 
-const BASE_URL = `${process.env.REACT_APP_BASE_URL}/api/myrecipes`;
+const BASE_URL = 'https://drink-master-service.onrender.com/api/drinks/';
+axios.defaults.baseURL = BASE_URL;
 
 export const myRecipesApi = createApi({
   reducerPath: 'myRecipesApi',
@@ -28,7 +30,7 @@ export const myRecipesApi = createApi({
       invalidatesTags: ['myRecipes'],
     }),
     getMyRecipes: builder.query({
-      query: (searchParams) => ({ url: `/${searchParams}` }),
+      query: () => ({ url: `/own` }),
       providesTags: ['myRecipes'],
     }),
     deleteMyRecipe: builder.mutation({
