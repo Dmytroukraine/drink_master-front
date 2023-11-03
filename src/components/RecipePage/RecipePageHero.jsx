@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 
 import css from './recipePage.module.css';
 import { PageTitle } from 'components/PageTitle/PageTitle';
+import imgPlaceHolder from '../../images/thumb-placeholder-small.png';
+
 import {
   useAddDrinkFavoriteMutation,
   useDeleteDrinkFavoriteMutation,
@@ -48,7 +50,13 @@ export const RecipePageHero = ({ data }) => {
         )}
       </div>
       <div>
-        <img src={data.drinkThumb} alt={data.IBA} width="400" height="400" />
+        <img
+          src={data.drinkThumb}
+          alt={data.IBA}
+          width="400"
+          height="400"
+          onError={event => (event.target.src = imgPlaceHolder)}
+        />
       </div>
     </>
   );

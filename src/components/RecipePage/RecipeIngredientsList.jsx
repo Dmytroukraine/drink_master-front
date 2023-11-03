@@ -1,4 +1,5 @@
 import { useGetIngredientsListQuery } from '../../redux/filtersSlice/filtersSlice';
+import imgPlaceHolder from '../../images/thumb-placeholder-small.png';
 
 export const RecipeIngredientList = ({ ingredients }) => {
   const { data } = useGetIngredientsListQuery();
@@ -30,7 +31,11 @@ export const RecipeIngredientList = ({ ingredients }) => {
           {newArr.map(item => {
             return (
               <li key={item._id}>
-                <img src={item.ingredientThumb} alt="" />
+                <img
+                  src={item.ingredientThumb}
+                  alt=""
+                  onError={event => (event.target.src = imgPlaceHolder)}
+                />
                 <p>{item.title}</p>
                 <p>{item.measure}</p>
               </li>
