@@ -1,0 +1,84 @@
+.myDrinkItem {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    min-height: 676px;
+}
+
+.img {
+    width: 400px;
+    height: 400px;
+    border-radius: 8px;
+}
+
+.drinkWrapper {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.drinkTitle {
+    margin-top: 24px;
+    margin-bottom: 0;
+    font-size: 24px;
+    font-weight: medium;
+    line-height: calc(32 / 24);
+}
+
+.drinkCategory {
+    margin-top: 4px;
+    margin-bottom: 24px;
+    font-size: 16px;
+    font-weight: regular;
+    line-height: calc(18 / 16);
+}
+
+.drinkDescription {
+    height: 92px;
+    font-size: 16px;
+    font-weight: regular;
+    line-height: calc(22 / 16);
+    margin: 0;
+    overflow: hidden;
+}
+
+.moreBtn {
+    background-color: #161F37;
+    color: #f3f3f3;
+    font-size: 16px;
+    font-weight: SemiBold;
+    line-height: calc(18 / 16);
+    padding: 18px 44px;
+    border-radius: 42px;
+    border-width: 0;
+    margin-right: 8px;
+
+    &:hover,
+    :focus {
+        background-color: #f3f3f3;
+        color: #161F37;
+    }
+}
+
+.deleteBtn {
+    background-color: #161F37;
+    padding: 14px 16px;
+    border-radius: 40px;
+    border-width: 0;
+
+
+    &:hover,
+    :focus {
+        background-color: #f3f3f3;
+
+        .svgTrash {
+            background-color: #f3f3f3;
+            stroke: #161F37
+        }
+    }
+}
+
+.buttonsWrapper {
+    display: flex;
+    margin-top: 24px;
+}
