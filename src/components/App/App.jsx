@@ -30,7 +30,7 @@ import { getUserState } from 'redux/userSlice/userSelectors';
 import { Loading } from 'components/Loader/Loader';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 import { HomePage } from 'pages/HomePage';
-import { RecipePage } from 'pages/RecipePage';
+import { DrinkPage } from 'pages/DrinkPage';
 import FavoriteDrinksPage from 'pages/FavouriteDrinksPage';
 import useLocalStorage from 'use-local-storage';
 import DrinksPage from 'pages/DrinksPage';
@@ -70,7 +70,7 @@ const App = () => {
             <Route path="drinks" element={<DrinksPage />} />
             <Route path="add" element={<AddDrinkPage />} />
             <Route path="favorites" element={<FavoriteDrinksPage />} />
-            <Route path="drink/:drinkId" element={<RecipePage />} />
+            <Route path="drink/:drinkId" element={<DrinkPage />} />
             <Route path="my" element={<MyDrinksPage />} />
 
             {/* <Route path="privacy" element={<Privacy />} /> */}

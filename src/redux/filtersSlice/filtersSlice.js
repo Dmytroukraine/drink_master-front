@@ -1,10 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 // const BASE_URL = `${process.env.REACT_APP_BASE_URL}/api`;
-const BASE_URL = 'https://drink-master-service.onrender.com/api/';
+const BASE_URL = 'https://drink-master-service.onrender.com/api/filters';
 
 export const filtersApi = createApi({
-  reducerPath: 'recipesApi',
+  reducerPath: 'filtersApi',
   baseQuery: fetchBaseQuery({
     baseUrl: BASE_URL,
     prepareHeaders: (headers, { getState }) => {
@@ -17,43 +17,52 @@ export const filtersApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ['recipes'],
+  
+  tagTypes: ['filters'],
   endpoints: builder => ({
     getCategoriesList: builder.query({
-      query: () => ({ url: '/recipes/category-list' }),
-      providesTags: ['recipes'],
+      query: () => ({ url: '/category-list' }),
+      providesTags: ['filters'],
     }),
+    
     getMainPageRecipes: builder.query({
-      query: () => ({ url: '/recipes/main-page' }),
-      providesTags: ['recipes'],
+      query: () => ({ url: '/main-page' }),
+      providesTags: ['filters'],
     }),
+    
     searchRecipes: builder.query({
-      query: searchParams => ({ url: `/recipes/${searchParams}` }),
-      providesTags: ['recipes'],
+      query: searchParams => ({ url: `/${searchParams}` }),
+      providesTags: ['filters'],
     }),
+    
     getRecipeById: builder.query({
-      query: id => ({ url: `/recipes/${id}` }),
-      providesTags: ['recipes'],
+      query: id => ({ url: `/${id}` }),
+      providesTags: ['filters'],
     }),
+    
     toggleFavorite: builder.mutation({
-      query: id => ({ url: `/recipes/favorites/${id}`, method: 'PATCH' }),
-      invalidatesTags: ['recipes'],
+      query: id => ({ url: `/favorites/${id}`, method: 'PATCH' }),
+      invalidatesTags: ['filters'],
     }),
+    
     getFavorites: builder.query({
-      query: searchParams => ({ url: `/recipes/favorites/${searchParams}` }),
-      providesTags: ['recipes'],
+      query: searchParams => ({ url: `/favorites/${searchParams}` }),
+      providesTags: ['filters'],
     }),
+    
     getPopularList: builder.query({
-      query: () => ({ url: '/recipes/popular-recipes' }),
-      providesTags: ['recipes'],
+      query: () => ({ url: '/popular-recipes' }),
+      providesTags: ['filters'],
     }),
+    
     getIngredientsList: builder.query({
       query: () => ({ url: '/filters/ingredients' }),
-      providesTags: ['recipes'],
+      providesTags: ['filters'],
     }),
+    
     getGlassList: builder.query({
       query: () => ({ url: '/glass' }),
-      providesTags: ['recipes'],
+      providesTags: ['filters'],
     }),
   }),
 });
