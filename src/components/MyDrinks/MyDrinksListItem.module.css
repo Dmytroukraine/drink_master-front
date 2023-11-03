@@ -57,6 +57,7 @@
     :focus {
         background-color: #f3f3f3;
         color: #161F37;
+        transition-duration: var(--transition-duration);
     }
 }
 
@@ -70,10 +71,11 @@
     &:hover,
     :focus {
         background-color: #f3f3f3;
+        transition-duration: var(--transition-duration);
 
         .svgTrash {
             background-color: #f3f3f3;
-            stroke: #161F37
+            stroke: #161F37;
         }
     }
 }

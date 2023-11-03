@@ -4,13 +4,12 @@
     row-gap: 80px;
     column-gap: 20px;
     list-style: none;
+    margin-top: 62px;
 }
 
-/* .myDrinkListWrapper{
-    
-} */
-
-body {
-    color: #f3f3f3;
-    background-color: #0A0A11;
+.myDrinkListWrapper{
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-bottom: 140px;
 }
+
