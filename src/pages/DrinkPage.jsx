@@ -7,12 +7,11 @@ import styles from '../components/DrinkPage/DrinkPage.module.css';
 
 export function DrinkPage() {
   const { drinkId } = useParams();
-  const { data = {}, isLoading } = useGetDrinkByIdQuery(drinkId);
-  // console.log(useGetDrinkFavoriteAllQuery());
+  const { data = {} } = useGetDrinkByIdQuery(drinkId);
+  // console.log(useGetDrinkByIdQuery());
   // console.log(data);
   // console.log(data.length);
 
-  //   const myDrink = data.find(option => option._id.$oid === drink);
   return (
     <div className={styles.container}>
       <DrinkPageHero data={data} />
