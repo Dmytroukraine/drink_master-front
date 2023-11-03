@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/drink_master-front/static/css/main.4151c43d.css",
-    "main.js": "/drink_master-front/static/js/main.dcca3829.js",
+    "main.css": "/drink_master-front/static/css/main.31039bc7.css",
+    "main.js": "/drink_master-front/static/js/main.261c67fa.js",
     "static/css/442.882167c1.chunk.css": "/drink_master-front/static/css/442.882167c1.chunk.css",
     "static/js/442.cc314d57.chunk.js": "/drink_master-front/static/js/442.cc314d57.chunk.js",
     "static/media/no-content-cocktail@2x.png": "/drink_master-front/static/media/no-content-cocktail@2x.c484f488d7f32c744feb.png",
@@ -10,6 +10,7 @@
     "static/media/welcomePage-background_mob@2x.jpg": "/drink_master-front/static/media/welcomePage-background_mob@2x.170ffcde141c88e85a60.jpg",
     "static/media/no-content-cocktail.png": "/drink_master-front/static/media/no-content-cocktail.575a33f8acc537f0bd25.png",
     "static/media/welcomePage-background_desk.jpg": "/drink_master-front/static/media/welcomePage-background_desk.b4eb149f4cb988e858ba.jpg",
+    "static/media/recipePageCoctail@2x.jpg": "/drink_master-front/static/media/recipePageCoctail@2x.3ff2be7f743724efe744.jpg",
     "static/media/welcomePage-background_tab.jpg": "/drink_master-front/static/media/welcomePage-background_tab.3a68dd6fedb3f24a8241.jpg",
     "static/media/blue_iced_tea_large@1x.png": "/drink_master-front/static/media/blue_iced_tea_large@1x.78a8f8602147fa959f76.png",
     "static/media/welcomePage-background_mob.jpg": "/drink_master-front/static/media/welcomePage-background_mob.61d2db8005da79c4ea3b.jpg",
@@ -22,13 +23,13 @@
     "static/media/add_photo.svg": "/drink_master-front/static/media/add_photo.0176940aef843e86785782121035d3ee.svg",
     "static/media/logo.svg": "/drink_master-front/static/media/logo.6cb16cf1ac1cac61875038b493cf9861.svg",
     "static/media/x.svg": "/drink_master-front/static/media/x.358abb3c7267c7a7485d2f239b2827e0.svg",
-    "main.4151c43d.css.map": "/drink_master-front/static/css/main.4151c43d.css.map",
-    "main.dcca3829.js.map": "/drink_master-front/static/js/main.dcca3829.js.map",
+    "main.31039bc7.css.map": "/drink_master-front/static/css/main.31039bc7.css.map",
+    "main.261c67fa.js.map": "/drink_master-front/static/js/main.261c67fa.js.map",
     "442.882167c1.chunk.css.map": "/drink_master-front/static/css/442.882167c1.chunk.css.map",
     "442.cc314d57.chunk.js.map": "/drink_master-front/static/js/442.cc314d57.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4151c43d.css",
-    "static/js/main.dcca3829.js"
+    "static/css/main.31039bc7.css",
+    "static/js/main.261c67fa.js"
   ]
 }
