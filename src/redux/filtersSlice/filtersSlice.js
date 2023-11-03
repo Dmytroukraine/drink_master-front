@@ -48,7 +48,7 @@ export const filtersApi = createApi({
       providesTags: ['recipes'],
     }),
     getIngredientsList: builder.query({
-      query: () => ({ url: '/ingredients/list' }),
+      query: () => ({ url: '/filters/ingredients' }),
       providesTags: ['recipes'],
     }),
     getGlassList: builder.query({
