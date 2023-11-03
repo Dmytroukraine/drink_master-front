@@ -3,12 +3,12 @@ import { MyDrinksList } from '../components/MyDrinks/MyDrinksList';
 import { Loading } from '../components/Loader/Loader';
 import NoContentSection from 'components/404Page/NoContent';
 import BasicImg from '../images/blue_iced_tea_large@1x.png';
-import { useGetMyRecipesQuery } from 'redux/drinkSlice/myRecipesSlice';
+import { useGetMyDrinksQuery } from 'redux/drinkSlice/drinksSlice';
 import css from './FavouriteDrinksPage.module.css';
 
 const MyDrinksPage = () => {
-  const { data = [], isLoading } = useGetMyRecipesQuery();
-  // console.log(useGetMyRecipesQuery());
+  const { data = [], isLoading } = useGetMyDrinksQuery();
+  // console.log(useGetMyDrinksQuery());
   // console.log(data);
   // console.log(data.length);
   return (
