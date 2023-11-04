@@ -24,7 +24,7 @@ export const PreviewDrinks = () => {
               return (
                 <CocktailList
                   key={category}
-                  data={values[index]}
+                  category={values[index]}
                   title={category}
                 ></CocktailList>
               );
