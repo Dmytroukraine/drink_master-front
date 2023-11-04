@@ -6,7 +6,7 @@ import edit from '../../images/edit_icon.svg';
 import user from '../../images/user.png';
 import add_photo from '../../images/add_photo.svg';
 
-const UserInfoModal = ({ userName, avatarURL }) => {
+const UserInfoModal = ({ userName, avatarURL, onClose }) => {
   const refInput = useRef(null);
   const refInputUpload = useRef(null);
 
@@ -36,7 +36,10 @@ const UserInfoModal = ({ userName, avatarURL }) => {
 
     dispatch(formData)
       .unwrap()
-      .then(() => notification('Success', 'success'))
+      .then(() => {
+        notification('Success', 'success');
+        onClose();
+      })
       .catch(e => notification(e.data.message, 'error'));
   };
 
@@ -65,7 +68,7 @@ const UserInfoModal = ({ userName, avatarURL }) => {
         <UploadInput
           refInput={refInputUpload}
           onChange={handleChangeAvatar}
-          accept="image/*, .png, .jpg, .gif"
+          accept="image/*, .png, .jpg, .jpeg"
         />
       </div>
       <div className={css.group}>

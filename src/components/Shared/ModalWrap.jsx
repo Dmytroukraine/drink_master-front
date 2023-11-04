@@ -3,15 +3,15 @@ import css from '../Shared/ModalWrap.module.css';
 import x from '../../images/x.svg';
 
 const ModalWrap = ({ children, ...props }) => {
-  const { isOpen, toggle } = props;
+  const { isOpen, onToggle } = props;
 
   const handleEsc = useCallback(
     e => {
       if (e.key === 'Escape') {
-        toggle();
+        onToggle();
       }
     },
-    [toggle]
+    [onToggle]
   );
 
   React.useEffect(() => {
@@ -23,13 +23,18 @@ const ModalWrap = ({ children, ...props }) => {
     };
   }, [isOpen, handleEsc]);
 
+  const handleToggle = e => {
+    e.stopPropagation();
+    onToggle();
+  };
+
   return (
     <div
-      onClick={toggle}
+      onClick={handleToggle}
       className={isOpen ? css.modal + ' ' + css.active : css.modal}
     >
       <div onClick={e => e.stopPropagation()} className={css.content}>
-        <div onClick={toggle} className={css.close}>
+        <div onClick={onToggle} className={css.close}>
           <img src={x} alt="Close Icon" />
         </div>
         {children}
