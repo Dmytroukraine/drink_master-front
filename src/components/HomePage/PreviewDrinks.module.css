@@ -33,8 +33,7 @@
   height: 360px;
   border-radius: 8px;
   margin-bottom: 14px;
-  background-color: rgba(255, 0, 0, 0.508);
-
+  background-color: rgba(22, 31, 55, 0.5);
 
   & > img {
     height: 100%;

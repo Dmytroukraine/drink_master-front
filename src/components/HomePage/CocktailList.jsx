@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import s from './PreviewDrinks.module.css';
 import { CocktailListItem } from './CocktailListItem';
 
-export const CocktailList = ({ data, category }) => {
+export const CocktailList = ({ data, title }) => {
   const [visibleCacktails, setVisibleCacktails] = useState(null);
 
   const mediaSmall = window.matchMedia('(max-width: 767px)').matches;
   const mediaMedium = window.matchMedia('(max-width: 1439px)').matches;
-  //   const mediaLarge = window.matchMedia('(min-width: 1440px)').matches;
+  // const mediaLarge = window.matchMedia('(min-width: 1440px)').matches;
 
   const listenerScreen = window.screen.width;
 
@@ -25,9 +25,7 @@ export const CocktailList = ({ data, category }) => {
 
   useEffect(() => {
     const mql = window.matchMedia(`(width: ${listenerScreen})`);
-
     mql.addEventListener('change', sliceData);
-
     setVisibleCacktails(sliceData(data));
     return () => {
       mql.removeEventListener('change', sliceData);
@@ -37,21 +35,23 @@ export const CocktailList = ({ data, category }) => {
 
   return (
     <>
-      <h3 className={s.categoryTitle}>{category}</h3>
-
-      <ul className={s.list}>
-        {visibleCacktails?.map(({ _id, drink, drinkThumb, description }) => {
-          return (
-            <CocktailListItem
-              key={_id}
-              picture={drinkThumb}
-              title={drink}
-              link="#"
-              alt={description}
-            ></CocktailListItem>
-          );
-        })}
-      </ul>
+      {visibleCacktails ? (
+        <>
+          <h3 className={s.categoryTitle}>{title}</h3>
+          <ul className={s.list}>
+            {visibleCacktails?.map(({ _id, drink, drinkThumb }) => {
+              return (
+                <CocktailListItem
+                  key={_id}
+                  pictureURL={drinkThumb}
+                  title={drink}
+                  id={_id}
+                ></CocktailListItem>
+              );
+            })}
+          </ul>
+        </>
+      ) : null}
     </>
   );
 };

@@ -1,21 +1,10 @@
 import { NavLink } from 'react-router-dom';
 
-// import { getDrinksMainPage } from 'services/drinksAPI';
 import { Button } from 'components/Button';
 import s from './AddYourCocktail.module.css';
 import pictureTest from '../../images/blue_iced_tea_large@1x.png';
 
 export const AddYourCocktail = () => {
-  // getDrinksMainPage()
-  //   .then(res => {
-  //     console.log('getDrinksMainPage: ', res);
-  //     return;
-  //   })
-  //   .catch(error => {
-  //     return console.log(error);
-  //   })
-  //   .finally(() => console.log('Finally'));
-
   return (
     <section className={s.addYourCocktail}>
       <div className={s.container}>
@@ -30,14 +19,17 @@ export const AddYourCocktail = () => {
               finest beverages.
             </p>
 
-            <NavLink to="/add">
+            <NavLink to="/add" className={s.linkAddDrinks}>
               {' '}
-              <Button text="Add drink" buttonClass="addButton" marginLeft='0' />
+              <Button text="Add drink" buttonClass="addButton" marginLeft="0" />
             </NavLink>
           </div>
 
-          <img src={pictureTest} className={s.imageThumb} alt="blue iced tea large" />
-
+          <img
+            src={pictureTest}
+            className={s.imageThumb}
+            alt="blue iced tea large"
+          />
         </div>
       </div>
     </section>

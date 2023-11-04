@@ -1,29 +1,36 @@
 import { NavLink } from 'react-router-dom';
-import s from './PreviewDrinks.module.css';
-import data from './data.json';
 
+import s from './PreviewDrinks.module.css';
+import { Loading } from 'components/Loader/Loader';
+import { useGetDrinkMainPageQuery } from 'redux/drinkSlice/drinksSlice';
 import { CocktailList } from './CocktailList';
 import { Button } from 'components/Button';
 
 export const PreviewDrinks = () => {
-  const ordinaryDrink = data['Ordinary Drink'];
-  const cocktail = data['Cocktail'];
-  const shake = data['Shake'];
-  const otherAndUnknow = data['Other/Unknow'];
+  const { data = [], isLoading } = useGetDrinkMainPageQuery();
+
+  const values = Object.values(data);
+  const categories = Object.keys(data);
 
   return (
     <section className={s.previewDrinks}>
       <div className={s.container}>
-        <CocktailList
-          data={ordinaryDrink}
-          category="Ordinary Drink"
-        ></CocktailList>
-        <CocktailList data={cocktail} category="Cocktail"></CocktailList>
-        <CocktailList data={shake} category="Shake"></CocktailList>
-        <CocktailList
-          data={otherAndUnknow}
-          category="Other/Unknow"
-        ></CocktailList>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <div>
+            {categories.map(category => {
+              const index = categories.indexOf(category);
+              return (
+                <CocktailList
+                  key={category}
+                  data={values[index]}
+                  title={category}
+                ></CocktailList>
+              );
+            })}
+          </div>
+        )}
 
         <NavLink to="/drinks">
           <Button text="Other drinks" />
