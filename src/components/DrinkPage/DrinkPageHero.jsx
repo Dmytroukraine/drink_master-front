@@ -1,18 +1,19 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import css from './recipePage.module.css';
+import { Button } from 'components/Button';
 import { PageTitle } from 'components/PageTitle/PageTitle';
-import imgPlaceHolder from '../../images/thumb-placeholder-small.png';
+import styles from './DrinkPage.module.css';
+import largeImage from '../../images/thumb-placeholder-large.png';
 
 import {
   useAddDrinkFavoriteMutation,
   useDeleteDrinkFavoriteMutation,
 } from 'redux/drinkSlice/drinkFavoriteSlice';
 import { getUserState } from 'redux/userSlice/userSelectors';
-import { Button } from 'components/Button';
 
-export const RecipePageHero = ({ data }) => {
+export function DrinkPageHero({ data }) {
+  const [imgSrc, setImgSrc] = useState(data.drinkThumb);
   const [addDrinkFavorite, isLoading] = useAddDrinkFavoriteMutation();
   const [deleteFromFavorite] = useDeleteDrinkFavoriteMutation();
 
@@ -33,13 +34,13 @@ export const RecipePageHero = ({ data }) => {
   };
 
   return (
-    <>
-      <div>
-        <PageTitle className={css.pageTitle} title={data.drink} />
-        <p className={css.subTitle}>
+    <div className={styles.descContainer}>
+      <div className={styles.descriptionWrapper}>
+        <PageTitle className={styles.drinkTitle} title={data.drink} />
+        <p className={styles.drinkCategory}>
           {data.glass} / {data.alcoholic}
         </p>
-        <p>{data.description}</p>
+        <p className={styles.drinkDescription}>{data.description}</p>
         {!isLoading ? (
           'Loading....'
         ) : (
@@ -48,16 +49,18 @@ export const RecipePageHero = ({ data }) => {
             text={isInFavorite ? 'Delete...' : 'Add ....'}
           />
         )}
+        {/* // <button className={styles.addBtn}>Add to favorite drinks</button> */}
       </div>
-      <div>
+      <div className={styles.imgThumb}>
         <img
-          src={data.drinkThumb}
-          alt={data.IBA}
+          className={styles.drinkImg}
+          src={imgSrc}
+          onError={() => setImgSrc(largeImage)}
+          alt={data.drink}
           width="400"
           height="400"
-          onError={event => (event.target.src = imgPlaceHolder)}
         />
       </div>
-    </>
+    </div>
   );
-};
+}

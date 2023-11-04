@@ -1,0 +1,133 @@
+.container {
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 140px;
+}
+
+.descContainer {
+    display: flex;
+    margin-bottom: 100px;
+}
+
+.descriptionWrapper {
+    margin-top: 158px;
+    margin-right: 249px;
+}
+
+.drinkTitle {
+    margin-bottom: 8px;
+    font-size: 64px;
+    font-weight: 600;
+    line-height: calc(68 / 64);
+}
+
+.drinkCategory {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: calc(20 / 16);
+    margin-bottom: 20px;
+    color: rgba(243, 243, 243, 0.5);
+}
+
+.drinkDescription {
+    max-width: 593px;
+    font-size: 16px;
+    line-height: calc(22 /16);
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.addBtn {
+    background-color: #F3F3F3;
+    color: #161F37;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: calc(18 / 16);
+    padding: 18px 44px;
+    border-radius: 42px;
+    border-width: 0;
+
+    &:hover,
+    :focus {
+        background-color: #161F37;
+        color: #F3F3F3;
+    }
+}
+
+.imgThumb {
+    width: 400px;
+    height: 400px;
+    margin-top: 132px;
+    margin-right: 98px;
+}
+
+.drinkImg {
+    border-radius: 8px;
+}
+
+.ingredientsContainer {
+    margin-bottom: 100px;
+}
+
+.ingredientsTitle {
+    color: rgba(243, 243, 243, 0.5);
+    margin-bottom: 24px;
+}
+
+.ingredientsList {
+    display: flex;
+    column-gap: 35px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.ingredientItem {
+    width: 220px;
+}
+
+.indredientImg {
+    display: block;
+    width: 220px;
+    height: 220px;
+    border-radius: 8px;
+}
+
+.ingredientsDetails {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ingredientName {
+    font-size: 18px;
+    line-height: calc(24 / 18);
+}
+
+.ingredientMeasure {
+    color: rgba(243, 243, 243, 0.5);
+    font-size: 16px;
+    line-height: calc(20 / 16);
+}
+
+.recipeTitle {
+    font-size: 40px;
+    font-weight: 600;
+    line-height: calc(44 / 40);
+    margin-bottom: 60px;
+}
+
+.recipeWrapper {
+    display: flex;
+}
+
+.recipeImg {
+    margin-right: 60px;
+}
+
+.drinkRecipe {
+    max-width: 549px;
+    font-size: 16px;
+    line-height: calc(22 / 16);
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 20px;
+}

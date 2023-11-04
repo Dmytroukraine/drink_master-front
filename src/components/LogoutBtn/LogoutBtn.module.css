@@ -1,7 +1,7 @@
 .btnLogout {
-    background-color: #f3f3f3;
-    color: #161f37;
-    padding: 14px 20px;
+    background-color: var(--primary-white-color);
+    color: var(--secondary-bg-blue-color);
+    padding: 12px 45px;
     margin-top: 38px;
     border: 1px solid transparent;
     cursor: pointer;

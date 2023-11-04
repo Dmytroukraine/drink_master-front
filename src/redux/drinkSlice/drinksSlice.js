@@ -1,8 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import axios from 'axios';
 
-
-const BASE_URL = 'https://drink-master-service.onrender.com/api/drinks/'
+const BASE_URL = 'https://drink-master-service.onrender.com/api/drinks/';
 axios.defaults.baseURL = BASE_URL;
 
 export const drinksApi = createApi({
@@ -26,9 +25,12 @@ export const drinksApi = createApi({
       query: () => ({ url: `/mainpage` }),
       providesTags: ['drinks'],
     }),
+    getDrinkById: builder.query({
+      query: id => ({ url: `/${id}` }),
+      providesTags: ['drinks'],
+    }),
   }),
 });
 
-export const {
-  useGetDrinkMainPageQuery,
-} = drinksApi;
+export const {  useGetDrinkMainPageQuery } = drinksApi;
+

@@ -1,0 +1,15 @@
+.myDrinksList {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 80px;
+    column-gap: 20px;
+    list-style: none;
+    margin-top: 62px;
+}
+
+.myDrinkListWrapper{
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-bottom: 140px;
+}
+

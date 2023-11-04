@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { resetUser, setUser } from '../userSlice/userSlice';
+import { resetUser, setUser, updateUser } from '../userSlice/userSlice';
 
-// const BASE_URL = `${process.env.REACT_APP_BASE_URL}/api`;
+// const BASE_URL = ${process.env.REACT_APP_BASE_URL}/api;
 const BASE_URL = 'https://drink-master-service.onrender.com';
 
 export const authApi = createApi({
@@ -49,24 +49,33 @@ export const authApi = createApi({
     }),
     logout: builder.mutation({
       query: () => ({
-        url: `/auth/signout`,
+        url: '/auth/signout',
         method: 'POST',
       }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-        await queryFulfilled;
-        dispatch(resetUser());
+        try {
+          await queryFulfilled;
+          dispatch(resetUser());
+        } catch (error) {
+          console.log(error);
+        }
       },
       invalidatesTags: ['auth'],
     }),
     updateUser: builder.mutation({
       query: body => ({
-        url: '/auth/user',
+        url: '/users/update',
         method: 'PATCH',
         body,
         formData: true,
       }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-        dispatch(setUser((await queryFulfilled).data));
+        try {
+          const { data } = await queryFulfilled;
+          dispatch(updateUser(data));
+        } catch (error) {
+          console.log(error);
+        }
       },
       invalidatesTags: ['auth'],
     }),

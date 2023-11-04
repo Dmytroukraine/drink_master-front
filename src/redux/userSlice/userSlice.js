@@ -22,6 +22,18 @@ export const userSlice = createSlice({
         };
       },
     },
+    updateUser: {
+      reducer(state, action) {
+        state = {
+          ...state,
+          user: {
+            ...state.user,
+            ...action.payload,
+          },
+        };
+        return state;
+      },
+    },
     resetUser: {
       reducer(state) {
         state = initialState;
@@ -31,6 +43,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { setUser, resetUser } = userSlice.actions;
+export const { setUser, resetUser, updateUser } = userSlice.actions;
 
 export const userReducer = userSlice.reducer;

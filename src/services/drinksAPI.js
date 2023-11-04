@@ -50,3 +50,4 @@ export async function getDrinksById(id) {
 //     return console.log(error);
 //   })
 //   .finally(() => console.log('Finally'));
+
