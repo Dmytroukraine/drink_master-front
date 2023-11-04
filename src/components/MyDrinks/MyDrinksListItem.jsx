@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import styles from './MyDrinksListItem.module.css';
 import cocktail from '../../images/thumb-placeholder-large.png';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-export function MyDrinksListItem({ _id, alcoholic, picture, title, alt }) {
+export function MyDrinksListItem({ id, alcoholic, picture, title, alt }) {
+  console.log(id);
   const [imgSrc, setImgSrc] = useState(picture);
   return (
     <li className={styles.myDrinkItem}>
@@ -20,9 +21,9 @@ export function MyDrinksListItem({ _id, alcoholic, picture, title, alt }) {
         <p className={styles.drinkCategory}>{alcoholic}</p>
         <p className={styles.drinkDescription}>{alt}</p>
         <div className={styles.buttonsWrapper}>
-          <NavLink to={`/drink/${_id.$oid}`} className={styles.moreBtn}>
+          <Link to={`drinks/${id}`} className={styles.moreBtn}>
             See more
-          </NavLink>
+          </Link>
           <button className={styles.deleteBtn}>
             <svg
               className={styles.svgTrash}

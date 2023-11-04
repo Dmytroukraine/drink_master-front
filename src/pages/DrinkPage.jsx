@@ -7,16 +7,17 @@ import styles from '../components/DrinkPage/DrinkPage.module.css';
 
 export function DrinkPage() {
   const { drinkId } = useParams();
-  const { data = {} } = useGetDrinkByIdQuery(drinkId);
-  // console.log(useGetDrinkByIdQuery());
-  // console.log(data);
+  console.log(drinkId);
+  const { data } = useGetDrinkByIdQuery(drinkId);
+  console.log(useGetDrinkByIdQuery());
+  console.log(data);
   // console.log(data.length);
 
   return (
     <div className={styles.container}>
-      <DrinkPageHero data={data} />
-      <DrinkIngredientsList data={data} />
-      <RecipePreparation data={data} />
+      {data && <DrinkPageHero data={data} />}
+      {data && <DrinkIngredientsList data={data.ingredients} />}
+      {data && <RecipePreparation data={data} />}
     </div>
   );
 }
