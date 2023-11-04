@@ -1,15 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// const initialState = {
-//   _id: '',
-//   name: '',
-//   email: '',
-//   avatarURL: '',
-//   birthDate: '',
-//   token: null,
-//   isLoggedIn: false,
-// };
-
 const initialState = {
   user: { name: null, email: null, avatarURL: '', birthDate: '' },
   token: null,
@@ -24,7 +14,6 @@ export const userSlice = createSlice({
     setUser: {
       reducer(state, action) {
         state = { ...state, ...action.payload.value, isLoggedIn: true };
-        console.log('STATE: ', state);
         return state;
       },
       prepare(value) {

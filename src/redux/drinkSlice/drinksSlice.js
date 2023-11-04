@@ -30,5 +30,5 @@ export const drinksApi = createApi({
 });
 
 export const {
-  usegetDrinkMainPageQuery,
+  useGetDrinkMainPageQuery,
 } = drinksApi;

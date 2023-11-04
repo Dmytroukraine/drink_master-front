@@ -21,6 +21,11 @@
   margin-bottom: 47px;
 }
 
+.linkAddDrinks{
+  display: block;
+  width: fit-content;
+ }
+
 .heroTitle {
   margin-bottom: 16px;
 

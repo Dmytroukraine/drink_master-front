@@ -3,15 +3,25 @@ import axios from 'axios';
 const BASE_URL = 'https://drink-master-service.onrender.com';
 axios.defaults.baseURL = BASE_URL;
 
-export async function getDrinksMainPage() {
-  const { data } = await axios.get(`/api/drinks/mainpage`);
+export async function getDrinksMainPage(token) {
+  const response = await fetch(
+    'https://drink-master-service.onrender.com/api/drinks/mainpage',
+    {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+
+  const data = await response.json();
   return data;
-}
+};
 
 export async function getDrinksPopular() {
   // const { data } = await axios.get(`/api/drinks/popular`);
   const { data } = await axios.get(`/popular`);
-  console.log("data", data);
+  console.log('data', data);
   return data;
 }
 
@@ -20,7 +30,6 @@ export async function getDrinksById(id) {
   return data;
 }
 
-
 // export async function getAllIngredients() {
 //   const { data } = await axios.get(`/api/filters/ingredients`);
 //   return data;
@@ -28,8 +37,7 @@ export async function getDrinksById(id) {
 
 // Example
 
-
-// Example 
+// Example
 
 // const testId = '639b6de9ff77d221f190c50f';
 
