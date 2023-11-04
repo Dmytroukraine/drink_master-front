@@ -19,8 +19,6 @@ export const CocktailList = ({ data, title }) => {
     if (mediaSmall) return mobile;
     if (mediaMedium) return tab;
     // if (mediaLarge) return desk;
-    console.log('prop Data Slice: ', data);
-    // console.log('visibleCacktails', visibleCacktails.length !== 0);
 
     return data;
   };

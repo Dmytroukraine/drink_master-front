@@ -5,8 +5,6 @@ import s from './AddYourCocktail.module.css';
 import pictureTest from '../../images/blue_iced_tea_large@1x.png';
 
 export const AddYourCocktail = () => {
-
-
   return (
     <section className={s.addYourCocktail}>
       <div className={s.container}>
@@ -23,12 +21,15 @@ export const AddYourCocktail = () => {
 
             <NavLink to="/add" className={s.linkAddDrinks}>
               {' '}
-              <Button text="Add drink" buttonClass="addButton" marginLeft='0' />
+              <Button text="Add drink" buttonClass="addButton" marginLeft="0" />
             </NavLink>
           </div>
 
-          <img src={pictureTest} className={s.imageThumb} alt="blue iced tea large" />
-
+          <img
+            src={pictureTest}
+            className={s.imageThumb}
+            alt="blue iced tea large"
+          />
         </div>
       </div>
     </section>
