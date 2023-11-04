@@ -23,6 +23,7 @@ export const PreviewDrinks = () => {
               const index = categories.indexOf(category);
               return (
                 <CocktailList
+                  key={category}
                   data={values[index]}
                   title={category}
                 ></CocktailList>
