@@ -55,9 +55,12 @@ export const authApi = createApi({
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
           await queryFulfilled;
-          dispatch(resetUser());
+          console.log('LOGOUT SUCCESS');
         } catch (error) {
           console.log(error);
+        } finally {
+          dispatch(resetUser());
+          localStorage.removeItem('persist:user');
         }
       },
       invalidatesTags: ['auth'],

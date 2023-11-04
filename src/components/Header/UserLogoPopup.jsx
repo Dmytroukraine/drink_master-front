@@ -3,10 +3,11 @@ import LogoutBtn from '../LogoutBtn/LogoutBtn';
 import css from './UserLogoPopup.module.css';
 import edit from '../../images/edit_icon.svg';
 
-const UserLogoPopup = ({ onClick }) => {
+const UserLogoPopup = ({ onClick, closeMenu }) => {
   const handleClickProfile = e => {
     e.stopPropagation();
     onClick();
+    closeMenu();
   };
 
   return (

@@ -13,22 +13,40 @@ const UserLogo = props => {
 
   const url = avatarURL ? avatarURL : user;
 
-  const toggleMenu = () => {
+  const handleToggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const toggleModal = () => {
+  const handleCloseMenu = () => {
+    setIsOpen(false);
+  };
+
+  const handleToggleModal = () => {
     setIsShowModal(!isShowModal);
   };
 
+  const handleCloseModal = () => {
+    setIsShowModal(false);
+  };
+
   return (
-    <div onClick={toggleMenu} className={css.userlogo}>
+    <div onClick={handleToggleMenu} className={css.userlogo}>
       <img className={css.avatar} src={url} alt="user" />
       <p className={css.username}>{userName}</p>
 
-      {isOpen ? <UserLogoPopup isOpen={isOpen} onClick={toggleModal} /> : null}
-      <ModalWrap toggle={toggleModal} isOpen={isShowModal}>
-        <UserInfoModal userName={userName} avatarURL={avatarURL} />
+      {isOpen ? (
+        <UserLogoPopup
+          isOpen={isOpen}
+          onClick={handleToggleModal}
+          closeMenu={handleCloseMenu}
+        />
+      ) : null}
+      <ModalWrap onToggle={handleToggleModal} isOpen={isShowModal}>
+        <UserInfoModal
+          userName={userName}
+          avatarURL={avatarURL}
+          onClose={handleCloseModal}
+        />
       </ModalWrap>
     </div>
   );
