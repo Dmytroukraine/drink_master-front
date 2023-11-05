@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./PopularRecipe.module.css"
 import { useGetDrinksPopularAllQuery } from "redux/getPopularOperation";
 import imgPlaceHolder from "../../../images/blue_iced_tea_smal@2x.png"
+import { Loading } from "components/Loader/Loader";
 
 
 export const PopularRecipe = () => {
@@ -10,7 +11,7 @@ export const PopularRecipe = () => {
 
     return (
         <div className={styles.popularContainer}> {isLoading ? (
-            <h1>Loading...</h1>
+            <Loading/>
         ) : (
                 <>
                     <h3 className={styles.title}>Popular drinks</h3>
@@ -19,7 +20,7 @@ export const PopularRecipe = () => {
                             const { _id, drink, shortDescription, drinkThumb} = recipe;
                             return (
                                 <Link
-                                    to={`/drink/${_id}`}
+                                    to={`/drinks/${_id}`}
                                     className={styles.drink}
                                     key={_id}
                                     id={_id}>

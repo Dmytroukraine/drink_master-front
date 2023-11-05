@@ -1,4 +1,5 @@
 .popularContainer {
+    margin-top: 40px;
     width: 336px;
     height: 484px;
 }
@@ -19,13 +20,12 @@
     height: 90px;
     
 }
-.drink:not(:last-child){
+.drink:not(:last-child) {
     margin-bottom: 14px;
 }
 .imgThumb{
     width: 90px;
     height: 90px;
-    border-radius: 5px;
 }
 .drinkImg {
     border-radius: 8px;
@@ -51,9 +51,9 @@
 }
 @media screen and (min-width: 768px) {
     .popularContainer {
-            margin-left: 20px;
-            width: 704px;
-            height: 284px;
+        margin-top: 80px;
+        width: 704px;
+        height: 284px;
     }
     .title {
         font-size: 24px;
@@ -65,11 +65,17 @@
         height: 212px;
         display: flex;
         flex-wrap: wrap;
+        gap: 32px;
     } 
     .drink {
+        
         display: flex;
-        margin-bottom: 32px;
+        margin: 0;
+
     } 
+    .drink:not(:last-child) {
+        margin-bottom: 0px;
+    }
     .drinkInstructions {
         line-height: 20px;
     }
