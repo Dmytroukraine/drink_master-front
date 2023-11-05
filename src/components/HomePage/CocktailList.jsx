@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback, useMemo } from 'react';
 import s from './PreviewDrinks.module.css';
 import { CocktailListItem } from './CocktailListItem';
 
@@ -25,32 +25,35 @@ export const CocktailList = ({ category, title }) => {
   const mediaSmall = window.matchMedia('(max-width: 767px)').matches;
   const mediaMedium = window.matchMedia('(max-width: 1439px)').matches;
 
-  const sliceCocktails = category => {
+  const sliceCocktails = useCallback((category) => {
     const mobile = category?.slice(0, 1);
     const tab = category?.slice(0, 2);
 
     if (mediaSmall) return mobile;
     if (mediaMedium) return tab;
     return category;
-  };
+  }, [mediaSmall, mediaMedium]);
 
   useEffect(() => {
     setVisibleCocktails(sliceCocktails(category));
+  }, [category, sliceCocktails]);
+
+  const resizeObserver = useMemo(() => {
+    return new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const contentBoxSize = entry.contentBoxSize[0];
+
+        if (contentBoxSize.inlineSize < 767) {
+          setWidthScreen(window.screen.width);
+        }
+        if (contentBoxSize.inlineSize > 767 && contentBoxSize.inlineSize < 1439) {
+          setWidthScreen(window.screen.width);
+        }
+        setWidthScreen(window.screen.width);
+      }
+    });
+    // eslint-disable-next-line
   }, [widthScreen]);
-
-  const resizeObserver = new ResizeObserver(entries => {
-    for (const entry of entries) {
-      const contentBoxSize = entry.contentBoxSize[0];
-
-      if (contentBoxSize.inlineSize < 767) {
-        return setWidthScreen(window.screen.width);
-      }
-      if (contentBoxSize.inlineSize > 767 && contentBoxSize.inlineSize < 1439) {
-        return setWidthScreen(window.screen.width);
-      }
-      return setWidthScreen(window.screen.width);
-    }
-  });
 
   useEffect(() => {
     window.addEventListener(
@@ -66,11 +69,7 @@ export const CocktailList = ({ category, title }) => {
         false
       );
     };
-  }, []);
-
-
-
-  // console.log('Check category: ', visibleCocktails.length )
+  }, [resizeObserver]);
 
   return (
     <>
