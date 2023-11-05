@@ -12,16 +12,13 @@ export function Paginator({ drinks, quantityPages, setPage, currentPage }) {
   }
 
    function onDecrArrowBtnClick(number) {
-     console.log(number);
      if (number < quantityPages && number > 0) {
        setPage(number - 1);
      }
   }
   
   function onIncrArrowBtnClick(number) {
-    console.log(number);
     if (number < quantityPages && number >= 0) {
-      console.log('number', number);
       setPage(number + 1);
     }
   }

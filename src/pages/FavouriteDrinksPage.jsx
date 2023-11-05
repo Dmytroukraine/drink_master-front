@@ -6,18 +6,26 @@ import NoContentSection from 'components/404Page/NoContent';
 import { DrinksList } from '../components/FavouriteDrinksPage/DrinkList';
 import BasicImg from '../images/blue_iced_tea_large@1x.png';
 import { useState } from 'react';
+import useResize from '../hooks/useResize';
 
 import css from './FavouriteDrinksPage.module.css';
 
 const FavouriteDrinksPage = () => {
   const { data = [], isLoading } = useGetDrinkFavoriteAllQuery();
   const [pagData, setPagData] = useState(data);
-
   const [currentPage, setCurrentPage] = useState(0);
+  const size = useResize();
 
+  console.log(size[0])
+ console.log(size[0] > 1439);
   const quantityDrinks = data.length;
-
-  const itemsPerPage = 3;
+  
+  let itemsPerPage = 8;
+  
+  if (size[0] > 1439) {
+    itemsPerPage = 9;
+  };
+  
   const quantityPages = Math.ceil(quantityDrinks / itemsPerPage);
 
   const i = 0 + currentPage * itemsPerPage;
