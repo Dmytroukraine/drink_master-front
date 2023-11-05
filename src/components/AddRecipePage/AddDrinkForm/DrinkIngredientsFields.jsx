@@ -93,6 +93,8 @@ export const DrinkIngredientsFields = ({
               customSelectBtn={css.customSelectBtn}
               customSelectContent={css.customSelectContent}
               customSelectItem={css.customSelectItem}
+              customSelectText={css.customSelectText}
+              defaultText={'Ingredient'}
             />
             <div
               className={css.volumeIngredient}
