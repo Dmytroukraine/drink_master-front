@@ -56,7 +56,7 @@ export const filtersApi = createApi({
     }),
     
     getIngredientsList: builder.query({
-      query: () => ({ url: '/filters/ingredients' }),
+      query: () => ({ url: '/ingredients' }),
       providesTags: ['filters'],
     }),
     
