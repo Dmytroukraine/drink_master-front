@@ -16,20 +16,24 @@ border-radius: 200px;
 border: 1px solid rgba(243, 243, 243, 0.20);
 opacity: 0.8;
 color: #F3F3F333;
-padding-left: 10px;
+padding-left: 24px;
 background: transparent;
 }
 .subscribeFormButton{
   height: 54px;
 border-radius: 200px;
 border: 1px solid rgba(243, 243, 243, 0.20);
-opacity: 0.8;
+opacity: 0.6;
 color: #F3F3F3;
 padding-left: 10px;
 background: transparent;
 }
 .subscribeFormButton:disabled{
-  opacity: 0.5;
+  opacity: 0.4;
+}
+.subscribeFormButton:hover,.subscribeFormButton:focus{
+  border: 1px solid rgba(243, 243, 243, 0.40);
+  opacity: 0.8;
 }
 @media screen and (min-width: 768px) {
   .subscribeFormButton {
