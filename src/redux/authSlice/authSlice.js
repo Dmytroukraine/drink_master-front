@@ -83,8 +83,8 @@ export const authApi = createApi({
       invalidatesTags: ['auth'],
     }),
     subscribe: builder.mutation({
-      query: ({ email }) => ({
-        url: '/subscribe',
+      query: email => ({
+        url: '/users/subscribe',
         method: 'POST',
         body: { email },
       }),
