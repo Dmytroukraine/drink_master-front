@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./PopularRecipe.module.css"
 import { useGetDrinksPopularAllQuery } from "redux/getPopularOperation";
+import imgPlaceHolder from "../../../images/blue_iced_tea_smal@2x.png"
 
 
 export const PopularRecipe = () => {
@@ -16,23 +17,26 @@ export const PopularRecipe = () => {
                     <ul className={styles.popularList}>
                         {data.map(recipe => {
                             const { _id, drink, shortDescription, drinkThumb} = recipe;
-                            // console.log("_id", _id);
                             return (
                                 <Link
                                     to={`/drink/${_id}`}
                                     className={styles.drink}
                                     key={_id}
                                     id={_id}>
-                            <img
-                                className={styles.drinkImgThumb}
-                                src={drinkThumb}
-                                alt={drinkThumb}
-                            />
-                            <div className={styles.drinkText}>
-                                <h3 className={styles.drinkTitle}>{drink}</h3>
-                                <p className={styles.drinkInstructions}>{shortDescription}</p>
-                            </div>
-                        </Link>
+                                    <div className={styles.imgThumb}>
+                                        <img
+                                            className={styles.drinkImg}
+                                            src={drinkThumb}
+                                            alt={drinkThumb}
+                                            onError={event => (event.target.src = imgPlaceHolder)}
+                                        />
+                                    </div>
+
+                                    <div className={styles.drinkText}>
+                                        <h3 className={styles.drinkTitle}>{drink}</h3>
+                                        <p className={styles.drinkInstructions}>{shortDescription}</p>
+                                    </div>
+                                </Link>
                             )
                         })
                         }

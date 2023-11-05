@@ -4,43 +4,46 @@ const BASE_URL = 'https://drink-master-service.onrender.com/';
 axios.defaults.baseURL = BASE_URL;
 
 export async function getDrinksCategory(token) {
-  try {
-    const { data } = await axios.get('/api/filters/categories', {
+  const response = await fetch(
+    'https://drink-master-service.onrender.com/api/filters/categories',
+    {
+      method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
       },
-    });
+    }
+  );
 
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
+  const data = await response.json();
+  return data;
 }
 
 export async function getDrinksGlass(token) {
-  try {
-    const { data } = await axios.get('/api/filters/glasses', {
+  const response = await fetch(
+    'https://drink-master-service.onrender.com/api/filters/glasses',
+    {
+      method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
       },
-    });
+    }
+  );
 
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
+  const data = await response.json();
+  return data;
 }
 
 export async function getDrinksIngredients(token) {
-  try {
-    const response = await axios.get('/api/filters/ingredients', {
+  const response = await fetch(
+    'https://drink-master-service.onrender.com/api/filters/ingredients',
+    {
+      method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
       },
-    });
+    }
+  );
 
-    return response.data;
-  } catch (error) {
-    console.log(error);
-  }
+  const data = await response.json();
+  return data;
 }
