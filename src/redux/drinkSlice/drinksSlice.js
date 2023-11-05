@@ -29,8 +29,15 @@ export const drinksApi = createApi({
       query: id => ({ url: `/${id}` }),
       providesTags: ['drinks'],
     }),
+    getMyDrinks: builder.query({
+      query: () => ({ url: `/own` }),
+      providesTags: ['drinks'],
+    }),
   }),
 });
 
-export const {  useGetDrinkMainPageQuery } = drinksApi;
-
+export const {
+  useGetDrinkMainPageQuery,
+  useGetDrinkByIdQuery,
+  useGetMyDrinksQuery,
+} = drinksApi;
