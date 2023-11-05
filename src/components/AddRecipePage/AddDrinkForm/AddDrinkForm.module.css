@@ -2,6 +2,7 @@
   display: flex;
 
   gap: 40px;
+  margin-bottom: 40px;
 }
 
 .addDrinkImg {
@@ -172,4 +173,85 @@
 .custom-option.selected {
   background-color: #007bff;
   color: #fff;
+}
+
+.customSelect {
+  width: 393px;
+  margin: 0 auto;
+  position: relative;
+
+  margin-bottom: 40px;
+}
+
+.ingredientSelect {
+  width: 316px;
+  height: 56px;
+
+  margin: 0 auto;
+  position: relative;
+
+  border-radius: 50px;
+  border: 1px solid var(--primary-white-color);
+  color: var(--primary-white-color);
+}
+
+.customSelect .customSelectBtn {
+  padding: 10px;
+  background: none;
+  border-bottom: 1px solid var(--primary-white-color);
+
+  box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+  color: var(--primary-white-color);
+}
+
+.customSelectText {
+  position: absolute;
+  bottom: 17px;
+  right: 0;
+}
+
+.ingredientSelect .customSelectContent {
+  width: 154px;
+
+  position: absolute;
+  top: 110%;
+  padding: 15px;
+  background: var(--secondary-bg-blue-color);
+  box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+  color: var(--primary-white-color);
+
+  border-radius: 10px;
+  z-index: 1000;
+}
+
+.customSelect .customSelectContent {
+  width: 154px;
+
+  position: absolute;
+  top: 110%;
+  padding: 15px;
+  background: var(--secondary-bg-blue-color);
+  right: 0;
+
+  box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+  color: var(--primary-white-color);
+
+  border-radius: 10px;
+  z-index: 1000;
+}
+
+.customSelect .customSelectContent .customSelectItem {
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.customSelectContent {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.customSelectContentWrapper {
+  max-height: 100%;
+  overflow: hidden;
 }
