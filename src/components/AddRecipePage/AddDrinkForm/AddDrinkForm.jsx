@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { notification } from 'components/Shared/notification';
 import axios from 'axios';
 
 import { v4 as uuidv4 } from 'uuid';
@@ -12,7 +13,7 @@ import { getDrinksCategory } from 'services/filtersAPI';
 import { getDrinksGlass } from 'services/filtersAPI';
 
 import css from './AddDrinkForm.module.css';
-import csIngredients from './DrinkIngredientsFields.module.css';
+import cssIngredients from './DrinkIngredientsFields.module.css';
 
 import { useSelector } from 'react-redux';
 
@@ -110,11 +111,12 @@ export const AddDrinkForm = () => {
         drinkOwn.instructions === '' ||
         checkTitle.some(title => title === '')
       ) {
-        alert('Fill in all fields');
+        notification('Fill in all fields');
         return;
       }
 
       try {
+        // eslint-disable-next-line
         const response = await axios.post(
           'https://drink-master-service.onrender.com/api/drinks/own/add',
           drinkOwn,
@@ -124,8 +126,13 @@ export const AddDrinkForm = () => {
             },
           }
         );
+        notification('Drink was successfully added', 'success');
       } catch (error) {
-        console.error(error);
+        if (error.response && error.response.status === 409) {
+          notification('Drink already exists');
+        } else {
+          console.error(error);
+        }
       }
     };
 
@@ -205,6 +212,7 @@ export const AddDrinkForm = () => {
           />
 
           {selectedImg !== null ? (
+            // eslint-disable-next-line
             <img
               src={selectedImg}
               className={css.uploadImg}
@@ -239,7 +247,7 @@ export const AddDrinkForm = () => {
             onChange={form.handleChange}
             className={css.addDrinkInput}
           />
-          <p>Category</p>
+          <p className={css.informationDrinkText}>Category</p>
           <CustomSelect
             select={category}
             setSelect={setCategory}
@@ -248,9 +256,11 @@ export const AddDrinkForm = () => {
             customSelectBtn={css.customSelectBtn}
             customSelectContent={css.customSelectContent}
             customSelectItem={css.customSelectItem}
+            customSelectText={css.customSelectText}
+            defaultText={''}
           />
 
-          <p>Glass</p>
+          <p className={css.informationDrinkText}>Glass</p>
           <CustomSelect
             select={glass}
             setSelect={setGlass}
@@ -259,6 +269,8 @@ export const AddDrinkForm = () => {
             customSelectBtn={css.customSelectBtn}
             customSelectContent={css.customSelectContent}
             customSelectItem={css.customSelectItem}
+            customSelectText={css.customSelectText}
+            defaultText={''}
           />
 
           <div className={css.informationAlcoholic}>
@@ -288,14 +300,14 @@ export const AddDrinkForm = () => {
         </div>
       </div>
 
-      <div className={csIngredients.panelCounter}>
+      <div className={cssIngredients.panelCounter}>
         <h2>Ingredients</h2>
-        <div className={csIngredients.counter}>
+        <div className={cssIngredients.counter}>
           <button
             type="button"
             onClick={counter.decrement}
-            className={`${csIngredients.counterBtn} ${
-              count === 3 ? csIngredients.minCounterBtn : ''
+            className={`${cssIngredients.counterBtn} ${
+              count === 3 ? cssIngredients.minCounterBtn : ''
             }`}
           >
             -
@@ -304,8 +316,8 @@ export const AddDrinkForm = () => {
           <button
             type="button"
             onClick={counter.increment}
-            className={`${csIngredients.counterBtn} ${
-              count === 6 ? csIngredients.minCounterBtn : ''
+            className={`${cssIngredients.counterBtn} ${
+              count === 6 ? cssIngredients.minCounterBtn : ''
             }`}
           >
             +

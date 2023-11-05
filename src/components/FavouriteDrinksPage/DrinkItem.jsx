@@ -22,7 +22,7 @@ export const DrinkItem = ({ drink, onDelete }) => {
       </div>
 
       <div className={css.btnBlock}>
-        <Link to={`/drink/${drink._id}`}>
+        <Link to={`/drinks/${drink._id}`}>
           <button className={css.btn}>See more</button>
         </Link>
         <button

@@ -17,49 +17,49 @@ export const filtersApi = createApi({
       return headers;
     },
   }),
-  
+
   tagTypes: ['filters'],
   endpoints: builder => ({
     getCategoriesList: builder.query({
-      query: () => ({ url: '/category-list' }),
+      query: () => ({ url: '/categories' }),
       providesTags: ['filters'],
     }),
-    
+
     getMainPageRecipes: builder.query({
       query: () => ({ url: '/main-page' }),
       providesTags: ['filters'],
     }),
-    
+
     searchRecipes: builder.query({
       query: searchParams => ({ url: `/${searchParams}` }),
       providesTags: ['filters'],
     }),
-    
+
     getRecipeById: builder.query({
       query: id => ({ url: `/${id}` }),
       providesTags: ['filters'],
     }),
-    
+
     toggleFavorite: builder.mutation({
       query: id => ({ url: `/favorites/${id}`, method: 'PATCH' }),
       invalidatesTags: ['filters'],
     }),
-    
+
     getFavorites: builder.query({
       query: searchParams => ({ url: `/favorites/${searchParams}` }),
       providesTags: ['filters'],
     }),
-    
+
     getPopularList: builder.query({
       query: () => ({ url: '/popular-recipes' }),
       providesTags: ['filters'],
     }),
-    
+
     getIngredientsList: builder.query({
       query: () => ({ url: '/ingredients' }),
       providesTags: ['filters'],
     }),
-    
+
     getGlassList: builder.query({
       query: () => ({ url: '/glass' }),
       providesTags: ['filters'],

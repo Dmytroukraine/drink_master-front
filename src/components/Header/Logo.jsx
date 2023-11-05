@@ -6,7 +6,9 @@ import { NavLink } from 'react-router-dom';
 
 const Logo = () => {
   return (
+
     <NavLink to="/home" className={css.href}>
+
       <img className={css.logo} src={logo} alt="logo" />
       <p className={css.title}> Drink Master</p>
     </NavLink>

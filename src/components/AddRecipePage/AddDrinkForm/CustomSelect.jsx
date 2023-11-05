@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
+import css from './DrinkIngredientsFields.module.css';
+
 export const CustomSelect = ({
   select,
   setSelect,
@@ -9,6 +11,8 @@ export const CustomSelect = ({
   customSelectBtn,
   customSelectContent,
   customSelectItem,
+  customSelectText,
+  defaultText,
 }) => {
   const [isActive, setIsActive] = useState(false);
   const customSelectRef = useRef(null);
@@ -36,8 +40,9 @@ export const CustomSelect = ({
   return (
     <div className={customSelect} ref={customSelectRef}>
       <div onClick={handleSelectClick} className={customSelectBtn}>
-        <span>{select}</span>
+        <span className={customSelectText}>{select}</span>
       </div>
+      <span className={css.defaultText}>{select ? '' : defaultText}</span>
       {isActive && (
         <div className={customSelectContent}>
           {options.map(el => (
