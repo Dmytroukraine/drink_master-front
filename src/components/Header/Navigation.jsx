@@ -6,17 +6,17 @@ import x from '../../images/x.svg';
 
 const NavPages = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+  const handleToggle = () => setIsOpen(!isOpen);
 
   return (
     <div className={css.navigation}>
-      <button onClick={toggle} className={css.btnNavigation}>
+      <button onClick={handleToggle} className={css.btnNavigation}>
         <img src={isOpen ? x : burger} alt="Burger Navigation" />
       </button>
       {isOpen && (
         <div className={css.wrapper}>
           <div className={css.modal}>
-            <Menu />
+            <Menu onClick={handleToggle} />
           </div>
         </div>
       )}
@@ -25,32 +25,31 @@ const NavPages = () => {
 };
 
 export default NavPages;
-
-export const Menu = ({ isDesktop = false }) => {
+export const Menu = ({ isDesktop = false, onClick = () => null }) => {
   return (
     <ul className={isDesktop ? css.menuDesktop : css.menuMobile}>
       <li>
-        <NavLink className={css.btn} to="/home">
+        <NavLink onClick={onClick} className={css.btn} to="/home">
           Home
         </NavLink>
       </li>
       <li>
-        <NavLink className={css.btn} to="/drinks">
+        <NavLink onClick={onClick} className={css.btn} to="/drinks">
           Drinks
         </NavLink>
       </li>
       <li>
-        <NavLink className={css.btn} to="/add">
+        <NavLink onClick={onClick} className={css.btn} to="/add">
           Add drink
         </NavLink>
       </li>
       <li>
-        <NavLink className={css.btn} to="/my">
+        <NavLink onClick={onClick} className={css.btn} to="/my">
           My Drinks
         </NavLink>
       </li>
       <li>
-        <NavLink className={css.btn} to="/favorites">
+        <NavLink onClick={onClick} className={css.btn} to="/favorites">
           Favorites
         </NavLink>
       </li>
