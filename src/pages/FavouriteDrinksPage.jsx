@@ -12,9 +12,12 @@ import css from './FavouriteDrinksPage.module.css';
 
 const FavouriteDrinksPage = () => {
   const { data = [], isLoading } = useGetDrinkFavoriteAllQuery();
-  // console.log(useGetDrinkFavoriteAllQuery());
-  // console.log(data);
-  // console.log(data.length);
+
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const countPages = Math.ceil(data.length/8);
+  
+  // console.log("countPages", countPages);;
+  // console.log(currentPage);
 
 
   return (
@@ -39,7 +42,7 @@ const FavouriteDrinksPage = () => {
         </div>
         }/>)
         }
-        {/* {data.length > 1 && <Paginator drinks={data} />} */}
+        {/* countPages > 1 && <Paginator drinks={data} />} */}
 
       </div>
     </div>
