@@ -5,7 +5,7 @@ import css from './Logo.module.css';
 
 const Logo = () => {
   return (
-    <a href="/home" className={css.href}>
+    <a href="/drink_master-front/home" className={css.href}>
       <img className={css.logo} src={logo} alt="logo" />
       <p className={css.title}> Drink Master</p>
     </a>
