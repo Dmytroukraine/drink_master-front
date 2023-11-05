@@ -17,62 +17,56 @@ const FavouriteDrinksPage = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const size = useResize();
 
-  console.log(size[0])
- console.log(size[0] > 1439);
+  console.log(size[0]);
+  console.log(size[0] > 1439);
   const quantityDrinks = data.length;
-  
+
   let itemsPerPage = 8;
-  
+
   if (size[0] > 1439) {
     itemsPerPage = 9;
-  };
-  
+  }
+
   const quantityPages = Math.ceil(quantityDrinks / itemsPerPage);
 
   const i = 0 + currentPage * itemsPerPage;
   const k = itemsPerPage + itemsPerPage * currentPage;
 
-
-  // const [currentPage, setCurrentPage] = useState(1);
+   // const [currentPage, setCurrentPage] = useState(1);
   // const countPages = Math.ceil(data.length/8);
   
   // console.log("countPages", countPages);;
   // console.log(currentPage);
-
-
+  
   const pagDrinks = data.slice(i, k);
 
-  const setPage = page => {
+  const setPage = (page) => {
     setCurrentPage(page);
     setPagData(pagData);
   };
 
   return (
     <div>
-      {/* {isError && { isError }} */}
       <PageTitle title="Favorites" />
       <div>
         {isLoading && <Loading />}
         {data.length > 0 ? (
           <DrinksList drinks={pagDrinks} />
         ) : (
-          <NoContentSection
-            children={
-              <div>
-                <img
-                  className={css.drinkNotImg}
-                  src={BasicImg}
-                  alt="A coctail"
-                  width="261"
-                  height="326"
-                />
-                <p className={css.drinkNotImgText}>
-                  You haven't added any favorite cocktails yet
-                </p>
-              </div>
-            }
-          />
-
+          <NoContentSection>
+            <div>
+              <img
+                className={css.drinkNotImg}
+                src={BasicImg}
+                alt="A cocktail"
+                width="261"
+                height="326"
+              />
+              <p className={css.drinkNotImgText}>
+                You haven't added any favorite cocktails yet
+              </p>
+            </div>
+          </NoContentSection>
         )}
         {data.length > 1 && (
           <Paginator
@@ -82,16 +76,6 @@ const FavouriteDrinksPage = () => {
             currentPage={currentPage}
           />
         )}
-
-          <p className={css.drinkNotImgText}>
-            You haven't added any favorite cocktails yet
-          </p>
-        </div>
-        }/>)
-        }
-        {/* countPages > 1 && <Paginator drinks={data} />} */}
-
-
       </div>
     </div>
   );
