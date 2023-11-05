@@ -22,6 +22,8 @@
     height: 100%;
     display: flex;
     justify-content: center;
+    backdrop-filter: blur(45px);
+    z-index: 100;
 }
 
 .modal {
@@ -88,5 +90,5 @@
 .btn:hover,
 .btn:focus {
     background-color: var(--secondary-bg-blue-color);
-    border: none;
+    border-color: transparent;
 }
