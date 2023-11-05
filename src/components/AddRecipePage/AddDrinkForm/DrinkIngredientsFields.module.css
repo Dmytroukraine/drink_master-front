@@ -1,9 +1,22 @@
 .ingredients {
-  width: 540px;
+  width: 335px;
+  margin-bottom: 80px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+  .ingredients {
+    width: 704px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .ingredients {
+    width: 540px;
+  }
 }
 
 .panelCounter {
-  width: 540px;
+  width: 325px;
   height: 44px;
 
   display: flex;
@@ -12,9 +25,21 @@
   margin-bottom: 40px;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+  .panelCounter {
+    width: 704px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .panelCounter {
+    width: 540px;
+  }
+}
+
 .counter {
-  width: 114px;
-  height: 44px;
+  width: 104px;
+  height: 38px;
 
   border: 1px solid var(--primary-white-color);
   border-radius: 50px;
@@ -23,6 +48,18 @@
   justify-content: center;
   align-items: center;
   justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+  .panelCounter {
+    width: 704px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .panelCounter {
+    width: 540px;
+  }
 }
 
 .counterBtn {
@@ -40,14 +77,35 @@
 }
 
 .ingredientItem {
-  width: 540px;
+  width: 335px;
   height: 44px;
 
   display: flex;
   align-items: center;
 
-  gap: 14px;
+  gap: 8px;
   margin-bottom: 35px;
+}
+
+@media screen and (min-width: 768px) {
+  .ingredientItem {
+    width: 704px;
+    gap: 14px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+  .ingredientItem {
+    width: 704px;
+    gap: 14px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .ingredientItem {
+    width: 540px;
+    gap: 14px;
+  }
 }
 
 .ingredientSelect {
@@ -59,15 +117,26 @@
   color: var(--primary-white-color);
 }
 
+.customSelectInIngredients {
+  border: none;
+}
+
 .volumeIngredient {
-  width: 150px;
-  height: 56px;
+  width: 101px;
+  height: 50px;
 
   border-radius: 50px;
   border: 1px solid var(--primary-white-color);
 
   display: flex;
   align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .volumeIngredient {
+    width: 150px;
+    height: 56px;
+  }
 }
 
 .numberCl {
@@ -96,10 +165,286 @@
   align-items: center;
 
   color: var(--primary-white-color);
-  margin-left: 26px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+  .removeBtn {
+    margin-left: 188px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .removeBtn {
+    margin-left: 26px;
+  }
 }
 
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
   display: none;
+}
+
+.form {
+  display: flex;
+
+  gap: 40px;
+}
+
+.addDrinkImg {
+  width: 400px;
+  height: 400px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--secondary-bg-blue-color);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.addBtn {
+  width: 50px;
+  height: 50px;
+
+  background-color: var(--primary-white-color);
+
+  border: none;
+  border-radius: 5px;
+
+  margin-bottom: 18px;
+}
+
+.uploadImg {
+  width: 400px;
+  height: 400px;
+
+  border-radius: 10px;
+}
+
+.informationDrink {
+  width: 393px;
+  height: 284px;
+
+  gap: 59px;
+}
+
+.addDrinkInput {
+  width: 393px;
+
+  border: none;
+  border-bottom: 1px solid var(--primary-white-color);
+  background: none;
+  color: var(--primary-white-color);
+
+  outline: none;
+  position: relative;
+
+  padding-top: 20px;
+  margin-bottom: 40px;
+}
+
+.addDrinkInput::placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.informationAlcoholic {
+  display: flex;
+  gap: 14px;
+}
+
+.alcoholicWhiteText {
+  color: var(--primary-white-color);
+}
+
+.alcoholicBlackText {
+  color: #666;
+}
+
+[type='radio']:checked,
+[type='radio']:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+
+[type='radio']:checked + label,
+[type='radio']:not(:checked) + label {
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+  color: #666;
+}
+
+[type='radio']:checked + label {
+  color: white;
+}
+
+[type='radio']:checked + label:before,
+[type='radio']:not(:checked) + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--primary-white-color);
+  border-radius: 100%;
+  background: none;
+}
+
+[type='radio']:checked + label:after,
+[type='radio']:not(:checked) + label:after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: var(--primary-white-color);
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+[type='radio']:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+[type='radio']:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.custom-select {
+  position: relative;
+  width: 200px;
+}
+
+.custom-select select {
+  display: none;
+}
+
+.custom-select-trigger {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: #f0f0f0;
+  cursor: pointer;
+}
+
+.custom-options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+}
+
+.custom-option {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.custom-option.selected {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.customSelect {
+  position: relative;
+}
+
+.ingredientSelect {
+  width: 316px;
+  height: 56px;
+
+  margin: 0 auto;
+  position: relative;
+
+  border-radius: 50px;
+  border: 1px solid var(--primary-white-color);
+  color: var(--primary-white-color);
+}
+
+.customSelect .customSelectBtn {
+  width: 200px;
+  height: 50px;
+
+  padding: 10px;
+  background: none;
+  border: 1px solid var(--primary-white-color);
+  border-radius: 50px;
+
+  box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+  color: var(--primary-white-color);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+  .customSelect .customSelectBtn {
+    width: 332px;
+    height: 56px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .customSelect .customSelectBtn {
+    width: 316px;
+    height: 56px;
+  }
+}
+
+.customSelectText {
+  position: absolute;
+  bottom: 16px;
+  left: 20px;
+}
+
+.defaultText {
+  position: absolute;
+  bottom: 16px;
+  left: 20px;
+
+  color: #666;
+}
+
+.customSelect .customSelectContent {
+  width: 154px;
+
+  position: absolute;
+  top: 90%;
+  padding: 15px;
+  background: var(--secondary-bg-blue-color);
+  left: 0;
+
+  box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+  color: var(--primary-white-color);
+
+  border-radius: 10px;
+  z-index: 1000;
+}
+
+.customSelect .customSelectContent .customSelectItem {
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.customSelectContent {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.customSelectContentWrapper {
+  max-height: 100%;
+  overflow: hidden;
 }

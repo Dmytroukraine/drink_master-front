@@ -1,5 +1,5 @@
 .textarea {
-  width: 480px;
+  width: 335px;
   height: 184px;
   background: none;
 
@@ -14,4 +14,10 @@
 
 .preparationTitle {
   margin-bottom: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .textarea {
+    width: 480px;
+  }
 }

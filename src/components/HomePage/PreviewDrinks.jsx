@@ -7,7 +7,9 @@ import { CocktailList } from './CocktailList';
 import { Button } from 'components/Button';
 
 export const PreviewDrinks = () => {
-  const { data = [], isLoading } = useGetDrinkMainPageQuery();
+  const { data = {}, isLoading } = useGetDrinkMainPageQuery();
+
+  console.log('Data: ', data);
 
   const values = Object.values(data);
   const categories = Object.keys(data);

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { notification } from 'components/Shared/notification';
 import axios from 'axios';
 
 import { v4 as uuidv4 } from 'uuid';
@@ -12,6 +13,7 @@ import { getDrinksCategory } from 'services/filtersAPI';
 import { getDrinksGlass } from 'services/filtersAPI';
 
 import css from './AddDrinkForm.module.css';
+import cssIngredients from './DrinkIngredientsFields.module.css';
 
 import { useSelector } from 'react-redux';
 
@@ -19,19 +21,17 @@ export const AddDrinkForm = () => {
   const [selectedImg, setSelectedImg] = useState(null);
   const [itemTitle, setItemTitle] = useState('');
   const [aboutRecipe, setAboutRecipe] = useState('');
-  const [category, setCategory] = useState('Category');
-  const [glass, setGlass] = useState('Glass');
+  const [category, setCategory] = useState('Cocktail');
+  const [glass, setGlass] = useState('Highball glass');
   const [alcoholic, setAlcoholic] = useState('Alcoholic');
 
-  const [uploadImg, setuploadImg] = useState(false);
+  const [count, setCount] = useState(3);
 
-  const initialIngredients = Array.from({ length: 3 }, () => ({
-    id: uuidv4(),
-    title: '',
-    measure: '1',
-  }));
-
-  const [arrIngredients, setArrIngredients] = useState(initialIngredients);
+  const [arrIngredients, setArrIngredients] = useState([
+    { id: uuidv4(), title: '', measure: '1', ingredientId: '' },
+    { id: uuidv4(), title: '', measure: '1', ingredientId: '' },
+    { id: uuidv4(), title: '', measure: '1', ingredientId: '' },
+  ]);
   const [preparation, setPreparation] = useState('');
 
   const [categoryData, setCategoryData] = useState(null);
@@ -49,10 +49,6 @@ export const AddDrinkForm = () => {
       }
     }
 
-    if (userToken) {
-      fetchGlassData();
-    }
-
     async function fetchCategoryData() {
       try {
         const data = await getDrinksGlass(userToken);
@@ -64,15 +60,19 @@ export const AddDrinkForm = () => {
 
     if (userToken) {
       fetchCategoryData();
+      fetchGlassData();
     }
   }, [userToken]);
 
-  const simplifiedIngredients = arrIngredients.map(({ title, measure }) => ({
-    title,
-    measure,
-  }));
+  const simplifiedIngredients = arrIngredients.map(
+    ({ title, measure, ingredientId }) => ({
+      title,
+      measure,
+      ingredientId,
+    })
+  );
 
-  const simplifiedDrink = {
+  const drinkOwn = {
     drinkThumb: selectedImg,
     drink: itemTitle,
     shortDescription: aboutRecipe,
@@ -93,42 +93,46 @@ export const AddDrinkForm = () => {
       const selectedImg = event.target.files[0];
       const imageUrl = URL.createObjectURL(selectedImg);
       setSelectedImg(imageUrl);
-
-      setuploadImg(true);
     };
   }
 
   class Form {
     handleSubmit = async e => {
       e.preventDefault();
+      const checkTitle = simplifiedIngredients.map(el => el.title);
 
-      // if (
-      //   drink.img === null ||
-      //   drink.title === '' ||
-      //   drink.recipe === '' ||
-      //   drink.category === '' ||
-      //   drink.glass === '' ||
-      //   drink.preparation === ''
-      // ) {
-      //   alert('Fill in all fields');
-      //   return;
-      // }
-
-      console.log(simplifiedDrink);
+      if (
+        drinkOwn.drinkThumb === null ||
+        drinkOwn.itemTitle === '' ||
+        drinkOwn.shortDescription === '' ||
+        drinkOwn.category === '' ||
+        drinkOwn.glass === '' ||
+        drinkOwn.preparation === '' ||
+        drinkOwn.instructions === '' ||
+        checkTitle.some(title => title === '')
+      ) {
+        notification('Fill in all fields');
+        return;
+      }
 
       try {
+        // eslint-disable-next-line
         const response = await axios.post(
           'https://drink-master-service.onrender.com/api/drinks/own/add',
-          simplifiedDrink,
+          drinkOwn,
           {
             headers: {
               Authorization: `Bearer ${userToken}`,
             },
           }
         );
-        console.log(response.data);
+        notification('Drink was successfully added', 'success');
       } catch (error) {
-        console.error(error);
+        if (error.response && error.response.status === 409) {
+          notification('Drink already exists');
+        } else {
+          console.error(error);
+        }
       }
     };
 
@@ -168,6 +172,31 @@ export const AddDrinkForm = () => {
     };
   }
 
+  class Count {
+    increment = () => {
+      if (count === 6) return;
+      setCount(count + 1);
+
+      setArrIngredients(prevState => [
+        ...prevState,
+        {
+          id: uuidv4(),
+          title: '',
+          measure: '1',
+          ingredientId: '',
+        },
+      ]);
+    };
+
+    decrement = () => {
+      if (count === 3) return;
+      setCount(count - 1);
+
+      setArrIngredients(prevState => prevState.slice(0, -1));
+    };
+  }
+
+  const counter = new Count();
   const img = new AddImg();
   const form = new Form();
 
@@ -182,7 +211,8 @@ export const AddDrinkForm = () => {
             style={{ display: 'none' }}
           />
 
-          {uploadImg ? (
+          {selectedImg !== null ? (
+            // eslint-disable-next-line
             <img
               src={selectedImg}
               className={css.uploadImg}
@@ -217,16 +247,30 @@ export const AddDrinkForm = () => {
             onChange={form.handleChange}
             className={css.addDrinkInput}
           />
+          <p className={css.informationDrinkText}>Category</p>
           <CustomSelect
             select={category}
             setSelect={setCategory}
             options={categoryData}
+            customSelect={css.customSelect}
+            customSelectBtn={css.customSelectBtn}
+            customSelectContent={css.customSelectContent}
+            customSelectItem={css.customSelectItem}
+            customSelectText={css.customSelectText}
+            defaultText={''}
           />
 
+          <p className={css.informationDrinkText}>Glass</p>
           <CustomSelect
             select={glass}
             setSelect={setGlass}
             options={glassData}
+            customSelect={css.customSelect}
+            customSelectBtn={css.customSelectBtn}
+            customSelectContent={css.customSelectContent}
+            customSelectItem={css.customSelectItem}
+            customSelectText={css.customSelectText}
+            defaultText={''}
           />
 
           <div className={css.informationAlcoholic}>
@@ -256,9 +300,36 @@ export const AddDrinkForm = () => {
         </div>
       </div>
 
+      <div className={cssIngredients.panelCounter}>
+        <h2>Ingredients</h2>
+        <div className={cssIngredients.counter}>
+          <button
+            type="button"
+            onClick={counter.decrement}
+            className={`${cssIngredients.counterBtn} ${
+              count === 3 ? cssIngredients.minCounterBtn : ''
+            }`}
+          >
+            -
+          </button>
+          <p>{count}</p>
+          <button
+            type="button"
+            onClick={counter.increment}
+            className={`${cssIngredients.counterBtn} ${
+              count === 6 ? cssIngredients.minCounterBtn : ''
+            }`}
+          >
+            +
+          </button>
+        </div>
+      </div>
+
       <DrinkIngredientsFields
         arrIngredients={arrIngredients}
         setArrIngredients={setArrIngredients}
+        countValue={count}
+        setCountValue={setCount}
       />
       <RecipeDescriptField onChange={form.handleChange} />
       <AddDrinkBtn />

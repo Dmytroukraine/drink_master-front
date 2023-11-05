@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-import { v4 as uuidv4 } from 'uuid';
-import css from './DrinkIngredientsFields.module.css';
+import { CustomSelect } from './CustomSelect';
 
 import { getDrinksIngredients } from 'services/filtersAPI';
 
-import { CustomSelect } from './CustomSelect';
+import css from './DrinkIngredientsFields.module.css';
 
 export const DrinkIngredientsFields = ({
   arrIngredients,
   setArrIngredients,
+  countValue,
+  setCountValue,
 }) => {
-  const [count, setCount] = useState(3);
   const [ingredientsData, setIngredientsData] = useState([]);
+  const [fetchData, setFetchData] = useState(null);
 
   const userToken = useSelector(state => state.user.token);
 
@@ -21,7 +22,7 @@ export const DrinkIngredientsFields = ({
     async function fetchIngredientsData() {
       try {
         const data = await getDrinksIngredients(userToken);
-
+        setFetchData(data);
         const ingredientsArray = data
           .filter(el => el.title)
           .map(el => el.title);
@@ -36,34 +37,9 @@ export const DrinkIngredientsFields = ({
     }
   }, [userToken]);
 
-  class Count {
-    increment = () => {
-      if (count === 6) return;
-      setCount(count + 1);
-
-      setArrIngredients(prevState => [
-        ...prevState,
-        {
-          id: uuidv4(),
-          title: '',
-          measure: '1',
-        },
-      ]);
-    };
-
-    decrement = () => {
-      if (count === 3) return;
-      setCount(count - 1);
-
-      setArrIngredients(prevState => prevState.slice(0, -1));
-    };
-  }
-
-  const counter = new Count();
-
   function removeIngredient(id) {
-    if (count !== 3) {
-      setCount(count - 1);
+    if (countValue !== 3) {
+      setCountValue(countValue - 1);
 
       setArrIngredients(prevState =>
         prevState.filter(ingredient => ingredient.id !== id)
@@ -72,60 +48,53 @@ export const DrinkIngredientsFields = ({
   }
 
   function onChange(id, value) {
-    const validValue = parseFloat(value);
-
     setArrIngredients(prevState =>
       prevState.map(volumeIngredient => {
         if (volumeIngredient.id === id) {
-          return { ...volumeIngredient, measure: validValue + '' };
+          return { ...volumeIngredient, measure: value };
         }
         return volumeIngredient;
       })
     );
   }
 
+  function findObjectByTitle(title) {
+    const foundObject = fetchData.find(item => item.title === title);
+    if (foundObject) {
+      return foundObject._id;
+    }
+  }
+
   return (
     <div className={css.ingredients}>
-      <div className={css.panelCounter}>
-        <h2>Ingredients</h2>
-        <div className={css.counter}>
-          <button
-            type="button"
-            onClick={counter.decrement}
-            className={`${css.counterBtn} ${
-              count === 3 ? css.minCounterBtn : ''
-            }`}
-          >
-            -
-          </button>
-          <p>{count}</p>
-          <button
-            type="button"
-            onClick={counter.increment}
-            className={`${css.counterBtn} ${
-              count === 6 ? css.minCounterBtn : ''
-            }`}
-          >
-            +
-          </button>
-        </div>
-      </div>
       <ul>
         {arrIngredients.map(({ id, title, measure }) => (
           <li key={id} className={css.ingredientItem}>
             <CustomSelect
               select={title}
               setSelect={newIngredient => {
-                setArrIngredients(prevState =>
-                  prevState.map(ingredientObj => {
+                setArrIngredients(prevState => {
+                  const updatedIngredients = prevState.map(ingredientObj => {
                     if (ingredientObj.id === id) {
-                      return { ...ingredientObj, title: newIngredient };
+                      const newIngredientId = findObjectByTitle(newIngredient);
+                      return {
+                        ...ingredientObj,
+                        title: newIngredient,
+                        ingredientId: newIngredientId || '',
+                      };
                     }
                     return ingredientObj;
-                  })
-                );
+                  });
+                  return updatedIngredients;
+                });
               }}
               options={ingredientsData}
+              customSelect={css.customSelect}
+              customSelectBtn={css.customSelectBtn}
+              customSelectContent={css.customSelectContent}
+              customSelectItem={css.customSelectItem}
+              customSelectText={css.customSelectText}
+              defaultText={'Ingredient'}
             />
             <div
               className={css.volumeIngredient}

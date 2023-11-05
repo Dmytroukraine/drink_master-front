@@ -1,7 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
-import css from './CustomSelect.module.css';
+import { v4 as uuidv4 } from 'uuid';
 
-export const CustomSelect = ({ select, setSelect, options }) => {
+import css from './DrinkIngredientsFields.module.css';
+
+export const CustomSelect = ({
+  select,
+  setSelect,
+  options,
+  customSelect,
+  customSelectBtn,
+  customSelectContent,
+  customSelectItem,
+  customSelectText,
+  defaultText,
+}) => {
   const [isActive, setIsActive] = useState(false);
   const customSelectRef = useRef(null);
 
@@ -14,6 +26,10 @@ export const CustomSelect = ({ select, setSelect, options }) => {
     }
   };
 
+  const handleSelectClick = () => {
+    setIsActive(!isActive);
+  };
+
   useEffect(() => {
     document.addEventListener('click', handleClickOutside);
     return () => {
@@ -22,20 +38,21 @@ export const CustomSelect = ({ select, setSelect, options }) => {
   }, []);
 
   return (
-    <div className={css.customSelect} ref={customSelectRef}>
-      <div
-        onClick={() => setIsActive(!isActive)}
-        className={css.customSelectBtn}
-      >
-        {select}
+    <div className={customSelect} ref={customSelectRef}>
+      <div onClick={handleSelectClick} className={customSelectBtn}>
+        <span className={customSelectText}>{select}</span>
       </div>
+      <span className={css.defaultText}>{select ? '' : defaultText}</span>
       {isActive && (
-        <div className={css.customSelectContent}>
+        <div className={customSelectContent}>
           {options.map(el => (
             <div
-              key={el}
-              onClick={() => setSelect(el)}
-              className={css.customSelectItem}
+              key={uuidv4()}
+              onClick={() => {
+                setSelect(el);
+                setIsActive(false);
+              }}
+              className={customSelectItem}
             >
               {el}
             </div>

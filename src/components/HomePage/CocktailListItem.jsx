@@ -15,7 +15,7 @@ export const CocktailListItem = ({ pictureURL, title, id }) => {
       <div className={s.footerCard}>
         <p className={s.name}>{title}</p>
 
-        <NavLink className={s.seeMore} to={`/drink/:${id}`}>
+        <NavLink className={s.seeMore} to={`/drinks/${id}`}>
           See more
         </NavLink>
       </div>
