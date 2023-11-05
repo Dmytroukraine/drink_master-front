@@ -19,7 +19,7 @@ export const PopularRecipe = () => {
                             const { _id, drink, shortDescription, drinkThumb} = recipe;
                             return (
                                 <Link
-                                    to={`/drink/${_id}`}
+                                    to={`/drinks/${_id}`}
                                     className={styles.drink}
                                     key={_id}
                                     id={_id}>
