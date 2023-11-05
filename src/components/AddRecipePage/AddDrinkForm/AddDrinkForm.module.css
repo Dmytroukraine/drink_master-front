@@ -1,13 +1,24 @@
 .form {
-  display: flex;
+  margin-bottom: 80px;
+}
 
-  gap: 40px;
-  margin-bottom: 40px;
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+  .form {
+    gap: 32px;
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .form {
+    gap: 40px;
+    display: flex;
+  }
 }
 
 .addDrinkImg {
-  width: 400px;
-  height: 400px;
+  width: 335px;
+  height: 335px;
 
   display: flex;
   justify-content: center;
@@ -16,6 +27,20 @@
   background-color: var(--secondary-bg-blue-color);
   border-radius: 10px;
   text-align: center;
+}
+
+@media screen and (min-width: 375px) and (max-width: 1440px) {
+  .addDrinkImg {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .addDrinkImg {
+    width: 400px;
+    height: 400px;
+  }
 }
 
 .addBtn {
@@ -31,21 +56,49 @@
 }
 
 .uploadImg {
-  width: 400px;
-  height: 400px;
+  width: 335px;
+  height: 335px;
 
   border-radius: 10px;
 }
 
+@media screen and (min-width: 375px) and (max-width: 768px) {
+  .uploadImg {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .uploadImg {
+    width: 400px;
+    height: 400px;
+  }
+}
+
 .informationDrink {
-  width: 393px;
-  height: 284px;
+  width: 335px;
+  height: 229px;
 
   gap: 59px;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+  .informationDrink {
+    width: 352px;
+    height: 257px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .informationDrink {
+    width: 393px;
+    height: 284px;
+  }
+}
+
 .addDrinkInput {
-  width: 393px;
+  width: 320px;
 
   border: none;
   border-bottom: 1px solid var(--primary-white-color);
@@ -55,8 +108,23 @@
   outline: none;
   position: relative;
 
-  padding-top: 20px;
-  margin-bottom: 40px;
+  padding-top: 14px;
+  margin-bottom: 31px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+  .addDrinkInput {
+    width: 352px;
+    height: 41px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .addDrinkInput {
+    width: 393px;
+
+    margin-bottom: 40px;
+  }
 }
 
 .addDrinkInput::placeholder {
@@ -176,11 +244,27 @@
 }
 
 .customSelect {
-  width: 393px;
-  margin: 0 auto;
+  width: 320px;
+  height: 34px;
+
   position: relative;
 
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+  .customSelect {
+    width: 352px;
+    height: 41px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .customSelect {
+    width: 393px;
+
+    margin-bottom: 40px;
+  }
 }
 
 .ingredientSelect {
@@ -196,7 +280,9 @@
 }
 
 .customSelect .customSelectBtn {
-  padding: 10px;
+  width: 320px;
+
+  padding: 5px;
   background: none;
   border-bottom: 1px solid var(--primary-white-color);
 
@@ -204,10 +290,34 @@
   color: var(--primary-white-color);
 }
 
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+  .customSelect .customSelectBtn {
+    width: 352px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .customSelect .customSelectBtn {
+    width: 393px;
+
+    margin-bottom: 40px;
+  }
+}
+
 .customSelectText {
   position: absolute;
-  bottom: 17px;
+  bottom: 35px;
   right: 0;
+}
+
+.informationDrinkText {
+  color: #666;
+}
+
+@media screen and (min-width: 768px) {
+  .customSelectText {
+    bottom: 40px;
+  }
 }
 
 .ingredientSelect .customSelectContent {
@@ -228,7 +338,7 @@
   width: 154px;
 
   position: absolute;
-  top: 110%;
+  top: 10%;
   padding: 15px;
   background: var(--secondary-bg-blue-color);
   right: 0;
@@ -238,6 +348,12 @@
 
   border-radius: 10px;
   z-index: 1000;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+  .customSelect .customSelectContent {
+    top: 15%;
+  }
 }
 
 .customSelect .customSelectContent .customSelectItem {
