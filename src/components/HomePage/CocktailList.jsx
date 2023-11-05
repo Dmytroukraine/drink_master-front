@@ -42,11 +42,7 @@ export const CocktailList = ({ category, title }) => {
     setIsLoading(true);
     setVisibleCocktails(sliceCocktails(category));
     setIsLoading(false);
-
-    console.log('visibleCocktail: ', visibleCocktails);
   }, [category, sliceCocktails]);
-
-  console.log('visibleCocktail: ', visibleCocktails);
 
   const resizeObserver = useMemo(() => {
     return new ResizeObserver(entries => {
