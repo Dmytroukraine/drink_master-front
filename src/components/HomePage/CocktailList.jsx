@@ -1,4 +1,7 @@
 import { useEffect, useState, useCallback, useMemo } from 'react';
+import { useSelector } from 'react-redux';
+import { getUserAgeInYears } from 'redux/userSlice/userSelectors';
+
 import s from './PreviewDrinks.module.css';
 import { CocktailListItem } from './CocktailListItem';
 
@@ -23,6 +26,8 @@ export const CocktailList = ({ category, title }) => {
   const [visibleCocktails, setVisibleCocktails] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  const ageUser = useSelector(getUserAgeInYears);
+
   const mediaSmall = window.matchMedia('(max-width: 767px)').matches;
   const mediaMedium = window.matchMedia('(max-width: 1439px)').matches;
 
@@ -40,8 +45,17 @@ export const CocktailList = ({ category, title }) => {
 
   useEffect(() => {
     setIsLoading(true);
-    setVisibleCocktails(sliceCocktails(category));
-    setIsLoading(false);
+
+    if (ageUser <= 18 && category[0]?.alcoholic === 'Non alcoholic') {
+      setVisibleCocktails(sliceCocktails(category));
+       return   setIsLoading(false);
+    }
+
+    if (ageUser >= 18 && category[0]?.alcoholic === 'Alcoholic') {
+      setVisibleCocktails(sliceCocktails(category));
+       return   setIsLoading(false);
+    }
+
   }, [category, sliceCocktails]);
 
   const resizeObserver = useMemo(() => {

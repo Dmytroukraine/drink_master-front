@@ -5,14 +5,9 @@ import { Loading } from 'components/Loader/Loader';
 import { useGetDrinkMainPageQuery } from 'redux/drinkSlice/drinksSlice';
 import { CocktailList } from './CocktailList';
 import { Button } from 'components/Button';
-import { useSelector } from 'react-redux';
-import { getUserAgeInYears } from 'redux/userSlice/userSelectors';
 
 export const PreviewDrinks = () => {
   const { data = {}, isLoading } = useGetDrinkMainPageQuery();
-  const ageUser = useSelector(getUserAgeInYears);
-
-  console.log('Age user: ', ageUser );
 
   const values = Object.values(data);
   const categories = Object.keys(data);
