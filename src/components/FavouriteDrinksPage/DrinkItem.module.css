@@ -123,6 +123,7 @@
     padding: 18px 44px;
     border-radius: 42px;
     color: var(--primary-white-color);
+    border: 0 transparent;
   }
   
   @media screen and (min-width: 768px) {
@@ -131,6 +132,13 @@
       line-height: 1.13;
       height: 54px;
     }
+  }
+  
+
+  .btn:hover,
+  .btn:focus {
+    background: var(--primary-white-color);
+    color:  var(--secondary-bg-blue-color);
   }
   
   .btn_cirkle {
@@ -142,6 +150,7 @@
     padding: 13px;
     border-radius: 50px;
     color: var(--primary-white-color);
+    border: 0 transparent; 
   }
   
   @media screen and (min-width: 768px) {
@@ -150,4 +159,18 @@
       height: 54px;
       padding: 15px;
     }
+  }
+
+  .btn_cirkle:hover,
+  .btn_cirkletn:focus {
+    background: var(--primary-white-color);
+    color:  var(--secondary-bg-blue-color);;
+  }
+
+  .btn_cirkle:hover path {
+    stroke: var(--secondary-bg-blue-color);;
+  }
+ 
+  .btn_cirkletn:focus path {
+    stroke: var(--secondary-bg-blue-color);;
   }
