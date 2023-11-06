@@ -33,6 +33,14 @@ export const drinksApi = createApi({
       query: () => ({ url: `/own` }),
       providesTags: ['drinks'],
     }),
+    getCategory: builder.query({
+      query: categories => ({ url: `/search?category=${categories}` }),
+      providesTags: ['drinks'],
+    }),
+    getIngredient: builder.query({
+      query: ingredient => ({ url: `/search?ingredient=${ingredient}` }),
+      providesTags: ['drinks'],
+    }),
   }),
 });
 
@@ -40,4 +48,6 @@ export const {
   useGetDrinkMainPageQuery,
   useGetDrinkByIdQuery,
   useGetMyDrinksQuery,
+  useGetCategoryQuery,
+  useGetIngredientQuery,
 } = drinksApi;

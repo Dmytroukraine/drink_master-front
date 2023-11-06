@@ -3,6 +3,8 @@ import Select from 'react-select';
 import { useDrinkSearchQuery } from '../../redux/searchOperations';
 import { useGetCategoriesListQuery } from '../../redux/filtersSlice/filtersSlice';
 import { useGetIngredientsListQuery } from '../../redux/filtersSlice/filtersSlice';
+import { useGetCategoryQuery } from '../../redux/drinkSlice/drinksSlice';
+import { useGetIngredientQuery } from '../../redux/drinkSlice/drinksSlice';
 import css from './DrinksSearch.module.css';
 import { FiSearch } from 'react-icons/fi';
 import { useSearchParams } from 'react-router-dom';
@@ -16,15 +18,20 @@ const DrinkSearch = () => {
   const ingredient = searchParams.get('ingredient');
   const [query, setQuery] = useState('');
   // const [searchKeyword, setSearchKeyword] = useState('');
-  // const [searchCategory, setSearchCategory] = useState('');
   // const [searchIngredient, setSearchIngredient] = useState('');
   const dispatch = useDispatch();
   const { data = {}, isLoading } = useDrinkSearchQuery(query);
   // const { data: keywordData, isLoading } = useDrinkSearchQuery(searchKeyword);
-  // const { data: categoryData } = useDrinkSearchQuery(searchCategory);
+  // const { data: categoryData } = useDrinkSearchQuery(categories );
   // const { data: ingredientData } = useDrinkSearchQuery(searchIngredient);
   const { data: categoryList } = useGetCategoriesListQuery();
   const { data: ingredientsList } = useGetIngredientsListQuery();
+
+  const [categories, setCategory] = useState('');
+  const { data: categoryData } = useGetCategoryQuery(categories);
+
+  const [ingred, setIngred] = useState('');
+  const { data: ingredientData } = useGetIngredientQuery(ingred);
 
   let categoriesOptions = [];
   let ingredientsOptions = [];
@@ -49,10 +56,26 @@ const DrinkSearch = () => {
     (key, value) => {
       const newSearchParams = new URLSearchParams(searchParams);
       newSearchParams.set(key, value);
+
+      console.log('VALUE: ', value.toString());
       setSearchParams(newSearchParams);
+
+      if (key === 'category') {
+        setCategory(value.toString());
+        dispatch(setCategory(value.toString()));
+        console.log('setCategory + ');
+        return;
+      }
+
+      setInputValue(value.toString());
+      dispatch(setIngred(value.toString()));
+      console.log('setIngred  + ');
     },
     [searchParams, setSearchParams]
   );
+
+  console.log('categoryData: ', categoryData);
+  console.log('ingredientData: : ', ingredientData);
 
   if (categoryList && ingredientsList) {
     categoryList.forEach(item =>
@@ -91,7 +114,9 @@ const DrinkSearch = () => {
             options={[{ value: 'All categories' }, ...categoriesOptions]}
             onChange={data => handleSetSearchtParams('category', data.value)}
             inputValue={inputValue}
-            onInputChange={handleInputChange}
+            onInputChange={(evt) => handleInputChange(evt)}
+            // onClick={(evt) => console.log('onClick: ', evt)}
+
             // styles={selectStyles}
           />
           <Select
@@ -106,7 +131,7 @@ const DrinkSearch = () => {
             options={[{ value: 'All ingredients' }, ...ingredientsOptions]}
             onChange={data => handleSetSearchtParams('ingredient', data.value)}
             inputValue={inputValue}
-            onInputChange={handleInputChange}
+            onInputChange={(evt) => handleInputChange(evt)}
 
             // styles={selectStyles}
           />
@@ -114,8 +139,8 @@ const DrinkSearch = () => {
         <div>
           {drinksKey?.map(key => {
             const index = drinksKey.indexOf(key);
-            console.log(index);
-            console.log('drinksValue', drinksValue[1]);
+            // console.log(index);
+            // console.log('drinksValue', drinksValue[1]);
             return (
               <ul className={css.drinkList}>
                 {drinksValue[1]?.map(({ _id, drink, drinkThumb }) => {
