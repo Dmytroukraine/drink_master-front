@@ -6,7 +6,7 @@
     background-color: var(--main-bg-color);
     gap: 10px;
     height: 72px;
-    border-bottom: 1px solid rgba(243, 243, 243, 0.2);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .menuDesktop {
