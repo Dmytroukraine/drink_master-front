@@ -24,8 +24,8 @@ export const getRequestedDrink = createApi({
         url: `/search?query=${keyword}`,
         method: 'GET',
       }),
-      category: category => ({
-        url: `/search?categories=${category}`,
+      categories: categories => ({
+        url: `/search?categories=${categories}`,
         method: 'GET',
       }),
       ingredient: ingredient => ({
