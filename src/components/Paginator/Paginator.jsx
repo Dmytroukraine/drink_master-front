@@ -1,5 +1,5 @@
 import React from 'react';
-import { withTheme } from 'styled-components';
+// import { withTheme } from 'styled-components';
 import css from './Paginator.module.css';
 
 export function Paginator({ drinks, quantityPages, setPage, currentPage }) {
