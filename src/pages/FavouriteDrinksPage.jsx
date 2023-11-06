@@ -17,8 +17,8 @@ const FavouriteDrinksPage = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const size = useResize();
 
-  console.log(size[0]);
-  console.log(size[0] > 1439);
+  // console.log(size[0]);
+  // console.log(size[0] > 1439);
   const quantityDrinks = data.length;
 
   let itemsPerPage = 8;
@@ -31,12 +31,6 @@ const FavouriteDrinksPage = () => {
 
   const i = 0 + currentPage * itemsPerPage;
   const k = itemsPerPage + itemsPerPage * currentPage;
-
-   // const [currentPage, setCurrentPage] = useState(1);
-  // const countPages = Math.ceil(data.length/8);
-  
-  // console.log("countPages", countPages);;
-  // console.log(currentPage);
   
   const pagDrinks = data.slice(i, k);
 

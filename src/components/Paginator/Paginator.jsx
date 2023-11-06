@@ -25,16 +25,7 @@ export function Paginator({ drinks, quantityPages, setPage, currentPage }) {
   }
 
   return (
-    <div  className={css.btnContainer}
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 20,
-        color: '#010101',
-        marginTop: 30,
-      }}
-    >
+    <div  className={css.btnContainer}>
       <button
         type="button"
         className={css.btnArrow}
@@ -52,7 +43,9 @@ export function Paginator({ drinks, quantityPages, setPage, currentPage }) {
               disabled={currentPage === number - 1}
               type="button"
               onClick={() => onBtnClick(number)}
-              className={css.btnClick}
+              className={
+                (currentPage === number - 1 ? css.btnActive : css.btnClick)
+              }
             >
               {' '}
               {number}{' '}

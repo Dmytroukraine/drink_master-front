@@ -19,14 +19,24 @@
     transform: scale(3, 3);
     background-color: transparent;
     border: transparent;
-    color: var(--primary-white-color);
-    opacity: 30%;
+    color: #F3F3F34D;
+    
 }
 
-.btnArrow:hover,
-.btnArrow:focus {
-    color: var(--primary-white-color);
+.btnArrow:disabled{
+    color: #151520;
+    cursor: default
 }
+
+.btnArrow:disabled:hover {
+    color: #151520;
+}
+
+
+.btnArrow:hover{
+color: rgba(64, 112, 205, 0.5);
+}
+
 
 .btnClick {
     width: 27.87px;
@@ -38,7 +48,20 @@
     border: transparent;
     transform: scale(2, 2);
 }
+
+
 .btnClick:hover,
 .btn:active {
+    background-color: rgba(64, 112, 205, 0.5);
+}
+
+.btnActive {
+    width: 27.87px;
+    height: 27px;
+    border-radius: 50%;
+    font-size: 12px;
+    color: var(--primary-white-color);
+    border: transparent;
+    transform: scale(2, 2);
     background-color: rgba(64, 112, 205, 0.5);
 }
