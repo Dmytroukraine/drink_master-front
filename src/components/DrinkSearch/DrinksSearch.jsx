@@ -8,7 +8,6 @@ import { useGetIngredientQuery } from '../../redux/drinkSlice/drinksSlice';
 import css from './DrinksSearch.module.css';
 import { FiSearch } from 'react-icons/fi';
 import { useSearchParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import { DebounceInput } from 'react-debounce-input';
 import { DrinksListItem } from './DrinksListItem';
 
@@ -17,13 +16,9 @@ const DrinkSearch = () => {
   const category = searchParams.get('category');
   const ingredient = searchParams.get('ingredient');
   const [query, setQuery] = useState('');
-  // const [searchKeyword, setSearchKeyword] = useState('');
-  // const [searchIngredient, setSearchIngredient] = useState('');
-  const dispatch = useDispatch();
+
   const { data = {}, isLoading } = useDrinkSearchQuery(query);
-  // const { data: keywordData, isLoading } = useDrinkSearchQuery(searchKeyword);
-  // const { data: categoryData } = useDrinkSearchQuery(categories );
-  // const { data: ingredientData } = useDrinkSearchQuery(searchIngredient);
+
   const { data: categoryList } = useGetCategoriesListQuery();
   const { data: ingredientsList } = useGetIngredientsListQuery();
 
@@ -36,9 +31,7 @@ const DrinkSearch = () => {
   let categoriesOptions = [];
   let ingredientsOptions = [];
 
-  const drinksValue = Object.values(data);
-  const drinksKey = Object.keys(data);
-
+  const [drinksArr, setDrinksArr] = useState('');
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = inputValue => {
@@ -49,7 +42,8 @@ const DrinkSearch = () => {
     e.preventDefault();
   };
   const onHandleChange = e => {
-    dispatch(setQuery(e.target.value));
+    setQuery(e.target.value);
+    setDrinksArr(data);
   };
 
   const handleSetSearchtParams = useCallback(
@@ -62,13 +56,14 @@ const DrinkSearch = () => {
 
       if (key === 'category') {
         setCategory(value.toString());
-        dispatch(setCategory(value.toString()));
-        console.log('setCategory + ');
+        setDrinksArr(categoryData);
+        console.log('setCategory + ', categoryData);
         return;
       }
 
       setInputValue(value.toString());
-      dispatch(setIngred(value.toString()));
+      setIngred(value.toString());
+      setDrinksArr(ingredientData);
       console.log('setIngred  + ');
     },
     // eslint-disable-next-line
@@ -115,7 +110,7 @@ const DrinkSearch = () => {
             options={[{ value: 'All categories' }, ...categoriesOptions]}
             onChange={data => handleSetSearchtParams('category', data.value)}
             inputValue={inputValue}
-            onInputChange={(evt) => handleInputChange(evt)}
+            onInputChange={evt => handleInputChange(evt)}
             // onClick={(evt) => console.log('onClick: ', evt)}
 
             // styles={selectStyles}
@@ -132,32 +127,24 @@ const DrinkSearch = () => {
             options={[{ value: 'All ingredients' }, ...ingredientsOptions]}
             onChange={data => handleSetSearchtParams('ingredient', data.value)}
             inputValue={inputValue}
-            onInputChange={(evt) => handleInputChange(evt)}
+            onInputChange={evt => handleInputChange(evt)}
 
             // styles={selectStyles}
           />
         </div>
-        // eslint-disable-next-line
         <div>
-          {drinksKey?.map(key => {
-            const index = drinksKey.indexOf(key);
-            // console.log(index);
-            // console.log('drinksValue', drinksValue[1]);
-            return (
-              <ul className={css.drinkList}>
-                {drinksValue[1]?.map(({ _id, drink, drinkThumb }) => {
-                  return (
-                    <DrinksListItem
-                      key={_id}
-                      pictureURL={drinkThumb}
-                      title={drink}
-                      id={_id}
-                    />
-                  );
-                })}
-              </ul>
-            );
-          })}
+          <ul className={css.drinkList}>
+            {drinksArr?.drinks?.map(({ _id, drink, drinkThumb }) => {
+              return (
+                <DrinksListItem
+                  key={_id}
+                  pictureURL={drinkThumb}
+                  title={drink}
+                  id={_id}
+                />
+              );
+            })}
+          </ul>
         </div>
       </div>
     </section>
