@@ -6,7 +6,7 @@
     background-color: transparent;
     gap: 10px;
     height: 72px;
-    border-bottom: 1px solid rgba(243, 243, 243, 0.2);
+    border-bottom: 1px solid var(--border-color);
 }
 
 @media screen and (min-width: 768px) {

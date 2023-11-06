@@ -1,5 +1,6 @@
 .wrapper {
-    background-image: radial-gradient(
+  background-color: var(--main-bg-color);
+    /* background-image: radial-gradient(
         circle at center,
         rgba(188, 230, 210, 0.4) 10%,
         rgba(255, 255, 255, 0) 70%
@@ -16,7 +17,7 @@
       );
     background-repeat: no-repeat, repeat-y, no-repeat;
     background-position: 0 0, -720px 0, 35vw calc(100vh + 400px);
-    background-size: 357px 357px, 1240px 820px, 1400px 1400px;
+    background-size: 357px 357px, 1240px 820px, 1400px 1400px; */
   
     @media screen and (min-width: 768px) {
       background-image: radial-gradient(
