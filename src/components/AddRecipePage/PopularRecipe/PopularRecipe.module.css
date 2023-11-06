@@ -17,7 +17,6 @@
 
 .drink {
     display: flex;
-    width: 336px;
     height: 90px;
     
 }
@@ -48,7 +47,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
-    color: #F3F3F3;
+    color: var(--primary-white-color);
 }
 @media screen and (min-width: 768px) {
     .popularContainer {
@@ -68,8 +67,7 @@
         flex-wrap: wrap;
         gap: 32px;
     } 
-    .drink {
-        
+    .drink {        
         display: flex;
         margin: 0;
 
@@ -79,7 +77,6 @@
     }
     .drinkInstructions {
         line-height: 20px;
-        color: var(--primary-white-color);
     }
 
 }
