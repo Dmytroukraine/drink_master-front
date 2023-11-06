@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { BiCheckCircle, BiErrorCircle, BiCalendarCheck } from 'react-icons/bi';
-// import { IoCalendarNumberOutline } from 'react-icons/io';
+import { BiCheckCircle, BiErrorCircle } from 'react-icons/bi';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
 import css from './SignupForm.module.css';
 import {
@@ -13,7 +12,7 @@ import { Loading } from 'components/Loader/Loader';
 import { useState } from 'react';
 import { signupSchema } from './signupSchema';
 import { yupResolver } from '@hookform/resolvers/yup';
-import StyledDatepicker from 'components/Datepicker/StyledDatepicker';
+import DatePicker from 'components/Datepicker/StyledDatepicker';
 
 const SignupForm = () => {
   const [dispatch, { isLoading }] = useSignupMutation();
@@ -87,17 +86,9 @@ const SignupForm = () => {
           </span>
         </label>
         {errors.name && <p className={css.error}>{errors.name.message}</p>}
-        <div className={css.input}>
-          <StyledDatepicker />
-          <BiCalendarCheck
-            style={{
-              width: '24px',
-              height: '24px',
-              color: '#3CBC81',
-              margin: '0 24px 0 0 ',
-            }}
-          />
-        </div>
+
+        <DatePicker />
+
         <label className={css.label}>
           <input
             type="email"
