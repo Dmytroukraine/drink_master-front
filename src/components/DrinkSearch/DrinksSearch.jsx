@@ -25,13 +25,12 @@ const DrinkSearch = () => {
   // const { data: ingredientData } = useDrinkSearchQuery(searchIngredient);
   const { data: categoryList } = useGetCategoriesListQuery();
   const { data: ingredientsList } = useGetIngredientsListQuery();
-  console.log(categoryList);
+
   let categoriesOptions = [];
   let ingredientsOptions = [];
-  console.log(data);
+
   const drinksValue = Object.values(data);
   const drinksKey = Object.keys(data);
-  console.log('drinkValue', drinksValue);
 
   const [inputValue, setInputValue] = useState('');
 
