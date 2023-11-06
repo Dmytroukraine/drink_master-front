@@ -2,24 +2,26 @@ import React from 'react';
 // import { withTheme } from 'styled-components';
 import css from './Paginator.module.css';
 
-export function Paginator({ drinks, quantityPages, setPage, currentPage }) {
+
+export function Paginator({ quantityPages, setPage, currentPage }) {
+
   const quantityPagesArr = [];
   for (let i = 1; i <= quantityPages; i++) {
     quantityPagesArr.push(i);
   }
 
   function onBtnClick(number) {
-    setPage(number - 1);
+    setPage(number);
   }
 
   function onDecrArrowBtnClick(number) {
-    if (number < quantityPages && number > 0) {
+    if (number <= quantityPages && number > 0) {
       setPage(number - 1);
     }
   }
 
   function onIncrArrowBtnClick(number) {
-    if (number < quantityPages && number >= 0) {
+    if (number < quantityPages && number >= 1) {
       setPage(number + 1);
     }
   }
@@ -31,7 +33,7 @@ export function Paginator({ drinks, quantityPages, setPage, currentPage }) {
         className={css.btnArrow}
         style={{}}
         onClick={() => onDecrArrowBtnClick(currentPage)}
-        disabled={currentPage === 0}
+        disabled={currentPage === 1}
       >
         &#60;
       </button>
@@ -40,12 +42,11 @@ export function Paginator({ drinks, quantityPages, setPage, currentPage }) {
         {quantityPagesArr.map(number => {
           return (
             <button
-              disabled={currentPage === number - 1}
+              key={number}
+              disabled={currentPage === number}
               type="button"
               onClick={() => onBtnClick(number)}
-              className={
-                (currentPage === number - 1 ? css.btnActive : css.btnClick)
-              }
+              className={currentPage === number ? css.btnActive : css.btnClick}
             >
               {' '}
               {number}{' '}
@@ -58,7 +59,7 @@ export function Paginator({ drinks, quantityPages, setPage, currentPage }) {
         type="button"
         className={css.btnArrow}
         onClick={() => onIncrArrowBtnClick(currentPage)}
-        disabled={currentPage === quantityPages - 1}
+        disabled={currentPage === quantityPages}
       >
         {' '}
         &#62;
