@@ -71,6 +71,7 @@ const DrinkSearch = () => {
       dispatch(setIngred(value.toString()));
       console.log('setIngred  + ');
     },
+    // eslint-disable-next-line
     [searchParams, setSearchParams]
   );
 
@@ -136,6 +137,7 @@ const DrinkSearch = () => {
             // styles={selectStyles}
           />
         </div>
+        // eslint-disable-next-line
         <div>
           {drinksKey?.map(key => {
             const index = drinksKey.indexOf(key);
