@@ -5,7 +5,7 @@ import { useSubscribeMutation } from 'redux/authSlice/authSlice';
 import css from './SubscribeForm.module.css';
 
 function SubscribeForm() {
-  const [subscribe, error] = useSubscribeMutation();
+  const [subscribe] = useSubscribeMutation();
 
   const [email, setEmail] = useState('');
 

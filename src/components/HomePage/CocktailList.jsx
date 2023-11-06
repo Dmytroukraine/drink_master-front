@@ -55,7 +55,7 @@ export const CocktailList = ({ category, title }) => {
       setVisibleCocktails(sliceCocktails(category));
        return   setIsLoading(false);
     }
-
+// eslint-disable-next-line
   }, [category, sliceCocktails]);
 
   const resizeObserver = useMemo(() => {
