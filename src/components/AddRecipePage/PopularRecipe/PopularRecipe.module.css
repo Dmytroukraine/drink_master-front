@@ -1,3 +1,4 @@
+
 .popularContainer {
     margin-top: 40px;
     width: 336px;
@@ -8,7 +9,7 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
-    color: #F3F3F3;
+    color: var(--primary-white-color);
 }
 .popularList{
     margin-top: 28px;
@@ -40,7 +41,7 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 22px;
-    color: #F3F3F3;
+    color: var(--primary-white-color);
 }
 .drinkInstructions {
     text-align: left;
@@ -78,6 +79,7 @@
     }
     .drinkInstructions {
         line-height: 20px;
+        color: var(--primary-white-color);
     }
 
 }
@@ -94,6 +96,7 @@
         margin-top: 40px;
         width: 313px;
         height: 444px;
+        gap: 0;
     }
     .drink {
         display: flex;
