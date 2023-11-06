@@ -32,7 +32,7 @@ export const DrinkItem = ({ drink, onDelete }) => {
           onClick={() => {
             onDelete(drink._id); 
           }}
-
+          
         >
           <svg
             width="24"

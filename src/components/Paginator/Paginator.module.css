@@ -1,0 +1,44 @@
+.btnContainer {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 140px;
+}
+
+@media screen and (min-width: 768px) {
+    .btnContainer {
+        gap: 38px;
+    }
+}
+
+.btnArrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(3, 3);
+    background-color: transparent;
+    border: transparent;
+    color: var(--primary-white-color);
+    opacity: 30%;
+}
+
+.btnArrow:hover,
+.btnArrow:focus {
+    color: var(--primary-white-color);
+}
+
+.btnClick {
+    width: 27.87px;
+    height: 27px;
+    border-radius: 50%;
+    background-color: transparent;
+    font-size: 12px;
+    color: var(--primary-white-color);
+    border: transparent;
+    transform: scale(2, 2);
+}
+.btnClick:hover,
+.btn:active {
+    background-color: rgba(64, 112, 205, 0.5);
+}
