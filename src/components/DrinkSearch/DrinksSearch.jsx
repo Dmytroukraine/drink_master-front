@@ -82,6 +82,68 @@ const DrinkSearch = () => {
     );
   }
 
+  const style = {
+    control: baseStyles => ({
+      ...baseStyles,
+      borderRadius: '200px',
+      backgroundColor: '#161F37',
+      boxShadow: 'none',
+      border: 0,
+      width: 'auto',
+      padding: '14px 24px',
+    }),
+    menu: baseStyles => ({
+      ...baseStyles,
+      borderRadius: '20px',
+      backgroundColor: '#161F37',
+      width: '199px',
+      marginTop: '4px',
+      '&::-webkit-scrollbar': {
+        width: '0px',
+      },
+    }),
+    menuList: baseStyles => ({
+      ...baseStyles,
+      '&::-webkit-scrollbar': {
+        width: '0px',
+      },
+    }),
+    dropdownIndicator: (baseStyles, { isFocused }) => ({
+      ...baseStyles,
+      color: 'var(--white-color)',
+      '&:hover': {
+        color: 'var(--white-color)',
+      },
+      transition: 'transform 0.25s ease-out',
+      transform: isFocused && 'rotate(180deg)',
+    }),
+    indicatorSeparator: baseStyles => ({
+      ...baseStyles,
+      display: 'none',
+    }),
+    placeholder: baseStyles => ({
+      ...baseStyles,
+      color: 'white',
+    }),
+    input: baseStyles => ({
+      ...baseStyles,
+      color: 'white',
+    }),
+    option: baseStyles => ({
+      ...baseStyles,
+      backgroundColor: 'none',
+      color: 'var(--white-fifty-color)',
+
+      '&:hover': {
+        color: 'var(--white-color)',
+      },
+    }),
+    singleValue: baseStyles => ({
+      ...baseStyles,
+      color: 'white',
+    }),
+  };
+
   return { isLoading } ? (
     <section className={css.section}>
       <div className={css.container}>
@@ -112,8 +174,7 @@ const DrinkSearch = () => {
             inputValue={inputValue}
             onInputChange={evt => handleInputChange(evt)}
             // onClick={(evt) => console.log('onClick: ', evt)}
-
-            // styles={selectStyles}
+            styles={style}
           />
           <Select
             classNamePrefix="drinks-page-selector"
@@ -128,8 +189,7 @@ const DrinkSearch = () => {
             onChange={data => handleSetSearchtParams('ingredient', data.value)}
             inputValue={inputValue}
             onInputChange={evt => handleInputChange(evt)}
-
-            // styles={selectStyles}
+            styles={style}
           />
         </div>
         <div>
