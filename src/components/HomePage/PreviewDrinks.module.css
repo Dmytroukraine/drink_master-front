@@ -5,7 +5,7 @@
 .container {
   margin: 0 auto;
   padding: 0 20px;
-  width: 375px;
+  width: 415px;
 }
 
 .categoryTitle {
@@ -25,18 +25,16 @@
 }
 
 .card {
-  width: 335px;
+  width: 375px;
   height: auto;
 }
 
 .thumb {
-  height: 360px;
   border-radius: 8px;
   margin-bottom: 14px;
   background-color: rgba(22, 31, 55, 0.5);
 
   & > img {
-    height: 100%;
     border-radius: 8px;
   }
 }
@@ -56,11 +54,16 @@
 }
 
 .seeMore {
+  color: rgba(243, 243, 243, 0.5);
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
   letter-spacing: 0em;
   margin-left: auto;
+  padding: 4px 0 0 30px;
+  &:hover, &:focus {
+    color: rgba(243, 243, 243, 0.8);
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -68,8 +71,8 @@
     padding-bottom: 140px;
   }
   .container {
-    /* padding: 0 32px; */
-    width: 704px;
+    padding: 0 32px;
+    width: 768px;
   }
   .category {
     font-size: 40px;
@@ -111,8 +114,8 @@
 
 @media screen and (min-width: 1440px) {
   .container {
-    /* padding: 0 100px; */
-    width: 1240px;
+    padding: 0 100px;
+    width: 1440px;
   }
 
   .category {
