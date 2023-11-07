@@ -14,6 +14,8 @@
   @media screen and (min-width: 768px) {
     .footer{
       width:768px;
+      padding-left: 32px;
+      padding-right: 32px;
     }
     .wraperMedia{
       flex-direction: column;
