@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/drink_master-front/static/css/main.dfc8fd47.css",
+    "main.css": "/drink_master-front/static/css/main.5950fcab.css",
     "main.js": "/drink_master-front/static/js/main.f79e355d.js",
     "static/css/442.882167c1.chunk.css": "/drink_master-front/static/css/442.882167c1.chunk.css",
     "static/js/442.cc314d57.chunk.js": "/drink_master-front/static/js/442.cc314d57.chunk.js",
@@ -24,13 +24,13 @@
     "static/media/add_photo.svg": "/drink_master-front/static/media/add_photo.0176940aef843e86785782121035d3ee.svg",
     "static/media/logo.svg": "/drink_master-front/static/media/logo.6cb16cf1ac1cac61875038b493cf9861.svg",
     "static/media/x.svg": "/drink_master-front/static/media/x.358abb3c7267c7a7485d2f239b2827e0.svg",
-    "main.dfc8fd47.css.map": "/drink_master-front/static/css/main.dfc8fd47.css.map",
+    "main.5950fcab.css.map": "/drink_master-front/static/css/main.5950fcab.css.map",
     "main.f79e355d.js.map": "/drink_master-front/static/js/main.f79e355d.js.map",
     "442.882167c1.chunk.css.map": "/drink_master-front/static/css/442.882167c1.chunk.css.map",
     "442.cc314d57.chunk.js.map": "/drink_master-front/static/js/442.cc314d57.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dfc8fd47.css",
+    "static/css/main.5950fcab.css",
     "static/js/main.f79e355d.js"
   ]
 }
