@@ -5,12 +5,16 @@ import { DrinkPageHero } from '../components/DrinkPage/DrinkPageHero';
 import { DrinkIngredientsList } from '../components/DrinkPage/DrinkIngredientsList';
 import { RecipePreparation } from '../components/DrinkPage/RecipePreparation';
 import styles from '../components/DrinkPage/DrinkPage.module.css';
+import { useEffect } from 'react';
+import { scrollToTop } from 'helpers/scrollToTop';
 
 export function DrinkPage() {
   const { drinkId } = useParams();
   const { data } = useGetDrinkByIdQuery(drinkId);
-  // console.log(useGetDrinkByIdQuery(drinkId));
-  // console.log(data);
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   return (
     <div className={styles.container}>

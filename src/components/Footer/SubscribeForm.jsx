@@ -1,38 +1,41 @@
 import React, { useState } from 'react';
-import { emailIsValid } from 'helpers/emailIsValid';
 import { notification } from 'components/Shared/notification';
 import { useSubscribeMutation } from 'redux/authSlice/authSlice';
 import css from './SubscribeForm.module.css';
+import { emailSchema } from './emailSchema';
 
 function SubscribeForm() {
   const [subscribe] = useSubscribeMutation();
 
   const [email, setEmail] = useState('');
 
-  const [emailError, setEmailError] = useState();
+  const [errorInput, setErrorInput] = useState('');
+
   const [isDisabled, setIsDisabled] = useState(true);
 
   const handleEmail = e => {
     const email = e.target.value;
-
-    if (emailIsValid(email)) {
-      setEmailError('');
-      setIsDisabled(false);
-      e.target.style.borderColor = 'green';
-    } else {
-      setEmailError('Email is not Valid');
-
-      e.target.style.borderColor = 'red';
-    }
-
     setEmail(email);
+    emailSchema
+      .validate(email)
+      .then(() => {
+        setIsDisabled(false);
+        setErrorInput('');
+      })
+      .catch(error => {
+        setErrorInput(error.message);
+
+        setIsDisabled(true);
+      });
   };
 
   const handleSubmit = evt => {
     evt.preventDefault();
     subscribe(email)
       .unwrap()
-      .then(payload => notification('kldjkldjgksjkgsjgj', 'success'))
+      .then(payload =>
+        notification('You have been subscribed  successfully', 'success')
+      )
       .catch(error =>
         notification(JSON.stringify(error.data.message), 'error')
       );
@@ -55,6 +58,7 @@ function SubscribeForm() {
           placeholder="Enter the email"
           onChange={handleEmail}
         />
+        <div style={{ color: 'red' }}>{errorInput}</div>
         <button
           className={css.subscribeFormButton}
           type="submit"
@@ -63,33 +67,8 @@ function SubscribeForm() {
         >
           SUBSCRIBE
         </button>
-
-        {emailError && <div>{emailError}</div>}
       </div>
     </>
   );
 }
-
 export default SubscribeForm;
-
-//  const handleSubmit = evt => {
-//    evt.preventDefault();
-//    if (error.length === 0) {
-//      const ls_emails = localStorage.getItem('emails');
-//      const emails = ls_emails !== null ? JSON.parse(ls_emails) : [];
-
-//      if (emails.length > 0 && emails.includes(email)) {
-//        setError('Email address already exists !');
-//        return;
-//      }
-
-//      if (emails.length > 0) {
-//        localStorage.setItem('emails', JSON.stringify([...emails, email]));
-//      } else {
-//        localStorage.setItem('emails', JSON.stringify([email]));
-//      }
-//      setEmail('');
-//      document.getElementById('email').value = '';
-//      setIsDisabled(true);
-//    }
-//  };

@@ -2,10 +2,9 @@ import { useDeleteDrinkFavoriteMutation } from '../../redux/drinkSlice/drinkFavo
 import { DrinkItem } from '../FavouriteDrinksPage/DrinkItem';
 import css from '../FavouriteDrinksPage/DrinkList.module.css';
 
-
 export function DrinksList({ drinks }) {
   const [deleteFavoriteDrink] = useDeleteDrinkFavoriteMutation();
-  
+
   return (
     <ul className={css.drinkCard}>
       {drinks.map(drink => {
