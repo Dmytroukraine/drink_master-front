@@ -1,113 +1,77 @@
-# React homework template
+<h1 align="center"><em> Display: Goose;</em>
 
-Этот проект был создан при помощи
-[Create React App](https://github.com/facebook/create-react-app). Для знакомства
-и настройки дополнительных возможностей
-[обратись к документации](https://facebook.github.io/create-react-app/docs/getting-started).
+<img src="https://github.com/Dmytroukraine/command_project_mimino/blob/main/src/images/photo_2023-03-09_00-41-40.jpg"  alt="goose" width=100/></h1>
 
-## Создание репозитория по шаблону
+# Drink Master Project
 
-Используй этот репозиторий организации GoIT как шаблон для создания репозитория
-своего проекта. Для этого нажми на кнопку `«Use this template»` и выбери опцию
-`«Create a new repository»`, как показано на изображении.
+Welcome to our Drink Master project! This front-end application allows you to explore, create, and manage your favorite cocktails and drinks. You can create your account, add your own drink recipes, and save your favorite drinks for future reference.
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
 
-На следующем шаге откроется страница создания нового репозитория. Заполни поле
-его имени, убедись что репозиторий публичный, после чего нажми кнопку
-`«Create repository from template»`.
+## <a id="backend">Backend</a>
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+- [GitHub](https://github.com/Dmytroukraine/drink_master-back)
+- [Swagger / API Docs](https://drink-master-service.onrender.com/api-docs/)
 
-После того как репозиторий будет создан, необходимо перейти в настройки
-созданного репозитория на вкладку `Settings` > `Actions` > `General` как
-показано на изображении.
 
-![Settings GitHub Actions permissions step 1](./assets/gh-actions-perm-1.png)
+## <a id="features">Features</a>
 
-Проскролив страницу до самого конца, в секции `«Workflow permissions»` выбери
-опцию `«Read and write permissions»` и поставь галочку в чекбоксе. Это
-необходимо для автоматизации процесса деплоя проекта.
+Our Drink Master project offers a range of exciting features, including:
 
-![Settings GitHub Actions permissions step 2](./assets/gh-actions-perm-2.png)
+- User Authentication: Create and manage your own account to personalize your experience.
+- Add Your Own Drinks: Share your unique drink recipes with the community.
+- Favorites: Save your favorite cocktails and drinks for quick access.
+- Explore: Browse a diverse collection of cocktails and drinks.
+- User Profiles: View and update your user profile information.
+- Responsive Design: Enjoy a seamless experience on various devices and screen sizes.
 
-Теперь у тебя есть личный репозиторий проекта, со структурой файлов и папок
-репозитория-шаблона. Далее работай с ним как с любым другим личным репозиторием,
-клонируй его себе на компьютер, пиши код, делай коммиты и отправляй их на
-GitHub.
 
-## Подготовка к работе
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=3700F7&width=435&lines=A+clever+person+solves+a+problem.+;A+wise+person+avoids+it.)](https://git.io/typing-svg)
 
-1. Убедись что на компьютере установлена LTS-версия Node.js.
-   [Скачай и установи](https://nodejs.org/en/) её если необходимо.
-2. Установи базовые зависимости проекта командой `npm install`.
-3. Запусти режим разработки, выполнив команду `npm start`.
-4. Перейди в браузере по адресу [http://localhost:3000](http://localhost:3000).
-   Эта страница будет автоматически перезагружаться после сохранения изменений в
-   файлах проекта.
 
-## Деплой
+## <a id="contributors">Contributors</a>
 
-Продакшн версия проекта будет автоматически проходить линтинг, собираться и
-деплоиться на GitHub Pages, в ветку `gh-pages`, каждый раз когда обновляется
-ветка `main`. Например, после прямого пуша или принятого пул-реквеста. Для этого
-необходимо в файле `package.json` отредактировать поле `homepage`, заменив
-`your_username` и `your_repo_name` на свои, и отправить изменения на GitHub.
+This project was made possible by the hard work and dedication of the following team members:
 
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
-```
+- Dmytro Kozlovskyi - Team Lead / Developer
+   - [GitHub](https://github.com/Dmytroukraine)
+   - [LinkedIn](https://www.linkedin.com/in/dmytro-kozlovskyi-39526925b/)
+- Vitalina Shpir - Scrum Master / Developer
+   - [GitHub](https://github.com/VitalinaShpir)
+   - [LinkedIn](https://www.linkedin.com/in/vitalina-shpir-4228b8a3/)
+- Anton Paliienko -  Developer
+   - [GitHub](https://github.com/DonKanElion)
+   - [LinkedIn]()
+- Evgeniya Pashenko - Developer
+   - [GitHub](https://github.com/Janne57)
+   - [LinkedIn]()
+- Tertyshna Yuliya - Developer
+   - [GitHub](https://github.com/YuliyaKubar)
+   - [LinkedIn](https://www.linkedin.com/in/yuliya-tertyshna-70733a259/)
+- Gurzhyi Oksana - Developer
+   - [GitHub](https://github.com/oksagurzhyi)
+   - [LinkedIn](https://www.linkedin.com/in/oksana-gurzhyi/)
+- Andrii Bondarernko - Developer
+   - [GitHub](https://github.com/BondAndrii)
+   - [LinkedIn]()
+- Pasha Bitelov - Developer
+   - [GitHub](https://github.com/Pashab52)
+   - [LinkedIn]()
+- Poliukhovych Anna - Developer
+   - [GitHub](https://github.com/PoliukhovychAnna)
+   - [LinkedIn](https://www.linkedin.com/in/anna-poliukhovych?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app)
+- Anton Kandaurov - Developer
+   - [GitHub](https://github.com/Anton-Kandaurov)
+   - [LinkedIn]()
+- Roman Shvagla - Developer
+   - [GitHub](https://github.com/immortalua96)
+   - [LinkedIn]()
+- Maxym Vovchok - Developer
+   - [GitHub](https://github.com/maxvovchok)
+   - [LinkedIn]()
 
-Далее необходимо зайти в настройки GitHub-репозитория (`Settings` > `Pages`) и
-выставить раздачу продакшн версии файлов из папки `/root` ветки `gh-pages`, если
-это небыло сделано автоматически.
 
-![GitHub Pages settings](./assets/repo-settings.png)
 
-### Статус деплоя
 
-Статус деплоя крайнего коммита отображается иконкой возле его идентификатора.
+<b>Рома Швагла</b> - Front End Developer :sunglasses:
 
-- **Желтый цвет** - выполняется сборка и деплой проекта.
-- **Зеленый цвет** - деплой завершился успешно.
-- **Красный цвет** - во время линтинга, сборки или деплоя произошла ошибка.
-
-Более детальную информацию о статусе можно посмотреть кликнув по иконке, и в
-выпадающем окне перейти по ссылке `Details`.
-
-![Deployment status](./assets/deploy-status.png)
-
-### Живая страница
-
-Через какое-то время, обычно пару минут, живую страницу можно будет посмотреть
-по адресу указанному в отредактированном свойстве `homepage`. Например, вот
-ссылка на живую версию для этого репозитория
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
-
-Если открывается пустая страница, убедись что во вкладке `Console` нет ошибок
-связанных с неправильными путями к CSS и JS файлам проекта (**404**). Скорее
-всего у тебя неправильное значение свойства `homepage` в файле `package.json`.
-
-### Маршрутизация
-
-Если приложение использует библиотеку `react-router-dom` для маршрутизации,
-необходимо дополнительно настроить компонент `<BrowserRouter>`, передав в пропе
-`basename` точное название твоего репозитория. Слеш в начале строки обязателен.
-
-```jsx
-<BrowserRouter basename="/your_repo_name">
-  <App />
-</BrowserRouter>
-```
-
-## Как это работает
-
-![How it works](./assets/how-it-works.png)
-
-1. После каждого пуша в ветку `main` GitHub-репозитория, запускается специальный
-   скрипт (GitHub Action) из файла `.github/workflows/deploy.yml`.
-2. Все файлы репозитория копируются на сервер, где проект инициализируется и
-   проходит линтинг и сборку перед деплоем.
-3. Если все шаги прошли успешно, собранная продакшн версия файлов проекта
-   отправляется в ветку `gh-pages`. В противном случае, в логе выполнения
-   скрипта будет указано в чем проблема.
+<b>Максим</b> - Front End Developer :sunglasses:
