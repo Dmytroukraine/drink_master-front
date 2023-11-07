@@ -1,9 +1,12 @@
 .form {
+  width: 335px;
   margin-bottom: 80px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1440px) {
   .form {
+    width: 704px;
+
     gap: 32px;
     display: flex;
   }
@@ -11,6 +14,8 @@
 
 @media screen and (min-width: 1440px) {
   .form {
+    width: 907px;
+
     gap: 40px;
     display: flex;
   }

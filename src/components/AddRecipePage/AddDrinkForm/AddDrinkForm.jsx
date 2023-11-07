@@ -116,8 +116,7 @@ export const AddDrinkForm = () => {
       }
 
       try {
-        // eslint-disable-next-line
-        const response = await axios.post(
+        await axios.post(
           'https://drink-master-service.onrender.com/api/drinks/own/add',
           drinkOwn,
           {
@@ -212,7 +211,6 @@ export const AddDrinkForm = () => {
           />
 
           {selectedImg !== null ? (
-            // eslint-disable-next-line
             <img
               src={selectedImg}
               className={css.uploadImg}
