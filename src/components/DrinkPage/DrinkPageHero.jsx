@@ -19,12 +19,8 @@ export function DrinkPageHero({ data }) {
   const currentUserId = useSelector(getUserState).user.id;
 
   const [isInFavorite, setIsInFavorite] = useState(() => {
-    console.log(data.users.includes(currentUserId));
-    console.log(data.users);
-    console.log(currentUserId);
     return data.users.includes(currentUserId);
   });
-  // console.log(isInFavorite);
 
   const handleButtonClick = () => {
     if (isInFavorite) {

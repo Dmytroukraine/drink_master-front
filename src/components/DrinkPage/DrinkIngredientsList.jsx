@@ -4,8 +4,7 @@ import mediumImage from '../../images/thumb-placeholder-medium.png';
 
 export function DrinkIngredientsList({ data: ingredients }) {
   const { data } = useGetIngredientsListQuery();
-  // console.log(data);
-  // console.log(ingredients);
+
 
   if (!data) return;
   if (!ingredients) return;
