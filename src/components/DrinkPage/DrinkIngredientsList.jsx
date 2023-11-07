@@ -2,9 +2,10 @@ import { useGetIngredientsListQuery } from '../../redux/filtersSlice/filtersSlic
 import styles from './DrinkPage.module.css';
 import mediumImage from '../../images/thumb-placeholder-medium.png';
 
-export function DrinkIngredientsList({ ingredients }) {
+export function DrinkIngredientsList({ data: ingredients }) {
   const { data } = useGetIngredientsListQuery();
-  console.log(ingredients);
+  // console.log(data);
+  // console.log(ingredients);
 
   if (!data) return;
   if (!ingredients) return;
@@ -19,13 +20,15 @@ export function DrinkIngredientsList({ ingredients }) {
 
   const newArr = Object.values(
     ingredients.reduce((acc, { ingredientId: id, ...n }) => {
-      Object.entries(n).forEach(
-        ([k, v]) => (acc[id][k] = (acc[id][k] || 0) + v)
-      );
+      Object.entries(n).forEach(([k, v]) => {
+        if (k !== 'title') {
+          acc[id][k] = (acc[id][k] || 0) + v;
+        }
+      });
       return acc;
     }, Object.fromEntries(filteredIngr.map(n => [n._id, { ...n }])))
   );
-
+  console.log(newArr);
   return (
     <div className={styles.ingredientsContainer}>
       <p className={styles.ingredientsTitle}>Ingredients</p>

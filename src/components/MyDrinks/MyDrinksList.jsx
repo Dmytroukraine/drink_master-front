@@ -1,13 +1,14 @@
+import { useDeleteMyDrinkMutation } from '../../redux/drinkSlice/drinksSlice';
 import styles from './MyDrinksList.module.css';
 import { MyDrinksListItem } from './MyDrinksListItem';
 
 export function MyDrinksList(data) {
-  console.log(data);
+  const [deleteMyDrink] = useDeleteMyDrinkMutation();
   return (
     <div className={styles.myDrinkListWrapper}>
       <ul className={styles.myDrinksList}>
         {data.drinks.map(
-          ({ _id, drink, alcoholic, drinkThumb, description }) => {
+          ({ _id, drink, alcoholic, drinkThumb, shortDescription }) => {
             return (
               <MyDrinksListItem
                 className
@@ -16,7 +17,8 @@ export function MyDrinksList(data) {
                 alcoholic={alcoholic}
                 picture={drinkThumb}
                 title={drink}
-                alt={description}
+                alt={shortDescription}
+                onDelete={deleteMyDrink}
               />
             );
           }

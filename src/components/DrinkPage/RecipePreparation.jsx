@@ -6,13 +6,15 @@ export function RecipePreparation({ data }) {
     <div className={styles.preparationContainer}>
       <h2 className={styles.recipeTitle}>Recipe Preparation</h2>
       <div className={styles.recipeWrapper}>
-        <img
-          className={styles.recipeImg}
-          src={image}
-          max-width="631"
-          height="480"
-          alt="cocktail"
-        />
+        <div className={styles.recipeImgWrapper}>
+          <img
+            className={styles.recipeImg}
+            src={image}
+            width="631"
+            height="480"
+            alt="cocktail"
+          />
+        </div>
         <div className={styles.recipeInstruction}>
           <p className={styles.drinkRecipe}>{data.description}</p>
           <p className={styles.drinkRecipe}>

@@ -3,8 +3,14 @@ import styles from './MyDrinksListItem.module.css';
 import cocktail from '../../images/thumb-placeholder-large.png';
 import { Link } from 'react-router-dom';
 
-export function MyDrinksListItem({ id, alcoholic, picture, title, alt }) {
-  console.log(id);
+export function MyDrinksListItem({
+  id,
+  alcoholic,
+  picture,
+  title,
+  alt,
+  onDelete,
+}) {
   const [imgSrc, setImgSrc] = useState(picture);
   return (
     <li className={styles.myDrinkItem}>
@@ -13,18 +19,24 @@ export function MyDrinksListItem({ id, alcoholic, picture, title, alt }) {
         src={imgSrc}
         onError={() => setImgSrc(cocktail)}
         alt={title}
-        width="400"
-        height="400"
+        width="360"
+        height="auto"
       ></img>
       <div className={styles.drinkWrapper}>
         <h2 className={styles.drinkTitle}>{title}</h2>
         <p className={styles.drinkCategory}>{alcoholic}</p>
         <p className={styles.drinkDescription}>{alt}</p>
         <div className={styles.buttonsWrapper}>
-          <Link to={`drinks/${id}`} className={styles.moreBtn}>
-            See more
+          <Link to={`/drinks/${id}`}>
+            <button className={styles.moreBtn}>See more</button>
           </Link>
-          <button className={styles.deleteBtn}>
+          <button
+            type="button"
+            className={styles.deleteBtn}
+            onClick={() => {
+              onDelete(id);
+            }}
+          >
             <svg
               className={styles.svgTrash}
               width="24"
