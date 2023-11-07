@@ -9,7 +9,7 @@ import Footer from 'components/Footer/Footer';
 
 const SharedLayout = () => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.mainc}>
       <Header />
       <main className={styles.main}>
         <Suspense fallback={<Loading size={100} />}>
