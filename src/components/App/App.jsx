@@ -67,7 +67,7 @@ const App = () => {
           />
 
           <Route path="/" element={<PrivateRoute component={SharedLayout} />}>
-            <Route path="home" element={<HomePage />} />
+            <Route index element={<HomePage />} />
             <Route path="drinks" element={<DrinksPage />} />
             <Route path="add" element={<AddDrinkPage />} />
             <Route path="favorites" element={<FavoriteDrinksPage />} />

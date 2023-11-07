@@ -11,7 +11,7 @@ const AddDrinkPage = () => {
       <PageTitle title={'Add drink'} />
       <div className={css.box}>
         <AddDrinkForm />
-        <div>
+        <div className={css.followContainer}>
           <h2>Follow Us</h2>
           <Followus />
           <PopularRecipe />

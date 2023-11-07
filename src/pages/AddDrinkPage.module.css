@@ -3,6 +3,9 @@
   margin: 0 auto;
   width: 375px;
 }
+.followContainer {
+  margin-top: 80px;
+}
 
 @media screen and (min-width: 768px) {
   .container {
@@ -22,6 +25,9 @@
 
     margin: 0;
   }
+    .followContainer {
+      margin-top: 0px;
+    }
 }
 
 @media screen and (min-width: 1440px) {
