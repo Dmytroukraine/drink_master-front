@@ -41,9 +41,9 @@ This project was made possible by the hard work and dedication of the following 
 - Anton Paliienko -  Developer
    - [GitHub](https://github.com/DonKanElion)
    - [LinkedIn]()
-- Evgeniya Pashenko - Developer
+- Yevheniia Pashchenko - Developer
    - [GitHub](https://github.com/Janne57)
-   - [LinkedIn]()
+   - [LinkedIn](https://www.linkedin.com/in/evgeniya-pashenko-293bb725a/)
 - Tertyshna Yuliya - Developer
    - [GitHub](https://github.com/YuliyaKubar)
    - [LinkedIn](https://www.linkedin.com/in/yuliya-tertyshna-70733a259/)

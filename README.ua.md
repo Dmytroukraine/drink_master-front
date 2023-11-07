@@ -40,15 +40,15 @@
 - Дмитро Козловський - Team Lead / Developer
    - [GitHub](https://github.com/Dmytroukraine)
    - [LinkedIn](https://www.linkedin.com/in/dmytro-kozlovskyi-39526925b/)
-- Віталіна Шпір - Scrum Master / Developer
+- Віталіна Шпір - Scrum Master  / Developer
    - [GitHub](https://github.com/VitalinaShpir)
    - [LinkedIn](https://www.linkedin.com/in/vitalina-shpir-4228b8a3/)
 - Антон Паліенко  -  Developer
    - [GitHub](https://github.com/DonKanElion)
    - [LinkedIn]()
-- Евгенія Пашенко - Developer
+- Евгенія Пащенко - Developer
    - [GitHub](https://github.com/Janne57)
-   - [LinkedIn]()
+   - [LinkedIn](https://www.linkedin.com/in/evgeniya-pashenko-293bb725a/)
 - Тертишна Юлія - Developer
    - [GitHub](https://github.com/YuliyaKubar)
    - [LinkedIn](https://www.linkedin.com/in/yuliya-tertyshna-70733a259/)
