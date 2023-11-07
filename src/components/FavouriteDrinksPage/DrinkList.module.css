@@ -11,7 +11,6 @@
     list-style: none;
     margin-left: auto;
     margin-right: auto;
-    background-color: var(--main-bg-color);
 }
 
 @media screen and (max-width: 375px) {
@@ -22,7 +21,6 @@
 
 @media screen and (min-width: 768px) {
     .drinkCard {
-        /* max-width: calc(100vw - 64px); */
         width: 704px;
         gap: 80px 20px;
        

@@ -2,16 +2,17 @@
 
 <img src="https://github.com/Dmytroukraine/command_project_mimino/blob/main/src/images/photo_2023-03-09_00-41-40.jpg"  alt="goose" width=100/></h1>
 
-## Content
+## Зміст
 
 - [Backend](#backend)
-- [Technologies](#technologies)
-- [Features](#features)
-- [Contributors](#contributors)
+- [Використані технології](#technologies)
+- [Особливості](#features)
+- [Команда розробників](#contributors)
+
 
 # Drink Master Project
 
-Welcome to our Drink Master project! This front-end application allows you to explore, create, and manage your favorite cocktails and drinks. You can create your account, add your own drink recipes, and save your favorite drinks for future reference.
+Ласкаво просимо до нашого проекту Drink Master! Ця інтерфейсна програма дозволяє досліджувати, створювати та керувати улюбленими коктейлями та напоями. Ви можете створити обліковий запис, додати власні рецепти напоїв і зберегти улюблені напої для використання в майбутньому.
 
 
 ## <a id="backend">Backend</a>
@@ -19,7 +20,7 @@ Welcome to our Drink Master project! This front-end application allows you to ex
 - [GitHub](https://github.com/Dmytroukraine/drink_master-back)
 - [Swagger / API Docs](https://drink-master-service.onrender.com/api-docs/)
 
-## <a id="technologies">Technologies</a>
+## <a id="technologies">Використані технології</a>
 
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
@@ -39,58 +40,58 @@ Welcome to our Drink Master project! This front-end application allows you to ex
 ![Zoom](https://img.shields.io/badge/Zoom-2D8CFF?style=for-the-badge&logo=zoom&logoColor=white)
 
 
-## <a id="features">Features</a>
 
-Our Drink Master project offers a range of exciting features, including:
+## <a id="features">Особливості</a>
 
-- User Authentication: Create and manage your own account to personalize your experience.
-- Add Your Own Drinks: Share your unique drink recipes with the community.
-- Favorites: Save your favorite cocktails and drinks for quick access.
-- Explore: Browse a diverse collection of cocktails and drinks.
-- User Profiles: View and update your user profile information.
-- Responsive Design: Enjoy a seamless experience on various devices and screen sizes.
+Наш проект Drink Master пропонує низку цікавих функцій, зокрема:
 
+- Автентифікація користувача: створіть і керуйте власним обліковим записом, щоб персоналізувати свій досвід.
+- Додайте свої власні напої: поділіться своїми унікальними рецептами напоїв із спільнотою.
+- Вибране: збережіть свої улюблені коктейлі та напої для швидкого доступу.
+- Досліджуйте: переглядайте різноманітну колекцію коктейлів і напоїв.
+- Профілі користувачів: перегляд і оновлення інформації профілю користувача.
+- Адаптивний дизайн: насолоджуйтесь бездоганним досвідом на різних пристроях і розмірах екрана.
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=3700F7&width=435&lines=A+clever+person+solves+a+problem.+;A+wise+person+avoids+it.)](https://git.io/typing-svg)
 
+## <a id="contributors">Команда розробників</a>
 
-## <a id="contributors">Contributors</a>
+Цей проект став можливим завдяки наполегливій праці та відданості наступних членів команди:
 
-This project was made possible by the hard work and dedication of the following team members:
 
-- Dmytro Kozlovskyi - Team Lead / Developer
+- Дмитро Козловський - Team Lead / Developer
    - [GitHub](https://github.com/Dmytroukraine)
    - [LinkedIn](https://www.linkedin.com/in/dmytro-kozlovskyi-39526925b/)
-- Vitalina Shpir - Scrum Master / Developer
+- Віталіна Шпір - Scrum Master  / Developer
    - [GitHub](https://github.com/VitalinaShpir)
    - [LinkedIn](https://www.linkedin.com/in/vitalina-shpir-4228b8a3/)
-- Anton Paliienko -  Developer
+- Антон Палієнко  -  Developer
    - [GitHub](https://github.com/DonKanElion)
    - [LinkedIn](https://www.linkedin.com/in/anton-paliienko/)
-- Yevheniia Pashchenko - Developer
+- Евгенія Пащенко - Developer
    - [GitHub](https://github.com/Janne57)
    - [LinkedIn](https://www.linkedin.com/in/evgeniya-pashenko-293bb725a/)
-- Tertyshna Yuliya - Developer
+- Тертишна Юлія - Developer
    - [GitHub](https://github.com/YuliyaKubar)
    - [LinkedIn](https://www.linkedin.com/in/yuliya-tertyshna-70733a259/)
-- Gurzhyi Oksana - Developer
+- Гуржий Оксана - Developer
    - [GitHub](https://github.com/oksagurzhyi)
    - [LinkedIn](https://www.linkedin.com/in/oksana-gurzhyi/)
-- Andrii Bondarernko - Developer
+- Андрій Бондаренко - Developer
    - [GitHub](https://github.com/BondAndrii)
    - [LinkedIn](https://www.linkedin.com/in/andrii-bondarenko-12bb27261?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
-- Pasha Bitelov - Developer
+- Паша Бітлов - Developer
    - [GitHub](https://github.com/Pashab52)
    - [LinkedIn]()
-- Poliukhovych Anna - Developer
+- Полюхович Анна  - Developer
    - [GitHub](https://github.com/PoliukhovychAnna)
    - [LinkedIn](https://www.linkedin.com/in/anna-poliukhovych?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app)
-- Anton Kandaurov - Developer
+- Антон Кандауров - Developer
    - [GitHub](https://github.com/Anton-Kandaurov)
    - [LinkedIn]()
-- Roman Shvagla - Developer
+- Рома Швагла - Developer
    - [GitHub](https://github.com/immortalua96)
    - [LinkedIn](https://www.linkedin.com/in/roman-shvagla/)
-- Maxym Vovchok - Developer
+- Максим Вовчок - Developer
    - [GitHub](https://github.com/maxvovchok)
    - [LinkedIn]()
