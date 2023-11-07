@@ -2,6 +2,12 @@
 
 <img src="https://github.com/Dmytroukraine/command_project_mimino/blob/main/src/images/photo_2023-03-09_00-41-40.jpg"  alt="goose" width=100/></h1>
 
+## Content
+
+- [Backend](#backend)
+- [Features](#features)
+- [Contributors](#contributors)
+
 # Drink Master Project
 
 Welcome to our Drink Master project! This front-end application allows you to explore, create, and manage your favorite cocktails and drinks. You can create your account, add your own drink recipes, and save your favorite drinks for future reference.

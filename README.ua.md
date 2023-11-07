@@ -5,7 +5,6 @@
 ## Зміст
 
 - [Backend](#backend)
-- [Project Overview](#project-overview)
 - [Особливості](#features)
 - [Команда розробників](#contributors)
 
