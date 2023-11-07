@@ -10,7 +10,7 @@
     font-size: 56px;
     line-height: 1.07;
     margin-top: 140px;
-    margin-left: 32px;
+    /* margin-left: 32px; */
   }
 }
 
@@ -18,10 +18,10 @@
   .PageTitle {
     font-size: 64px;
     margin-top: 158px;
-    margin-left: 100px;
+    /* margin-left: 100px; */
   }
 }
-
+/* 
 .TitleWrap {
   padding: 0px 20px;
-}
+} */
