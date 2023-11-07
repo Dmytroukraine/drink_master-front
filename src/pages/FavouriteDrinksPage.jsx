@@ -21,8 +21,6 @@ const FavouriteDrinksPage = () => {
   const [currentPage, setCurrentPage] = useState(page||1);
   const size = useResize();
 
-  // console.log(size[0]);
-  // console.log(size[0] > 1439);
   const quantityDrinks = data.length;
 
   let itemsPerPage = 8;
