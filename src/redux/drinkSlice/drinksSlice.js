@@ -27,6 +27,7 @@ export const drinksApi = createApi({
     }),
     getDrinkById: builder.query({
       query: id => ({ url: `/${id}` }),
+      keepUnusedDataFor: 1,
       providesTags: ['drinks'],
     }),
     getMyDrinks: builder.query({

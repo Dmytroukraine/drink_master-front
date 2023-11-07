@@ -28,7 +28,6 @@ export function DrinkIngredientsList({ data: ingredients }) {
       return acc;
     }, Object.fromEntries(filteredIngr.map(n => [n._id, { ...n }])))
   );
-  console.log(newArr);
   return (
     <div className={styles.ingredientsContainer}>
       <p className={styles.ingredientsTitle}>Ingredients</p>

@@ -5,7 +5,6 @@ import { Button } from 'components/Button';
 import { PageTitle } from 'components/PageTitle/PageTitle';
 import styles from './DrinkPage.module.css';
 import largeImage from '../../images/thumb-placeholder-large.png';
-
 import {
   useAddDrinkFavoriteMutation,
   useDeleteDrinkFavoriteMutation,
@@ -13,16 +12,19 @@ import {
 import { getUserState } from 'redux/userSlice/userSelectors';
 
 export function DrinkPageHero({ data }) {
-  // console.log(data);
   const [imgSrc, setImgSrc] = useState(data.drinkThumb);
   const [addDrinkFavorite, isLoading] = useAddDrinkFavoriteMutation();
   const [deleteFromFavorite] = useDeleteDrinkFavoriteMutation();
 
-  const currentUserId = useSelector(getUserState).user._id;
+  const currentUserId = useSelector(getUserState).user.id;
 
-  const [isInFavorite, setIsInFavorite] = useState(
-    data.users.includes(currentUserId)
-  );
+  const [isInFavorite, setIsInFavorite] = useState(() => {
+    console.log(data.users.includes(currentUserId));
+    console.log(data.users);
+    console.log(currentUserId);
+    return data.users.includes(currentUserId);
+  });
+  // console.log(isInFavorite);
 
   const handleButtonClick = () => {
     if (isInFavorite) {
@@ -30,7 +32,9 @@ export function DrinkPageHero({ data }) {
       setIsInFavorite(false);
     } else {
       addDrinkFavorite(data._id);
+
       setIsInFavorite(true);
+      data.users.push(currentUserId);
     }
   };
 
