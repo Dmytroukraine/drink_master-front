@@ -20,17 +20,16 @@ export const getRequestedDrink = createApi({
   tagTypes: ['drinksSearch'],
   endpoints: builder => ({
     drinkSearch: builder.query({
-      query: keyword => ({
-        url: `/search?query=${keyword}`,
+      query: ({ query, categories, ingredients, page = 1, limit = 10 }) => ({
+        url: '/search',
         method: 'GET',
-      }),
-      categories: categories => ({
-        url: `/search?categories=${categories}`,
-        method: 'GET',
-      }),
-      ingredient: ingredient => ({
-        url: `/search?ingredients=${ingredient}`,
-        method: 'GET',
+        params: {
+          page: page,
+          limit: limit,
+          query: query,
+          categories: categories,
+          ingredients: ingredients,
+        },
       }),
     }),
   }),

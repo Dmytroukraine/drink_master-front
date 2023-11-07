@@ -1,14 +1,13 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import Select from 'react-select';
 import { useDrinkSearchQuery } from '../../redux/searchOperations';
 import { useGetCategoriesListQuery } from '../../redux/filtersSlice/filtersSlice';
 import { useGetIngredientsListQuery } from '../../redux/filtersSlice/filtersSlice';
-import { useGetCategoryQuery } from '../../redux/drinkSlice/drinksSlice';
-import { useGetIngredientQuery } from '../../redux/drinkSlice/drinksSlice';
 import css from './DrinksSearch.module.css';
 import { FiSearch } from 'react-icons/fi';
 import { useSearchParams } from 'react-router-dom';
-import { DebounceInput } from 'react-debounce-input';
+import { DebounceInputStyled } from './Input.styled';
+// import { DebounceInput } from 'react-debounce-input';
 import { DrinksListItem } from './DrinksListItem';
 
 const DrinkSearch = () => {
@@ -16,23 +15,26 @@ const DrinkSearch = () => {
   const category = searchParams.get('category');
   const ingredient = searchParams.get('ingredient');
   const [query, setQuery] = useState('');
-
-  const { data = {}, isLoading } = useDrinkSearchQuery(query);
+  const [categories, setCategory] = useState('');
+  const [ingredients, setIngredients] = useState('');
+  const { data = {}, isLoading } = useDrinkSearchQuery({
+    query,
+    categories,
+    ingredients,
+    page: 1,
+    limit: 10,
+  });
 
   const { data: categoryList } = useGetCategoriesListQuery();
   const { data: ingredientsList } = useGetIngredientsListQuery();
-
-  const [categories, setCategory] = useState('');
-  const { data: categoryData } = useGetCategoryQuery(categories);
-
-  const [ingred, setIngred] = useState('');
-  const { data: ingredientData } = useGetIngredientQuery(ingred);
 
   let categoriesOptions = [];
   let ingredientsOptions = [];
 
   const [drinksArr, setDrinksArr] = useState('');
   const [inputValue, setInputValue] = useState('');
+  const [visibleCocktails, setVisibleCocktails] = useState([]);
+  console.log(visibleCocktails);
 
   const handleInputChange = inputValue => {
     setInputValue(inputValue);
@@ -46,6 +48,10 @@ const DrinkSearch = () => {
     setDrinksArr(data);
   };
 
+  useEffect(() => {
+    setVisibleCocktails(setDrinksArr(data));
+  }, [data, setDrinksArr]);
+
   const handleSetSearchtParams = useCallback(
     (key, value) => {
       const newSearchParams = new URLSearchParams(searchParams);
@@ -56,22 +62,19 @@ const DrinkSearch = () => {
 
       if (key === 'category') {
         setCategory(value.toString());
-        setDrinksArr(categoryData);
-        console.log('setCategory + ', categoryData);
+        setDrinksArr(data);
+
         return;
       }
 
       setInputValue(value.toString());
-      setIngred(value.toString());
-      setDrinksArr(ingredientData);
+      setIngredients(value.toString());
+      setDrinksArr(data);
       console.log('setIngred  + ');
     },
     // eslint-disable-next-line
     [searchParams, setSearchParams]
   );
-
-  console.log('categoryData: ', categoryData);
-  console.log('ingredientData: : ', ingredientData);
 
   if (categoryList && ingredientsList) {
     categoryList.forEach(item =>
@@ -89,7 +92,7 @@ const DrinkSearch = () => {
       backgroundColor: '#161F37',
       boxShadow: 'none',
       border: 0,
-      width: 'auto',
+      width: '199px',
       padding: '14px 24px',
     }),
     menu: baseStyles => ({
@@ -148,8 +151,8 @@ const DrinkSearch = () => {
     <section className={css.section}>
       <div className={css.container}>
         <div className={css.formWrapper}>
-          <form onSubmit={onHandleSubmit}>
-            <DebounceInput
+          <form className={css.inputForm} onSubmit={onHandleSubmit}>
+            <DebounceInputStyled
               type="text"
               minLength={2}
               debounceTimeout={1000}
@@ -157,8 +160,18 @@ const DrinkSearch = () => {
               placeholder="Type to search"
               onChange={onHandleChange}
             />
+            <FiSearch
+              style={{
+                width: '20px',
+                height: '20px',
+                color: '#fafafa',
+                margin: '0 24px 0 0 ',
+                position: 'absolute',
+                top: '35%',
+                left: '220px',
+              }}
+            />
           </form>
-          <FiSearch className={css.icon} />
 
           <Select
             classNamePrefix="drinks-page-selector"
@@ -173,7 +186,6 @@ const DrinkSearch = () => {
             onChange={data => handleSetSearchtParams('category', data.value)}
             inputValue={inputValue}
             onInputChange={evt => handleInputChange(evt)}
-            // onClick={(evt) => console.log('onClick: ', evt)}
             styles={style}
           />
           <Select
@@ -192,7 +204,7 @@ const DrinkSearch = () => {
             styles={style}
           />
         </div>
-        <div>
+        <div className={css.ulWrapper}>
           <ul className={css.drinkList}>
             {drinksArr?.drinks?.map(({ _id, drink, drinkThumb }) => {
               return (

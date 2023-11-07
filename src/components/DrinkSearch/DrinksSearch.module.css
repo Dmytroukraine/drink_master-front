@@ -6,6 +6,7 @@
 .container {
   margin: 0 auto;
   width: 375px;
+  padding: 20px auto;
 }
 
 .formWrapper {
@@ -13,16 +14,11 @@
   flex-direction: column;
   color: #f3f3f3;
   align-items: center;
+  width: 100%;
   row-gap: 14px;
   margin-bottom: 24px;
 }
-.form {
-  margin-top: 40px;
-  width: 335px;
-}
-.icon {
-  display: none;
-}
+
 .input {
   color: #fafafa;
   font-family: Manrope;
@@ -49,6 +45,7 @@
   border-radius: 10px;
 }
 .description {
+  width: 335px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -58,12 +55,18 @@
   .formWrapper {
     flex-direction: row;
     gap: 14px;
+    position: relative;
   }
   .imgItem {
     width: 342px;
   }
+  .ulWrapper {
+    margin: 0 auto;
+    align-content: center;
+  }
   .drinkList {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 14px;
   }
@@ -73,20 +76,11 @@
   .description {
     margin-bottom: 32px;
   }
-  .input {
+  .inputform {
     font-size: 17px;
     line-height: 1.56;
     padding-top: 14px;
     padding-bottom: 15px;
-  }
-  .form {
-    position: relative;
-  }
-  .icon {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
   }
 }
 .seeMore {
