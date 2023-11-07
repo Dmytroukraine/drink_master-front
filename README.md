@@ -78,7 +78,7 @@ This project was made possible by the hard work and dedication of the following 
    - [LinkedIn](https://www.linkedin.com/in/oksana-gurzhyi/)
 - Andrii Bondarernko - Developer
    - [GitHub](https://github.com/BondAndrii)
-   - [LinkedIn]()
+   - [LinkedIn](https://www.linkedin.com/in/andrii-bondarenko-12bb27261?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
 - Pasha Bitelov - Developer
    - [GitHub](https://github.com/Pashab52)
    - [LinkedIn]()

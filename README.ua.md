@@ -79,7 +79,7 @@
    - [LinkedIn](https://www.linkedin.com/in/oksana-gurzhyi/)
 - Андрій Бондаренко - Developer
    - [GitHub](https://github.com/BondAndrii)
-   - [LinkedIn]()
+   - [LinkedIn](https://www.linkedin.com/in/andrii-bondarenko-12bb27261?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
 - Паша Бітлов - Developer
    - [GitHub](https://github.com/Pashab52)
    - [LinkedIn]()
