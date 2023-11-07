@@ -46,7 +46,7 @@ This project was made possible by the hard work and dedication of the following 
    - [LinkedIn](https://www.linkedin.com/in/vitalina-shpir-4228b8a3/)
 - Anton Paliienko -  Developer
    - [GitHub](https://github.com/DonKanElion)
-   - [LinkedIn]()
+   - [LinkedIn](https://www.linkedin.com/in/anton-paliienko/)
 - Yevheniia Pashchenko - Developer
    - [GitHub](https://github.com/Janne57)
    - [LinkedIn](https://www.linkedin.com/in/evgeniya-pashenko-293bb725a/)
@@ -70,7 +70,7 @@ This project was made possible by the hard work and dedication of the following 
    - [LinkedIn]()
 - Roman Shvagla - Developer
    - [GitHub](https://github.com/immortalua96)
-   - [LinkedIn]()
+   - [LinkedIn](https://www.linkedin.com/in/roman-shvagla/)
 - Maxym Vovchok - Developer
    - [GitHub](https://github.com/maxvovchok)
    - [LinkedIn]()
