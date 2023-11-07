@@ -41,6 +41,13 @@ export const drinksApi = createApi({
       query: ingredient => ({ url: `/search?ingredient=${ingredient}` }),
       providesTags: ['drinks'],
     }),
+    deleteMyDrink: builder.mutation({
+      query: id => ({
+        url: `own/remove/${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['drinks'],
+    }),
   }),
 });
 
@@ -50,4 +57,5 @@ export const {
   useGetMyDrinksQuery,
   useGetCategoryQuery,
   useGetIngredientQuery,
+  useDeleteMyDrinkMutation,
 } = drinksApi;

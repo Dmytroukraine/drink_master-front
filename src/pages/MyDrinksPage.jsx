@@ -10,7 +10,6 @@ const MyDrinksPage = () => {
   const { data = [], isLoading } = useGetMyDrinksQuery();
   console.log(useGetMyDrinksQuery());
   console.log(data);
-  console.log(data.length);
   return (
     <div>
       <PageTitle title={'My drinks'} />

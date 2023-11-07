@@ -13,6 +13,7 @@ import {
 import { getUserState } from 'redux/userSlice/userSelectors';
 
 export function DrinkPageHero({ data }) {
+  // console.log(data);
   const [imgSrc, setImgSrc] = useState(data.drinkThumb);
   const [addDrinkFavorite, isLoading] = useAddDrinkFavoriteMutation();
   const [deleteFromFavorite] = useDeleteDrinkFavoriteMutation();
@@ -35,21 +36,25 @@ export function DrinkPageHero({ data }) {
 
   return (
     <div className={styles.descContainer}>
-      <div className={styles.descriptionWrapper}>
-        <PageTitle className={styles.drinkTitle} title={data.drink} />
+      <div className={styles.descWrapper}>
+        <PageTitle title={data.drink} />
         <p className={styles.drinkCategory}>
           {data.glass} / {data.alcoholic}
         </p>
-        <p className={styles.drinkDescription}>{data.description}</p>
+        <p className={styles.drinkDescription}>{data.shortDescription}</p>
         {!isLoading ? (
           'Loading....'
         ) : (
           <Button
+            marginLeft="0"
             handleClick={handleButtonClick}
-            text={isInFavorite ? 'Delete...' : 'Add ....'}
+            text={
+              isInFavorite
+                ? 'Delete from favorite drinks'
+                : 'Add to favorite drinks'
+            }
           />
         )}
-        {/* // <button className={styles.addBtn}>Add to favorite drinks</button> */}
       </div>
       <div className={styles.imgThumb}>
         <img
