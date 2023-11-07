@@ -211,6 +211,7 @@ export const AddDrinkForm = () => {
           />
 
           {selectedImg !== null ? (
+            // eslint-disable-next-line
             <img
               src={selectedImg}
               className={css.uploadImg}
