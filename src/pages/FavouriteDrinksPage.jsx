@@ -7,14 +7,18 @@ import { DrinksList } from '../components/FavouriteDrinksPage/DrinkList';
 import BasicImg from '../images/blue_iced_tea_large@1x.png';
 import { useState } from 'react';
 import useResize from '../hooks/useResize';
+import { useSearchParams } from 'react-router-dom';
 
 import css from './FavouriteDrinksPage.module.css';
 
+
 const FavouriteDrinksPage = () => {
   const { data = [], isLoading } = useGetDrinkFavoriteAllQuery();
+  const [searchParams, setSearchParams] = useSearchParams();
+  let page = searchParams.get('page');
 
   const [pagData, setPagData] = useState(data);
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(page||1);
   const size = useResize();
 
   // console.log(size[0]);
@@ -29,14 +33,15 @@ const FavouriteDrinksPage = () => {
 
   const quantityPages = Math.ceil(quantityDrinks / itemsPerPage);
 
-  const i = 0 + currentPage * itemsPerPage;
-  const k = itemsPerPage + itemsPerPage * currentPage;
-  
+  const i = currentPage * itemsPerPage - itemsPerPage;
+  const k = itemsPerPage * currentPage;
+
   const pagDrinks = data.slice(i, k);
 
-  const setPage = (page) => {
+  const setPage = page => {
     setCurrentPage(page);
     setPagData(pagData);
+    setSearchParams({ page: page});
   };
 
   return (
@@ -62,9 +67,8 @@ const FavouriteDrinksPage = () => {
             </div>
           </NoContentSection>
         )}
-        {data.length > 1 && (
+        {data.length > 0 && (
           <Paginator
-            drinks={data}
             quantityPages={quantityPages}
             setPage={setPage}
             currentPage={currentPage}
