@@ -180,7 +180,7 @@ import {
   useSigninMutation,
   useSignupMutation,
 } from 'redux/authSlice/authSlice';
-import { notification } from 'components/Shared/notification';
+// import { notification } from 'components/Shared/notification';
 import { Loading } from 'components/Loader/Loader';
 import { yupResolver } from '@hookform/resolvers/yup';
 import DatePicker from 'react-datepicker';
@@ -221,9 +221,9 @@ const SignupForm = () => {
           .then(() => {
             reset();
           })
-          .catch(e => notification(e.data.message));
+          .catch(e => console.log(e));
       })
-      .catch(e => notification(e.data.message));
+      .catch(e => console.log(e));
   };
 
   return (
