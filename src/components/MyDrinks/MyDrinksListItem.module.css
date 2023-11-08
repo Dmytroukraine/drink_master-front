@@ -1,10 +1,24 @@
 .myDrinkItem {
     display: flex;
     flex-direction: column;
-    width: 400px;
-    min-height: 676px;
+    width: 335px;
+    /* height: 581px; */
 }
 
+@media screen and (min-width: 768px) {
+    .myDrinkItem {
+        width: 342px;
+        /* height: 650px; */
+    }
+}
+
+
+@media screen and (min-width: 1440px) {
+    .myDrinkItem {
+        width: 400px;
+        /* height: 676px; */
+    }
+}
 
 .img {
  width: 100%;
@@ -13,14 +27,14 @@
  background-color: transparent;
 }
 
- @media screen and (min-width: 768px) {
+ /* @media screen and (min-width: 768px) {
     .img{
-     width: 342px;}
- }
+     max-width: 342px;}
+ } */
 
  @media screen and (min-width: 1440px) {
     .img {
-     width: 400px;
+     /* width: 400px; */
      height: 400px;}
  }
 
