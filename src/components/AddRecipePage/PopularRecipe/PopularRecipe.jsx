@@ -19,25 +19,28 @@ export const PopularRecipe = () => {
                         {data.map(recipe => {
                             const { _id, drink, shortDescription, drinkThumb} = recipe;
                             return (
-                                <Link
-                                    to={`/drinks/${_id}`}
-                                    className={styles.drink}
-                                    key={_id}
-                                    id={_id}>
-                                    <div className={styles.imgThumb}>
-                                        <img
-                                            className={styles.drinkImg}
-                                            src={drinkThumb}
-                                            alt={drinkThumb}
-                                            onError={event => (event.target.src = imgPlaceHolder)}
-                                        />
-                                    </div>
+                                <>{!recipe ? [] : (
+                                    <Link
+                                        to={`/drinks/${_id}`}
+                                        className={styles.drink}
+                                        key={_id}
+                                        id={_id}>
+                                        <div className={styles.imgThumb}>
+                                            <img
+                                                className={styles.drinkImg}
+                                                src={drinkThumb}
+                                                alt={drinkThumb}
+                                                onError={event => (event.target.src = imgPlaceHolder)}
+                                            />
+                                        </div>
 
-                                    <div className={styles.drinkText}>
-                                        <h3 className={styles.drinkTitle}>{drink}</h3>
-                                        <p className={styles.drinkInstructions}>{shortDescription}</p>
-                                    </div>
-                                </Link>
+                                        <div className={styles.drinkText}>
+                                            <h3 className={styles.drinkTitle}>{drink}</h3>
+                                            <p className={styles.drinkInstructions}>{shortDescription}</p>
+                                        </div>
+                                    </Link>
+                                ) }</>
+                                
                             )
                         })
                         }
