@@ -14,7 +14,6 @@
 // import { yupResolver } from '@hookform/resolvers/yup';
 // import DatePicker from 'components/Datepicker/StyledDatepicker';
 
-
 // const SignupForm = () => {
 //   const [dispatch, { isLoading }] = useSignupMutation();
 //   const [login] = useSigninMutation();
@@ -184,12 +183,12 @@ import {
 import { notification } from 'components/Shared/notification';
 import { Loading } from 'components/Loader/Loader';
 import { yupResolver } from '@hookform/resolvers/yup';
-import DatePicker from 'react-datepicker'; // Змінений імпорт на react-datepicker
+import DatePicker from 'react-datepicker';
 import { signupSchema } from './signupSchema';
-
+import { CalendarGlobalStyles, StyledCalendarIcon } from './DatePicker.styled';
 
 const SignupForm = () => {
-  const currentDate = new Date(); // Отримуємо поточну дату
+  const currentDate = new Date();
 
   const [selectedDate, setSelectedDate] = useState(null);
   const [hidePassword, setHidePassword] = useState(true);
@@ -266,17 +265,22 @@ const SignupForm = () => {
         {errors.name && <p className={css.error}>{errors.name.message}</p>}
 
         <label className={css.label}>
-
           <DatePicker
             selected={selectedDate}
             onChange={date => setSelectedDate(date)}
             maxDate={currentDate}
-            placeholderText="Select a date"
+            placeholderText="Date of birth"
+            peekNextMonth
+            showMonthDropdown
+            showYearDropdown
+            dropdownMode="select"
             style={{
               width: '24px',
               height: '24px',
             }}
           />
+          <StyledCalendarIcon />
+          <CalendarGlobalStyles />
         </label>
 
         <label className={css.label}>
@@ -358,4 +362,3 @@ const SignupForm = () => {
 };
 
 export default SignupForm;
-
