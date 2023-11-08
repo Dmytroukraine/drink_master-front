@@ -7,11 +7,9 @@ import css from './DrinksSearch.module.css';
 import { FiSearch } from 'react-icons/fi';
 import { useSearchParams } from 'react-router-dom';
 import { DebounceInputStyled } from './Input.styled';
-// import { DebounceInput } from 'react-debounce-input';
 import { DrinksListItem } from './DrinksListItem';
 import { Paginator } from '../Paginator/Paginator';
 import useResize from '../../hooks/useResize';
-
 
 const DrinkSearch = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -21,16 +19,15 @@ const DrinkSearch = () => {
   const [categories, setCategory] = useState('');
   const [ingredients, setIngredients] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  
+
   const size = useResize();
   let itemsPerPage = 8;
-  
+
   if (size[0] > 1439) {
     itemsPerPage = 9;
   }
 
-
-  const { data = {}, isLoading } = useDrinkSearchQuery({
+  const { data = {} } = useDrinkSearchQuery({
     query,
     categories,
     ingredients,
@@ -39,9 +36,8 @@ const DrinkSearch = () => {
   });
 
   const quantityDrinks = data.total;
-  
-  const quantityPages = Math.ceil(quantityDrinks / itemsPerPage);
 
+  const quantityPages = Math.ceil(quantityDrinks / itemsPerPage);
 
   const { data: categoryList } = useGetCategoriesListQuery();
   const { data: ingredientsList } = useGetIngredientsListQuery();
@@ -52,12 +48,11 @@ const DrinkSearch = () => {
   const [drinksArr, setDrinksArr] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [visibleCocktails, setVisibleCocktails] = useState([]);
-  console.log(visibleCocktails);
 
   const handleInputChange = inputValue => {
     setInputValue(inputValue);
   };
- 
+
   const onHandleSubmit = e => {
     e.preventDefault();
   };
@@ -66,11 +61,15 @@ const DrinkSearch = () => {
     setDrinksArr(data);
     setCurrentPage(1);
   };
+  console.log(drinksArr);
 
   useEffect(() => {
-    setVisibleCocktails(setDrinksArr(data));
-    
-  }, [data, setDrinksArr,setVisibleCocktails]);
+    if (visibleCocktails) {
+      setVisibleCocktails(setDrinksArr(data));
+    }
+
+    setVisibleCocktails(data);
+  }, [data, setDrinksArr, setVisibleCocktails, visibleCocktails]);
 
   const handleSetSearchtParams = useCallback(
     (key, value) => {
@@ -82,18 +81,17 @@ const DrinkSearch = () => {
 
       if (key === 'category') {
         setCategory(value.toString());
-        setDrinksArr(data);
+        setVisibleCocktails(setDrinksArr(data));
 
         return;
       }
 
       setInputValue(value.toString());
       setIngredients(value.toString());
-      setDrinksArr(data);
-      console.log('setIngred  + ');
+      setVisibleCocktails(setDrinksArr(data));
     },
-    // eslint-disable-next-line
-    [searchParams, setSearchParams]
+
+    [searchParams, setSearchParams, data]
   );
 
   if (categoryList && ingredientsList) {
@@ -167,13 +165,13 @@ const DrinkSearch = () => {
     }),
   };
 
-const setPage = page => {
-  setCurrentPage(page);
-  // setPagData(pagData);
-  // setSearchParams({ page: page });
-};
+  const setPage = page => {
+    setCurrentPage(page);
+    // setPagData(pagData);
+    // setSearchParams({ page: page });
+  };
 
-  return { isLoading } ? (
+  return (
     <section className={css.section}>
       <div className={css.container}>
         <div className={css.formWrapper}>
@@ -246,14 +244,14 @@ const setPage = page => {
         </div>
       </div>
       {data.total > 0 && (
-      <Paginator
-        quantityPages={quantityPages}
-        setPage={setPage}
-        currentPage={currentPage}
-      />
+        <Paginator
+          quantityPages={quantityPages}
+          setPage={setPage}
+          currentPage={currentPage}
+        />
       )}
     </section>
-  ) : null;
+  );
 };
 
 export default DrinkSearch;
