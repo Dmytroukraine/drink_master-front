@@ -24,7 +24,7 @@ export const CalendarGlobalStyles = createGlobalStyle`
 
 
 input {
-  width: 335px;
+  width: 317px;
   background-color: transparent;
   padding: 17px 24px;
   min-height: 54px;
