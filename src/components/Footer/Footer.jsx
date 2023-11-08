@@ -9,6 +9,7 @@ import SubscribeForm from './SubscribeForm';
 const Footer = () => {
   return (
     <>
+    <section className={css.footerSection}>
     <div className={css.footer}>
       <div className={css.wraperMediaTablet}>
       <div className={css.wraperMedia}>
@@ -23,6 +24,7 @@ const Footer = () => {
       </div>
       <PrivacyPolicy />
     </div>
+    </section>
     </>
   );
 };
