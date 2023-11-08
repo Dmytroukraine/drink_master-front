@@ -16,12 +16,12 @@
 }
   
     @media screen and (min-width: 768px) {
-      .mainc {background-color: black;}
+      .mainc {background-color: var(--main-bg-color);}
     }
     
   
     @media screen and (min-width: 1440px) {
-      .mainc {background-color: black;}         
+      .mainc {background-color: var(--main-bg-color);}         
     }
   
   
