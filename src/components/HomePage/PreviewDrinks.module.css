@@ -2,11 +2,7 @@
   padding-bottom: 80px;
 }
 
-.container {
-  margin: 0 auto;
-  padding: 0 20px;
-  width: 415px;
-}
+
 
 .categoryTitle {
   margin-bottom: 24px;
@@ -70,10 +66,7 @@
   .previewDrinks {
     padding-bottom: 140px;
   }
-  .container {
-    padding: 0 32px;
-    width: 768px;
-  }
+ 
   .category {
     font-size: 40px;
     line-height: 44px;
@@ -113,10 +106,7 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .container {
-    padding: 0 100px;
-    width: 1440px;
-  }
+ 
 
   .category {
     font-size: 40px;

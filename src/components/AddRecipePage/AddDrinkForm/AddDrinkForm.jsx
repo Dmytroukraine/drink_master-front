@@ -36,6 +36,8 @@ export const AddDrinkForm = () => {
 
   const [categoryData, setCategoryData] = useState(null);
   const [glassData, setGlassData] = useState(null);
+// eslint-disable-next-line
+  const [selectedFile, setSelectedFile] = useState(null);
 
   const userToken = useSelector(state => state.user.token);
 
@@ -64,6 +66,30 @@ export const AddDrinkForm = () => {
     }
   }, [userToken]);
 
+  async function postAddDrinks(formData) {
+    try {
+      const res = await axios.post(
+        'https://drink-master-service.onrender.com/api/drinks/own/add',
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        }
+      );
+      notification('Drink was successfully added', 'success');
+
+      return res;
+    } catch (error) {
+      if (error.response && error.response.status === 409) {
+        notification('Drink already exists');
+      } else {
+        notification('Error');
+        console.error(error);
+      }
+    }
+  }
+
   const simplifiedIngredients = arrIngredients.map(
     ({ title, measure, ingredientId }) => ({
       title,
@@ -72,17 +98,6 @@ export const AddDrinkForm = () => {
     })
   );
 
-  const drinkOwn = {
-    drinkThumb: selectedImg,
-    drink: itemTitle,
-    shortDescription: aboutRecipe,
-    category: category,
-    glass: glass,
-    alcoholic: alcoholic,
-    instructions: preparation,
-    ingredients: simplifiedIngredients,
-  };
-
   class AddImg {
     handleFileUpload = () => {
       const fileInput = document.getElementById('fileInput');
@@ -90,49 +105,43 @@ export const AddDrinkForm = () => {
     };
 
     handleFileSelected = event => {
-      const selectedImg = event.target.files[0];
-      const imageUrl = URL.createObjectURL(selectedImg);
-      setSelectedImg(imageUrl);
+      const file = event.target.files[0];
+
+      const url = URL.createObjectURL(file);
+      setSelectedImg(url);
+      setSelectedFile(file);
     };
   }
 
   class Form {
-    handleSubmit = async e => {
+    handleSubmit = e => {
       e.preventDefault();
+
       const checkTitle = simplifiedIngredients.map(el => el.title);
 
+      const ownDrink = {
+        drink: itemTitle,
+        shortDescription: aboutRecipe,
+        category: category,
+        glass: glass,
+        alcoholic: alcoholic,
+        instructions: preparation,
+        ingredients: simplifiedIngredients,
+      };
+
       if (
-        drinkOwn.drinkThumb === null ||
-        drinkOwn.itemTitle === '' ||
-        drinkOwn.shortDescription === '' ||
-        drinkOwn.category === '' ||
-        drinkOwn.glass === '' ||
-        drinkOwn.preparation === '' ||
-        drinkOwn.instructions === '' ||
+        ownDrink.drink === '' ||
+        ownDrink.shortDescription === '' ||
+        ownDrink.category === '' ||
+        ownDrink.glass === '' ||
+        ownDrink.instructions === '' ||
         checkTitle.some(title => title === '')
       ) {
         notification('Fill in all fields');
         return;
       }
 
-      try {
-        await axios.post(
-          'https://drink-master-service.onrender.com/api/drinks/own/add',
-          drinkOwn,
-          {
-            headers: {
-              Authorization: `Bearer ${userToken}`,
-            },
-          }
-        );
-        notification('Drink was successfully added', 'success');
-      } catch (error) {
-        if (error.response && error.response.status === 409) {
-          notification('Drink already exists');
-        } else {
-          console.error(error);
-        }
-      }
+      postAddDrinks(ownDrink);
     };
 
     handleChange = e => {

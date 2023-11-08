@@ -5,13 +5,14 @@ import NoContentSection from 'components/404Page/NoContent';
 import BasicImg from '../images/blue_iced_tea_large@1x.png';
 import { useGetMyDrinksQuery } from 'redux/drinkSlice/drinksSlice';
 import css from './FavouriteDrinksPage.module.css';
+import styles from '../components/MyDrinks/MyDrinksList.module.css';
 
 const MyDrinksPage = () => {
   const { data = [], isLoading } = useGetMyDrinksQuery();
   console.log(useGetMyDrinksQuery());
   console.log(data);
   return (
-    <div>
+    <div className={styles.myDrinkListWrapper}>
       <PageTitle title={'My drinks'} />
       {isLoading && <Loading />}
       {data.length > 0 ? (

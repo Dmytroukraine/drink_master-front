@@ -1,9 +1,11 @@
 .followus{
+  color: var(--primary-white-color);
   display: flex;
   margin-top: 20px;
   gap: 14px;
 }
 .href{
+  color: var(--primary-white-color);
   width: 38px;
   height: 38px;
 }
