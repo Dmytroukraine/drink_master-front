@@ -5,7 +5,6 @@ import mediumImage from '../../images/thumb-placeholder-medium.png';
 export function DrinkIngredientsList({ data: ingredients }) {
   const { data } = useGetIngredientsListQuery();
 
-
   if (!data) return;
   if (!ingredients) return;
 
@@ -35,14 +34,15 @@ export function DrinkIngredientsList({ data: ingredients }) {
           {newArr.map(({ title, measure, _id, ingredientThumb }) => {
             return (
               <li key={_id} className={styles.ingredientItem}>
-                <img
-                  className={styles.indredientImg}
-                  src={ingredientThumb}
-                  onError={event => (event.target.src = mediumImage)}
-                  width="220"
-                  height="220"
-                  alt={title}
-                />
+                <div className={styles.ingredientPhotoBox}>
+                  <img
+                    className={styles.indredientImg}
+                    src={ingredientThumb}
+                    onError={event => (event.target.src = mediumImage)}
+                    alt={title}
+                  />
+                </div>
+
                 <div className={styles.ingredientsDetails}>
                   <p className={styles.ingredientName}>{title}</p>
                   <p className={styles.ingredientMeasure}>{measure}</p>
