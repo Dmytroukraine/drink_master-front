@@ -1,4 +1,5 @@
 .PageTitle {
+  margin-bottom: 40px;
   color: var(--primary-white-color);
   font-size: 32px;
   font-weight: 600;
@@ -7,6 +8,7 @@
 
 @media screen and (min-width: 768px) {
   .PageTitle {
+    margin-bottom: 60px;
     font-size: 56px;
     line-height: 1.07;
     margin-top: 140px;

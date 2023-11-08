@@ -26,6 +26,9 @@ export const authApi = createApi({
         method: 'POST',
         body: { name, email, password, birthDate },
       }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        dispatch(setUser((await queryFulfilled).data));
+      },
       invalidatesTags: ['auth'],
     }),
     signin: builder.mutation({

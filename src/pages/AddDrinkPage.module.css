@@ -3,6 +3,9 @@
   margin: 0 auto;
   width: 375px;
 }
+.followTitle {
+  color: var(--primary-white-color);
+}
 .followContainer {
   margin-top: 80px;
 }
@@ -10,7 +13,7 @@
 @media screen and (min-width: 768px) {
   .container {
     width: 704px;
-    padding: 0px 32px;
+    /* padding: 0px 32px; */
 
     padding-bottom: 140px;
   }
@@ -18,12 +21,12 @@
 
 @media screen and (min-width: 1440px) {
   .container {
-    width: 907px;
+    width: 1240px;
 
-    padding: 0px 100px;
-    padding-bottom: 140px;
+    /* padding: 0px 100px; */
+    /* padding-bottom: 140px; */
 
-    margin: 0;
+    margin: 0 auto;
   }
     .followContainer {
       margin-top: 0px;

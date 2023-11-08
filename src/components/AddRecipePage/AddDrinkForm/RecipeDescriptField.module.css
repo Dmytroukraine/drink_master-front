@@ -14,6 +14,8 @@
 
 .preparationTitle {
   margin-bottom: 40px;
+  color: var(--primary-white-color);
+
 }
 
 @media screen and (min-width: 768px) {

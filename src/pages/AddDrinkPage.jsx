@@ -12,7 +12,7 @@ const AddDrinkPage = () => {
       <div className={css.box}>
         <AddDrinkForm />
         <div className={css.followContainer}>
-          <h2>Follow Us</h2>
+          <h2 className={css.followTitle}>Follow Us</h2>
           <Followus />
           <PopularRecipe />
         </div>
