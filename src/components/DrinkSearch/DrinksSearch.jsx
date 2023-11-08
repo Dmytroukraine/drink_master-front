@@ -9,6 +9,9 @@ import { useSearchParams } from 'react-router-dom';
 import { DebounceInputStyled } from './Input.styled';
 // import { DebounceInput } from 'react-debounce-input';
 import { DrinksListItem } from './DrinksListItem';
+import { Paginator } from '../Paginator/Paginator';
+import useResize from '../../hooks/useResize';
+
 
 const DrinkSearch = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -17,13 +20,28 @@ const DrinkSearch = () => {
   const [query, setQuery] = useState('');
   const [categories, setCategory] = useState('');
   const [ingredients, setIngredients] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  
+  const size = useResize();
+  let itemsPerPage = 8;
+  
+  if (size[0] > 1439) {
+    itemsPerPage = 9;
+  }
+
+
   const { data = {}, isLoading } = useDrinkSearchQuery({
     query,
     categories,
     ingredients,
-    page: 1,
-    limit: 10,
+    page: currentPage,
+    limit: itemsPerPage,
   });
+
+  const quantityDrinks = data.total;
+  
+  const quantityPages = Math.ceil(quantityDrinks / itemsPerPage);
+
 
   const { data: categoryList } = useGetCategoriesListQuery();
   const { data: ingredientsList } = useGetIngredientsListQuery();
@@ -39,18 +57,20 @@ const DrinkSearch = () => {
   const handleInputChange = inputValue => {
     setInputValue(inputValue);
   };
-
+ 
   const onHandleSubmit = e => {
     e.preventDefault();
   };
   const onHandleChange = e => {
     setQuery(e.target.value);
     setDrinksArr(data);
+    setCurrentPage(1);
   };
 
   useEffect(() => {
     setVisibleCocktails(setDrinksArr(data));
-  }, [data, setDrinksArr]);
+    
+  }, [data, setDrinksArr,setVisibleCocktails]);
 
   const handleSetSearchtParams = useCallback(
     (key, value) => {
@@ -147,6 +167,12 @@ const DrinkSearch = () => {
     }),
   };
 
+const setPage = page => {
+  setCurrentPage(page);
+  // setPagData(pagData);
+  // setSearchParams({ page: page });
+};
+
   return { isLoading } ? (
     <section className={css.section}>
       <div className={css.container}>
@@ -219,6 +245,13 @@ const DrinkSearch = () => {
           </ul>
         </div>
       </div>
+      {data.total > 0 && (
+      <Paginator
+        quantityPages={quantityPages}
+        setPage={setPage}
+        currentPage={currentPage}
+      />
+      )}
     </section>
   ) : null;
 };

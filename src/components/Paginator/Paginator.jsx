@@ -9,6 +9,18 @@ export function Paginator({ quantityPages, setPage, currentPage }) {
   for (let i = 1; i <= quantityPages; i++) {
     quantityPagesArr.push(i);
   }
+ 
+  let start = currentPage - 3;
+  let end = currentPage + 2;
+
+  if (currentPage <= 2) {
+     start = 0;
+     end = 5;
+  }
+
+
+  const quantityVisiblePagesArr = quantityPagesArr.slice(start, end)
+
 
   function onBtnClick(number) {
     setPage(number);
@@ -27,7 +39,7 @@ export function Paginator({ quantityPages, setPage, currentPage }) {
   }
 
   return (
-    <div  className={css.btnContainer}>
+    <div className={css.btnContainer}>
       <button
         type="button"
         className={css.btnArrow}
@@ -39,7 +51,7 @@ export function Paginator({ quantityPages, setPage, currentPage }) {
       </button>
 
       <>
-        {quantityPagesArr.map(number => {
+        {quantityVisiblePagesArr.map(number => {
           return (
             <button
               key={number}
