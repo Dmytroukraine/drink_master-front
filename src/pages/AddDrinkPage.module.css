@@ -1,5 +1,5 @@
 .container {
-  padding: 80px 20px;
+
   margin: 0 auto;
   width: 375px;
 }
@@ -13,19 +13,12 @@
 @media screen and (min-width: 768px) {
   .container {
     width: 704px;
-    /* padding: 0px 32px; */
-
-    padding-bottom: 140px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .container {
     width: 1240px;
-
-    /* padding: 0px 100px; */
-    /* padding-bottom: 140px; */
-
     margin: 0 auto;
   }
     .followContainer {
