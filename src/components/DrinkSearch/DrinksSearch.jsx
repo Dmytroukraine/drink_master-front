@@ -61,7 +61,6 @@ const DrinkSearch = () => {
     setDrinksArr(data);
     setCurrentPage(1);
   };
-  console.log(drinksArr);
 
   useEffect(() => {
     if (visibleCocktails) {
@@ -76,14 +75,13 @@ const DrinkSearch = () => {
       const newSearchParams = new URLSearchParams(searchParams);
       newSearchParams.set(key, value);
 
-      console.log('VALUE: ', value.toString());
       setSearchParams(newSearchParams);
 
       if (key === 'category') {
         setCategory(value.toString());
         setVisibleCocktails(setDrinksArr(data));
 
-        return;
+        // return;
       }
 
       setInputValue(value.toString());
@@ -167,8 +165,6 @@ const DrinkSearch = () => {
 
   const setPage = page => {
     setCurrentPage(page);
-    // setPagData(pagData);
-    // setSearchParams({ page: page });
   };
 
   return (
