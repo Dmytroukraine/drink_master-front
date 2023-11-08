@@ -38,6 +38,9 @@ import AddDrinkPage from 'pages/AddDrinkPage';
 // import { RecipePage } from 'pages/RecipePage';
 import { DrinkPage } from 'pages/DrinkPage';
 
+const PrivacyPage = lazy(() => import('../../pages/PrivacyPage'));
+const TermsOfServicePage = lazy(() => import('../../pages/TermsOfServicePage'),
+);
 const ErrorPage = lazy(() => import('pages/404Page'));
 
 const App = () => {
@@ -74,9 +77,9 @@ const App = () => {
             <Route path="drinks/:drinkId" element={<DrinkPage />} />
             <Route path="my" element={<MyDrinksPage />} />
 
-            {/* <Route path="privacy" element={<Privacy />} /> */}
-            {/* <Route path="servise" element={<Service />} /> */}
-
+            <Route path="privacy" element={<PrivacyPage />} />
+            <Route path="service" element={<TermsOfServicePage/>} />
+            
             <Route path="*" element={<ErrorPage />} />
           </Route>
         </Routes>

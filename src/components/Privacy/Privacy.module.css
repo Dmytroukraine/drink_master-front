@@ -1,0 +1,70 @@
+.PrivacyWrap {
+    margin: 0 auto;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  
+  @media screen and (min-width: 375px) {
+    .PrivacyWrap {
+      max-width: 375px;
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .PrivacyWrap {
+      max-width: 768px;
+      padding-right: 32px;
+      padding-left: 32px;
+    }
+  }
+  
+  @media screen and (min-width: 1440px) {
+    .PrivacyWrap {
+      max-width: 1440px;
+      padding-right: 100px;
+      padding-left: 100px;
+    }
+  }
+  
+  .MainTitle {
+    color: white;
+    font-size: 36px;
+    margin-bottom: 100px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .MainTitle {
+      margin-bottom: 80px;
+    }
+  }
+  
+  .Title {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 80px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .Title {
+      margin-bottom: 60px;
+    }
+  }
+  
+  .PrivacyText {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 60px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .PrivacyText {
+      margin-bottom: 40px;
+    }
+  }
+  
+  .SubTitle {
+    font-size: 24px;
+  }
+  
