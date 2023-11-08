@@ -36,7 +36,7 @@ export const AddDrinkForm = () => {
 
   const [categoryData, setCategoryData] = useState(null);
   const [glassData, setGlassData] = useState(null);
-
+// eslint-disable-next-line
   const [selectedFile, setSelectedFile] = useState(null);
 
   const userToken = useSelector(state => state.user.token);
@@ -220,6 +220,7 @@ export const AddDrinkForm = () => {
           />
 
           {selectedImg !== null ? (
+            // eslint-disable-next-line
             <img
               src={selectedImg}
               className={css.uploadImg}
