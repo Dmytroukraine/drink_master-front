@@ -18,12 +18,12 @@
 
 @media screen and (min-width: 1440px) {
   .container {
-    width: 907px;
+    width: 1240px;
 
-    padding: 0px 100px;
+    /* padding: 0px 100px; */
     padding-bottom: 140px;
 
-    margin: 0;
+    margin: 0 auto;
   }
     .followContainer {
       margin-top: 0px;
