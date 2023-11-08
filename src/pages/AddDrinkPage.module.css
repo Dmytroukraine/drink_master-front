@@ -3,6 +3,9 @@
   margin: 0 auto;
   width: 375px;
 }
+.followTitle {
+  color: var(--primary-white-color);
+}
 .followContainer {
   margin-top: 80px;
 }
