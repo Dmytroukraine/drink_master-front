@@ -172,6 +172,8 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from "react-router-dom";
+
 import { BiCheckCircle, BiErrorCircle } from 'react-icons/bi';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -192,6 +194,7 @@ const SignupForm = () => {
 
   const [selectedDate, setSelectedDate] = useState(null);
   const [hidePassword, setHidePassword] = useState(true);
+  const navigate = useNavigate();
 
   const [dispatch, { isLoading }] = useSignupMutation();
   const [login] = useSigninMutation();
@@ -219,6 +222,7 @@ const SignupForm = () => {
         login({ email, password })
           .unwrap()
           .then(() => {
+            navigate("/home", { replace: true });
             reset();
           })
           .catch(e => notification(e.data.message));
