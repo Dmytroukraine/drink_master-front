@@ -55,15 +55,15 @@ const App = () => {
         <Routes>
           <Route
             path="/welcome"
-            element={<RestrictedRoute component={WelcomePage} />}
+            element={<RestrictedRoute component={WelcomePage}  />}
           />
           <Route
             path="/signup"
-            element={<RestrictedRoute component={SignupPage} />}
+            element={<RestrictedRoute component={SignupPage} redirectTo="/home"/>}
           />
           <Route
             path="/signin"
-            element={<RestrictedRoute component={SigninPage} />}
+            element={<RestrictedRoute component={SigninPage} redirectTo="/home" />}
           />
 
           <Route path="/" element={<PrivateRoute component={SharedLayout} />}>
