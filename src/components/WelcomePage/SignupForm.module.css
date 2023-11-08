@@ -73,6 +73,7 @@
   margin-bottom: 14px;
   border-radius: 42px;
   background: var(--primary-white-color);
+  border: none;
 }
 
 @media screen and (min-width: 768px) {
