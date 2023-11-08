@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { Button } from 'components/Button';
-import { PageTitle } from 'components/PageTitle/PageTitle';
+// import { PageTitle } from 'components/PageTitle/PageTitle';
 import styles from './DrinkPage.module.css';
 import largeImage from '../../images/thumb-placeholder-large.png';
 import {
@@ -35,37 +35,38 @@ export function DrinkPageHero({ data }) {
   };
 
   return (
-    <div className={styles.descContainer}>
-      <div className={styles.descWrapper}>
-        <PageTitle title={data.drink} />
-        <p className={styles.drinkCategory}>
-          {data.glass} / {data.alcoholic}
-        </p>
-        <p className={styles.drinkDescription}>{data.shortDescription}</p>
-        {!isLoading ? (
-          'Loading....'
-        ) : (
-          <Button
-            marginLeft="0"
-            handleClick={handleButtonClick}
-            text={
-              isInFavorite
-                ? 'Delete from favorite drinks'
-                : 'Add to favorite drinks'
-            }
+    <section className={styles.sectionMyDrinks}>
+      <div className={styles.descContainer}>
+        <div className={styles.wrapper}>
+          {/* <PageTitle title={data.drink} /> */}
+          <h1 className={styles.heroTitle}>{data.drink}</h1>
+          <p className={styles.drinkCategory}>
+            {data.glass} / {data.alcoholic}
+          </p>
+          <p className={styles.drinkDescription}>{data.shortDescription}</p>
+          {!isLoading ? (
+            'Loading....'
+          ) : (
+            <Button
+              marginLeft="0"
+              handleClick={handleButtonClick}
+              text={
+                isInFavorite
+                  ? 'Delete from favorite drinks'
+                  : 'Add to favorite drinks'
+              }
+            />
+          )}
+        </div>
+        <div className={styles.imgThumb}>
+          <img
+            className={styles.drinkImg}
+            src={imgSrc}
+            onError={() => setImgSrc(largeImage)}
+            alt={data.drink}
           />
-        )}
+        </div>
       </div>
-      <div className={styles.imgThumb}>
-        <img
-          className={styles.drinkImg}
-          src={imgSrc}
-          onError={() => setImgSrc(largeImage)}
-          alt={data.drink}
-          width="400"
-          height="400"
-        />
-      </div>
-    </div>
+    </section>
   );
 }

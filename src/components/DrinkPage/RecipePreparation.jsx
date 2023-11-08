@@ -3,18 +3,11 @@ import styles from './DrinkPage.module.css';
 
 export function RecipePreparation({ data }) {
   return (
-    <div className={styles.preparationContainer}>
+    <section className={styles.sectionRecipePreparation}>
+      <div className={styles.preparationContainer}>
       <h2 className={styles.recipeTitle}>Recipe Preparation</h2>
+
       <div className={styles.recipeWrapper}>
-        <div className={styles.recipeImgWrapper}>
-          <img
-            className={styles.recipeImg}
-            src={image}
-            width="631"
-            height="480"
-            alt="cocktail"
-          />
-        </div>
         <div className={styles.recipeInstruction}>
           <p className={styles.drinkRecipe}>{data.description}</p>
           <p className={styles.drinkRecipe}>
@@ -24,7 +17,12 @@ export function RecipePreparation({ data }) {
             {data.instructionsFR} {data.instructionsIT}
           </p>
         </div>
+
+        <div className={styles.recipeImgWrapper}>
+          <img className={styles.recipeImg} src={image} alt="cocktail" />
+        </div>
       </div>
     </div>
+    </section>
   );
 }
