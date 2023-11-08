@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from "react-router-dom";
 import { BiCheckCircle, BiErrorCircle } from 'react-icons/bi';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
 import css from './SignupForm.module.css';
@@ -13,6 +14,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 const SigninForm = () => {
   const [dispatch, { isLoading }] = useSigninMutation();
   const [hidePassword, setHidePassword] = useState(true);
+  const navigate = useNavigate();
+
 
   const {
     register,
@@ -29,6 +32,7 @@ const SigninForm = () => {
     dispatch({ email: email.toLowerCase(), password })
       .unwrap()
       .then(() => {
+        navigate("/home", { replace: true });
         reset();
       })
       .catch(e => notification(e.data.message));
