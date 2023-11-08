@@ -2,6 +2,10 @@
 
 <img src="https://github.com/Dmytroukraine/command_project_mimino/blob/main/src/images/photo_2023-03-09_00-41-40.jpg"  alt="goose" width=100/></h1>
 
+
+https://github.com/Dmytroukraine/drink_master-front/assets/120205405/24506b91-1ac1-4e95-bc04-7212f265c604
+
+
 ## Зміст
 
 - [Backend](#backend)
