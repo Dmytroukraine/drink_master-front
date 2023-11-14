@@ -12,36 +12,33 @@ import { DrinksListItem } from './DrinksListItem';
 import { Paginator } from '../Paginator/Paginator';
 import useResize from '../../hooks/useResize';
 
-
 const DrinkSearch = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const category = searchParams.get('category');
-  const ingredient = searchParams.get('ingredient');
+  const categoryParam = searchParams.get('category');
+  const ingredientParam = searchParams.get('ingredient');
   const [query, setQuery] = useState('');
-  const [categories, setCategory] = useState('');
-  const [ingredients, setIngredients] = useState('');
+  const [category, setCategory] = useState('');
+  const [ingredient, setIngredients] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  
+
   const size = useResize();
   let itemsPerPage = 8;
-  
+
   if (size[0] > 1439) {
     itemsPerPage = 9;
   }
 
-
   const { data = {}, isLoading } = useDrinkSearchQuery({
     query,
-    categories,
-    ingredients,
+    category,
+    ingredient,
     page: currentPage,
     limit: itemsPerPage,
   });
 
   const quantityDrinks = data.total;
-  
-  const quantityPages = Math.ceil(quantityDrinks / itemsPerPage);
 
+  const quantityPages = Math.ceil(quantityDrinks / itemsPerPage);
 
   const { data: categoryList } = useGetCategoriesListQuery();
   const { data: ingredientsList } = useGetIngredientsListQuery();
@@ -57,7 +54,7 @@ const DrinkSearch = () => {
   const handleInputChange = inputValue => {
     setInputValue(inputValue);
   };
- 
+
   const onHandleSubmit = e => {
     e.preventDefault();
   };
@@ -69,8 +66,7 @@ const DrinkSearch = () => {
 
   useEffect(() => {
     setVisibleCocktails(setDrinksArr(data));
-    
-  }, [data, setDrinksArr,setVisibleCocktails]);
+  }, [data, setDrinksArr, setVisibleCocktails]);
 
   const handleSetSearchtParams = useCallback(
     (key, value) => {
@@ -167,11 +163,11 @@ const DrinkSearch = () => {
     }),
   };
 
-const setPage = page => {
-  setCurrentPage(page);
-  // setPagData(pagData);
-  // setSearchParams({ page: page });
-};
+  const setPage = page => {
+    setCurrentPage(page);
+    // setPagData(pagData);
+    // setSearchParams({ page: page });
+  };
 
   return { isLoading } ? (
     <section className={css.section}>
@@ -207,7 +203,7 @@ const setPage = page => {
               label: 'All categories',
             }}
             name="category"
-            value={{ value: '', label: category || 'All categories' }}
+            value={{ value: '', label: categoryParam || 'All categories' }}
             options={[{ value: 'All categories' }, ...categoriesOptions]}
             onChange={data => handleSetSearchtParams('category', data.value)}
             inputValue={inputValue}
@@ -222,7 +218,7 @@ const setPage = page => {
               label: 'All ingredients',
             }}
             name="ingredient"
-            value={{ value: '', label: ingredient || 'All ingredients' }}
+            value={{ value: '', label: ingredientParam || 'All ingredients' }}
             options={[{ value: 'All ingredients' }, ...ingredientsOptions]}
             onChange={data => handleSetSearchtParams('ingredient', data.value)}
             inputValue={inputValue}
@@ -246,11 +242,11 @@ const setPage = page => {
         </div>
       </div>
       {data.total > 0 && (
-      <Paginator
-        quantityPages={quantityPages}
-        setPage={setPage}
-        currentPage={currentPage}
-      />
+        <Paginator
+          quantityPages={quantityPages}
+          setPage={setPage}
+          currentPage={currentPage}
+        />
       )}
     </section>
   ) : null;
