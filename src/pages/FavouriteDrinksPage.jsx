@@ -65,7 +65,7 @@ const FavouriteDrinksPage = () => {
             </div>
           </NoContentSection>
         )}
-        {data.length > 0 && (
+        {  ((size[0] > 1439 && data.length > 9) || ( size[0] < 1439 && data.length > 8)) && (
           <Paginator
             quantityPages={quantityPages}
             setPage={setPage}

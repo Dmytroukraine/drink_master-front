@@ -26,7 +26,7 @@
 
 .myDrinkListWrapper {
   padding-right: 20px;
-  padding-left: 20px;
+  /* padding-left: 20px; */
   margin-bottom: 140px;
   margin-top: 80px;
 }
@@ -34,7 +34,7 @@
 @media screen and (min-width: 768px) {
   .myDrinkListWrapper {
     padding-right: 32px;
-    padding-left: 32px;
+    /* padding-left: 32px; */
     margin-top: 140px;
   }
 }
@@ -42,7 +42,7 @@
 @media screen and (min-width: 1440px) {
   .myDrinkListWrapper {
     padding-right: 100px;
-    padding-left: 100px;
+    /* padding-left: 100px; */
     margin-top: 158px;
   }
 }
