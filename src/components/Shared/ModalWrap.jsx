@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import css from '../Shared/ModalWrap.module.css';
 import x from '../../images/x.svg';
 
@@ -14,12 +14,14 @@ const ModalWrap = ({ children, ...props }) => {
     [onToggle]
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isOpen) {
       window.addEventListener('keydown', handleEsc);
+      document.body.style.overflow = 'hidden';
     }
     return () => {
       window.removeEventListener('keydown', handleEsc);
+      document.body.style.overflow = 'unset';
     };
   }, [isOpen, handleEsc]);
 

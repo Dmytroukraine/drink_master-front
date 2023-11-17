@@ -22,6 +22,10 @@
   transition: all var(--transition-duration);
   pointer-events: all;
 
+  & p {
+    margin-right: 4px;
+  }
+
   &:active {
     border: 2px solid rgba(64, 112, 205, 0.5);
   }
