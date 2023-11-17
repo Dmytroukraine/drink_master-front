@@ -48,9 +48,8 @@
   border-radius: 10px;
 }
 .description {
-  width: 335px;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   margin-bottom: 20px;
 }
@@ -93,11 +92,17 @@
   }
 }
 .seeMore {
+  color: rgba(243, 243, 243, 0.5);
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
   letter-spacing: 0em;
   margin-left: auto;
+  padding: 4px 0 0 30px;
+  &:hover,
+  &:focus {
+    color: rgba(243, 243, 243, 0.8);
+  }
 }
 @media screen and (min-width: 768px) {
   .seeMore {

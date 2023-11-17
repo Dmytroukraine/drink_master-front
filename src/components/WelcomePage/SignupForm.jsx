@@ -9,11 +9,12 @@ import {
   useSignupMutation,
 } from 'redux/authSlice/authSlice';
 // import { notification } from 'components/Shared/notification';
-import { Loading } from 'components/Loader/Loader';
+// import { Loading } from 'components/Loader/Loader';
 import { yupResolver } from '@hookform/resolvers/yup';
 import DatePicker from 'react-datepicker';
 import { signupSchema } from './signupSchema';
 import { CalendarGlobalStyles, StyledCalendarIcon } from './DatePicker.styled';
+import { Button } from 'components/Button';
 
 const SignupForm = () => {
   const currentDate = new Date();
@@ -142,13 +143,21 @@ const SignupForm = () => {
             This is a CORRECT password
           </p>
         )}
-        <button
+        {/* <button
           className={css.btn}
           type="submit"
           disabled={!isValid || isLoading}
         >
           {isLoading ? <Loading size={50} /> : 'Sign Up'}
-        </button>
+        </button> */}
+        <Button
+          isDisabled={!isValid || isLoading}
+          spinner={isLoading}
+          type="submit"
+          buttonClass="submitButton"
+          text="Sign up"
+          width="100%"
+        />
       </form>
       <NavLink className={css.nav} to="/signin">
         Sign In

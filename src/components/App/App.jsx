@@ -1,21 +1,3 @@
-// export const App = () => {
-//   return (
-//     <div
-//       style={{
-//         height: '100vh',
-//         // display: 'flex',
-//         // justifyContent: 'center',
-//         // alignItems: 'center',
-//         // fontSize: 40,
-//         // color: '#010101',
-//       }}
-//     >
-
-//     {/* React homework template */}
-//     </div>
-//   );
-// };
-
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import WelcomePage from 'pages/WelcomePage';
@@ -35,12 +17,10 @@ import useLocalStorage from 'use-local-storage';
 import DrinksPage from 'pages/DrinksPage';
 import MyDrinksPage from 'pages/MyDrinksPage';
 import AddDrinkPage from 'pages/AddDrinkPage';
-// import { RecipePage } from 'pages/RecipePage';
 import { DrinkPage } from 'pages/DrinkPage';
 
 const PrivacyPage = lazy(() => import('../../pages/PrivacyPage'));
-const TermsOfServicePage = lazy(() => import('../../pages/TermsOfServicePage'),
-);
+const TermsOfServicePage = lazy(() => import('../../pages/TermsOfServicePage'));
 const ErrorPage = lazy(() => import('pages/404Page'));
 
 const App = () => {
@@ -58,15 +38,19 @@ const App = () => {
         <Routes>
           <Route
             path="/welcome"
-            element={<RestrictedRoute component={WelcomePage}  />}
+            element={<RestrictedRoute component={WelcomePage} />}
           />
           <Route
             path="/signup"
-            element={<RestrictedRoute component={SignupPage} redirectTo="/home"/>}
+            element={
+              <RestrictedRoute component={SignupPage} redirectTo="/home" />
+            }
           />
           <Route
             path="/signin"
-            element={<RestrictedRoute component={SigninPage} redirectTo="/home" />}
+            element={
+              <RestrictedRoute component={SigninPage} redirectTo="/home" />
+            }
           />
 
           <Route path="/" element={<PrivateRoute component={SharedLayout} />}>
@@ -78,8 +62,8 @@ const App = () => {
             <Route path="my" element={<MyDrinksPage />} />
 
             <Route path="privacy" element={<PrivacyPage />} />
-            <Route path="service" element={<TermsOfServicePage/>} />
-            
+            <Route path="service" element={<TermsOfServicePage />} />
+
             <Route path="*" element={<ErrorPage />} />
           </Route>
         </Routes>

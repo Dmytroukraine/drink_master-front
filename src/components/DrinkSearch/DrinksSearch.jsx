@@ -113,6 +113,7 @@ const DrinkSearch = () => {
       backgroundColor: '#161F37',
       boxShadow: 'none',
       border: 0,
+      cursor: 'pointer',
       fontSize: '17px',
       width: '335px',
       padding: '14px 24px',

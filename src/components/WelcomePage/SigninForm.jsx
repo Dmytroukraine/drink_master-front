@@ -5,10 +5,11 @@ import { FiEyeOff, FiEye } from 'react-icons/fi';
 import css from './SignupForm.module.css';
 import { useSigninMutation } from 'redux/authSlice/authSlice';
 import { notification } from 'components/Shared/notification';
-import {Loading} from 'components/Loader/Loader';
+// import { Loading } from 'components/Loader/Loader';
 import { useState } from 'react';
 import { signinSchema } from './signinSchema';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Button } from 'components/Button';
 
 const SigninForm = () => {
   const [dispatch, { isLoading }] = useSigninMutation();
@@ -104,13 +105,21 @@ const SigninForm = () => {
             This is an CORRECT password
           </p>
         )}
-        <button
+        {/* <button
           className={css.btn}
           type="submit"
           disabled={!isValid || isLoading}
         >
           {isLoading ? <Loading size={50} /> : 'Sign In'}
-        </button>
+        </button> */}
+        <Button
+          isDisabled={!isValid || isLoading}
+          spinner={isLoading}
+          type="submit"
+          buttonClass="submitButton"
+          text="Sign in"
+          width="100%"
+        />
       </form>
       <NavLink className={css.nav} to="/signup">
         Registration
