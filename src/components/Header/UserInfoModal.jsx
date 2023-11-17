@@ -5,6 +5,7 @@ import css from './UserInfoModal.module.css';
 import edit from '../../images/edit_icon.svg';
 import user from '../../images/user.png';
 import add_photo from '../../images/add_photo.svg';
+import { Button } from 'components/Button';
 
 const UserInfoModal = ({ userName, avatarURL, onClose }) => {
   const refInput = useRef(null);
@@ -23,7 +24,7 @@ const UserInfoModal = ({ userName, avatarURL, onClose }) => {
     setValue(userName);
   }, [userName]);
 
-  const [dispatch] = useUpdateUserMutation();
+  const [dispatch, { isLoading }] = useUpdateUserMutation();
 
   const handleChange = value => {
     setValue(value);
@@ -84,7 +85,14 @@ const UserInfoModal = ({ userName, avatarURL, onClose }) => {
           </button>
         </label>
 
-        <Button onClick={handleSubmit} name="Save changes" />
+        <Button
+          isDisabled={isLoading}
+          spinner={isLoading}
+          type='submit'
+          buttonClass='submitButton'
+          handleClick={handleSubmit}
+          text="Save changes"
+        />
       </div>
     </div>
   );
@@ -123,13 +131,5 @@ const UploadInput = ({ onChange, refInput, accept }) => {
       accept={accept}
       type="file"
     />
-  );
-};
-
-const Button = ({ onClick, isDisabled = false, name }) => {
-  return (
-    <button disabled={isDisabled} onClick={onClick} className={css.button}>
-      {name}
-    </button>
   );
 };
