@@ -7,7 +7,6 @@ import css from './DrinksSearch.module.css';
 import { FiSearch } from 'react-icons/fi';
 import { useSearchParams } from 'react-router-dom';
 import { DebounceInputStyled } from './Input.styled';
-// import { DebounceInput } from 'react-debounce-input';
 import { DrinksListItem } from './DrinksListItem';
 import { Paginator } from '../Paginator/Paginator';
 import useResize from '../../hooks/useResize';
@@ -49,7 +48,6 @@ const DrinkSearch = () => {
   const [drinksArr, setDrinksArr] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [visibleCocktails, setVisibleCocktails] = useState([]);
-  console.log(visibleCocktails);
 
   const handleInputChange = inputValue => {
     setInputValue(inputValue);
@@ -65,15 +63,17 @@ const DrinkSearch = () => {
   };
 
   useEffect(() => {
+    if (visibleCocktails) {
+      setDrinksArr(data);
+    }
     setVisibleCocktails(setDrinksArr(data));
-  }, [data, setDrinksArr, setVisibleCocktails]);
+  }, [data, setDrinksArr, setVisibleCocktails, visibleCocktails]);
 
   const handleSetSearchtParams = useCallback(
     (key, value) => {
       const newSearchParams = new URLSearchParams(searchParams);
       newSearchParams.set(key, value);
 
-      console.log('VALUE: ', value.toString());
       setSearchParams(newSearchParams);
 
       if (key === 'category') {
@@ -83,13 +83,18 @@ const DrinkSearch = () => {
         return;
       }
 
-      setInputValue(value.toString());
-      setIngredients(value.toString());
-      setDrinksArr(data);
-      console.log('setIngred  + ');
+      if (key === 'ingredient') {
+        setIngredients(value.toString());
+        setDrinksArr(data);
+
+        return;
+      }
+      // setInputValue(value.toString());
+      setCategory('');
+      setIngredients('');
     },
-    // eslint-disable-next-line
-    [searchParams, setSearchParams]
+
+    [searchParams, setSearchParams, data]
   );
 
   if (categoryList && ingredientsList) {
@@ -108,8 +113,15 @@ const DrinkSearch = () => {
       backgroundColor: '#161F37',
       boxShadow: 'none',
       border: 0,
-      width: '199px',
+      fontSize: '17px',
+      width: '335px',
       padding: '14px 24px',
+      '@media (min-width: 768px)': {
+        width: '199px',
+      },
+      '@media (min-width: 1440px)': {
+        width: '259px',
+      },
     }),
     menu: baseStyles => ({
       ...baseStyles,
@@ -182,17 +194,17 @@ const DrinkSearch = () => {
               placeholder="Type to search"
               onChange={onHandleChange}
             />
-            <FiSearch
-              style={{
-                width: '20px',
-                height: '20px',
-                color: '#fafafa',
-                margin: '0 24px 0 0 ',
-                position: 'absolute',
-                top: '35%',
-                left: '220px',
-              }}
-            />
+            <span className={css.searchIconWrapper}>
+              <FiSearch
+                style={{
+                  width: '20px',
+                  height: '20px',
+                  position: 'absolute',
+                  top: '0',
+                  right: '18px',
+                }}
+              />
+            </span>
           </form>
 
           <Select
@@ -240,14 +252,14 @@ const DrinkSearch = () => {
             })}
           </ul>
         </div>
+        {data.total > 0 && (
+          <Paginator
+            quantityPages={quantityPages}
+            setPage={setPage}
+            currentPage={currentPage}
+          />
+        )}
       </div>
-      {data.total > 0 && (
-        <Paginator
-          quantityPages={quantityPages}
-          setPage={setPage}
-          currentPage={currentPage}
-        />
-      )}
     </section>
   ) : null;
 };
