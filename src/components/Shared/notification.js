@@ -6,7 +6,7 @@ export const notification = (
   type = 'error'
 ) => {
   const toastConfig = {
-    position: 'top-center',
+    position: 'top-right',
     autoClose: 2500,
     hideProgressBar: false,
     closeOnClick: true,

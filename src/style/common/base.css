@@ -73,3 +73,7 @@ html {
 button {
   cursor: pointer;
 }
+
+.Toastify__toast-container{
+  top: 5rem !important;
+}
