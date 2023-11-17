@@ -1,67 +1,63 @@
 .btnContainer {
-    display: flex;
-    gap: 24px;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 140px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 80px;
 }
 
 @media screen and (min-width: 768px) {
-    .btnContainer {
-        gap: 38px;
-    }
+  .btnContainer {
+    gap: 38px;
+  }
 }
 
 .btnArrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: scale(3, 3);
-    background-color: transparent;
-    border: transparent;
-    color: #F3F3F34D;
-    
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(3, 3);
+  background-color: transparent;
+  border: transparent;
+  color: #f3f3f34d;
 }
 
-.btnArrow:disabled{
-    color: #151520;
-    cursor: default
+.btnArrow:disabled {
+  color: #151520;
+  cursor: default;
 }
 
 .btnArrow:disabled:hover {
-    color: #151520;
+  color: #151520;
 }
 
-
-.btnArrow:hover{
-color: rgba(64, 112, 205, 0.5);
+.btnArrow:hover {
+  color: rgba(64, 112, 205, 0.5);
 }
-
 
 .btnClick {
-    width: 27.87px;
-    height: 27px;
-    border-radius: 50%;
-    background-color: transparent;
-    font-size: 12px;
-    color: var(--primary-white-color);
-    border: transparent;
-    transform: scale(2, 2);
+  width: 27.87px;
+  height: 27px;
+  border-radius: 50%;
+  background-color: transparent;
+  font-size: 12px;
+  color: var(--primary-white-color);
+  border: transparent;
+  transform: scale(2, 2);
 }
-
 
 .btnClick:hover,
 .btn:active {
-    background-color: rgba(64, 112, 205, 0.5);
+  background-color: rgba(64, 112, 205, 0.5);
 }
 
 .btnActive {
-    width: 27.87px;
-    height: 27px;
-    border-radius: 50%;
-    font-size: 12px;
-    color: var(--primary-white-color);
-    border: transparent;
-    transform: scale(2, 2);
-    background-color: rgba(64, 112, 205, 0.5);
+  width: 27.87px;
+  height: 27px;
+  border-radius: 50%;
+  font-size: 12px;
+  color: var(--primary-white-color);
+  border: transparent;
+  transform: scale(2, 2);
+  background-color: rgba(64, 112, 205, 0.5);
 }

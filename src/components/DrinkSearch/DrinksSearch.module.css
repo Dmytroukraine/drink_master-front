@@ -5,8 +5,6 @@
 
 .container {
   margin: 0 auto;
-  width: 375px;
-  padding: 20px auto;
 }
 
 .formWrapper {
@@ -17,6 +15,11 @@
   width: 100%;
   row-gap: 14px;
   margin-bottom: 24px;
+}
+
+.searchIconWrapper {
+  color: #fafafa;
+  position: relative;
 }
 
 .input {
@@ -51,19 +54,19 @@
   justify-content: space-between;
   margin-bottom: 20px;
 }
+.ulWrapper {
+  margin: 0 auto 60px auto;
+  align-content: center;
+}
 @media screen and (min-width: 768px) {
   .formWrapper {
     flex-direction: row;
     gap: 14px;
-    position: relative;
   }
   .imgItem {
     width: 342px;
   }
-  .ulWrapper {
-    margin: 0 auto;
-    align-content: center;
-  }
+
   .drinkList {
     display: flex;
     justify-content: center;
@@ -73,6 +76,11 @@
   .container {
     width: 704px;
   }
+  .ulWrapper {
+    margin: 0 auto 60px auto;
+    display: flex;
+    align-content: center;
+  }
   .description {
     margin-bottom: 32px;
   }
@@ -81,6 +89,7 @@
     line-height: 1.56;
     padding-top: 14px;
     padding-bottom: 15px;
+    position: relative;
   }
 }
 .seeMore {

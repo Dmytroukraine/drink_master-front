@@ -9,8 +9,7 @@ import styles from '../components/MyDrinks/MyDrinksList.module.css';
 
 const MyDrinksPage = () => {
   const { data = [], isLoading } = useGetMyDrinksQuery();
-  console.log(useGetMyDrinksQuery());
-  console.log(data);
+
   return (
     <div className={styles.myDrinkListWrapper}>
       <PageTitle title={'My drinks'} />
